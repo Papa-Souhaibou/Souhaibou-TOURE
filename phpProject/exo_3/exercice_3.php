@@ -24,19 +24,32 @@
                 for ($i=0; $i < $_SESSION["nbr"]; $i++) { 
                 ?>
                     <label for="<?=($i+1) ?>">Mot N<?=($i+1) ?>
-                        <span><?=(isset($_SESSION["mot"][$i]) AND isthisStringValide($_SESSION["mot"][$i]) AND getLength($_SESSION["mot"][$i])<= 20)?'':"(Le mot doit pas depasser 20 caracters)"?></span>
                     </label>
                     <div>
-                        <input type="text" name="mot[]" id="<?=($i+1) ?>" class="input-field" value="<?=(isset($_SESSION["mot"][$i])?$_SESSION["mot"][$i]:'')?>">
+                        <input type="text" name="mot[]" id="<?=($i+1) ?>" class="input-field" value="<?=(isset($_POST["mot"][$i])?$_POST["mot"][$i]:'')?>">
                     </div>
                 <?php
                 }
                 echo '<button class="btn green" name="result" id="result">Resultat</button>';
             }
-            if(isset($_POST["reset"])){
-                session_destroy();
-            }
         ?>
+        <div id="print">
+            <p>
+                <?php
+                if(isset($_POST["result"])){
+                    $times = 0;
+                    $length = getLength($_POST['mot']);
+                    for ($i=0; $i < $length; $i++) { 
+                        $string = toUpperString($_POST["mot"][$i]);
+                        if(isIn($string,"M")>=0){
+                            $times++;
+                        }
+                    }
+                    echo "Vous avez saisi $length Mot(s) dont <span>$times avec la lettre M</span>";
+                }
+                ?>
+            </p>
+        </div>
     </form>
 </div>
 
