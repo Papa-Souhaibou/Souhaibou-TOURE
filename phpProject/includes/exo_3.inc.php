@@ -132,7 +132,7 @@
         }
         return $result;
     }
-    function isthisStringValide(string $string){
+    function isThisStringValide(string $string){
         $accent = "àâçéèêëîïôùûüÿŸÜÛÙÔÏÎËÊÈÉÇÂÀ";
         $length = getStringlength($string);
         for ($i=0; $i < $length; $i++) { 
