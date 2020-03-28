@@ -8,7 +8,6 @@
 </form>
 <?php
     $number = 0;
-    $_SESSION['number'] = 0;
     if(isset($_POST['number'])){
         $number = (int)$_POST['number'];
         $_SESSION['number'] = $number;
