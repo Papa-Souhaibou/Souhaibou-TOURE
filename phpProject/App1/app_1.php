@@ -81,45 +81,50 @@
                         }
                         $c1 = $_POST["c1"];
                         $c2 = $_POST["c2"];
-                        $position = $_POST["pos"];
-                        for($i = 0; $i < $taille; $i++){
-                            echo "<tr>";
-                            for($j = 0; $j < $taille; $j++){
-                                if($position === "haut"){
-                                    if($j > $i){
-                                        if($j >= ($i+1) AND $j < $taille-($i+1)){
-                                            echo "<td style=' background-color:$c1;'></td>";
-                                        }
-                                        elseif($j == $taille-($i+1)){
-                                            echo "<td style=' background-color:$c2;'></td>";
-                                        }
-                                        else{
-                                            echo "<td style=' background-color:$c1;'></td>";
-                                        }
-                                    }
-                                    else{
-                                        echo "<td style=' background-color:$c2;'></td>";
-                                    }
-                                }
-                                elseif($position === "bas"){
-                                    if($j < $i){
-                                        if($j >= ($i+1) AND $j < $taille-($i+1)){
-                                            echo "<td style=' background-color:$c1;'></td>";
-                                        }
-                                        elseif($j == $taille-($i+1)){
-                                            echo "<td style=' background-color:$c2;'></td>";
+                        if($c1 != $c2){
+                            $position = $_POST["pos"];
+                            for($i = 0; $i < $taille; $i++){
+                                echo "<tr>";
+                                for($j = 0; $j < $taille; $j++){
+                                    if($position === "haut"){
+                                        if($j > $i){
+                                            if($j >= ($i+1) AND $j < $taille-($i+1)){
+                                                echo "<td style=' background-color:$c1;'></td>";
+                                            }
+                                            elseif($j == $taille-($i+1)){
+                                                echo "<td style=' background-color:$c2;'></td>";
+                                            }
+                                            else{
+                                                echo "<td style=' background-color:$c1;'></td>";
+                                            }
                                         }
                                         else{
-                                            echo "<td style=' background-color:$c1;'></td>";
+                                            echo "<td style=' background-color:$c2;'></td>";
                                         }
                                     }
-                                    else{
-                                        echo "<td style=' background-color:$c2;'></td>";
+                                    elseif($position === "bas"){
+                                        if($j < $i){
+                                            if($j >= ($i+1) AND $j < $taille-($i+1)){
+                                                echo "<td style=' background-color:$c1;'></td>";
+                                            }
+                                            elseif($j == $taille-($i+1)){
+                                                echo "<td style=' background-color:$c2;'></td>";
+                                            }
+                                            else{
+                                                echo "<td style=' background-color:$c1;'></td>";
+                                            }
+                                        }
+                                        else{
+                                            echo "<td style=' background-color:$c2;'></td>";
+                                        }
                                     }
+                                    
                                 }
-                                
+                                echo "</tr>";
                             }
-                            echo "</tr>";
+                        }
+                        else {
+                            echo "<p class='msg'>Les couleurs doivent etre differentes</p>";
                         }
                     }
                 ?>

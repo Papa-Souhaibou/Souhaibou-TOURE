@@ -84,6 +84,10 @@ table {
 tr,td{
     height: 50px;
 }
-#table tr:nth-child(even){
-    background-color: #f2f2f2;
+.msg {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
+    color: aliceblue;
 }
+
