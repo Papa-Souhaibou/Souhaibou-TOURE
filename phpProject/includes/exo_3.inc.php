@@ -153,4 +153,14 @@
         }
         return $number/2;
     }
+    function clearLeftSpaces(string $string){
+        return preg_replace("/^\s*/","",$string);
+    }
+    function clearRightSpaces(string $string){
+        return preg_replace("/\s*$/","",$string);
+    }
+    function clearSpaces(string $string){
+        $string = clearLeftSpaces($string);
+        return clearRightSpaces($string);
+    }
 ?>
