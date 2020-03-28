@@ -1,0 +1,47 @@
+#create {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+.file-upload {
+    padding: 15px 20px;
+    height: 60px;
+    border: none;
+    font-weight: bold;
+    width: 32.3%;
+    margin-left: 30px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+.file-upload:hover{
+    background-color: #80d0d0;
+}
+#left {
+    width: 65%;
+}
+#left label{
+    display: block;
+}
+#left label, #left> h1,#left>p{
+    margin-left: 5%;
+}
+#bottom{
+    margin-bottom: 10%;
+}
+#right{
+    width: 40%;
+    border-radius: 5px 0 0 5px;
+}
+#right > h2{
+    text-align: center;
+}
+#circle {
+    width: 70%;
+    margin: auto;
+    border-radius: 50%;
+    height: 300px;
+    border: solid 2px;
+}
