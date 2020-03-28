@@ -1,0 +1,93 @@
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: dodgerblue;
+}
+
+.input-container {
+    display: flex;
+    width: 75%;
+    margin-bottom: 15px;
+    margin-left: 50px;
+}
+
+/* Style the form icons */
+.icon {
+    padding: 10px;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+    border-radius: 5px 0 0 5px;
+}
+
+.blue {
+    background: blue;
+}
+
+.red {
+    background: red;
+}
+
+.green {
+    background: green;
+}
+
+.gray {
+    background: gray;
+}
+
+.yellow {
+    background: yellow;
+}
+
+form>h3 {
+    margin-left: 50px;
+    color: white;
+}
+
+form>h1 {
+    text-align: center;
+    font-style: 2em;
+}
+
+/* Style the input fields */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    border: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    font-weight: bold;
+    width: 32.3%;
+    margin-left: 50px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#table {
+    margin-top: 25px;
+}
+table {
+    width: 40%;
+    margin: auto;
+    border-collapse: collapse;
+}
+#table > table,#table tr,#table td{
+    border: solid 2px;
+}
+tr,td{
+    height: 50px;
+}
+.msg{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
+    color: aliceblue;
+}
