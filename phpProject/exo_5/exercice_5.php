@@ -7,7 +7,7 @@
     <input type="submit" value="Envoyez" name="submit">
 </form>
 <?php
-    if($_POST["submit"] AND $_POST["com"]){
+    if(isset($_POST["submit"]) AND $_POST["com"]){
         $commentaires = $_POST['com'];
         $nbr_num = preg_match_all("/(\d+[\s\-\;])+/",$commentaires,$result);
         $nb_free = 0;
