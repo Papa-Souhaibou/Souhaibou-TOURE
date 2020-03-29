@@ -12,13 +12,13 @@
         <?php
             $nbr = (int)(isset($_POST["submit"])&&!empty($_POST["nbr"]))?$_POST["nbr"]:0;
             $_POST["error"] = 0;
-            if(isset($_POST["submit"]) || isset($_POST["result"])){
+            if((isset($_POST["submit"]) || isset($_POST["result"]))&&!empty($_POST["nombre"])){
                 $nbr = (int)$_POST["nbr"];
                 if($nbr > 0){
                     for ($i=0; $i < $nbr; $i++) { 
                     ?>
                         <div class="display-result">
-                            <label for="<?=($i+1) ?>">Mot N<?=($i+1) ?>
+                            <label for="<?=($i+1) ?>">Mot N°<?=($i+1) ?>
                             <?php
                                 if(isset($_POST["result"])){
                                     $string = $_POST["mot"][$i];
