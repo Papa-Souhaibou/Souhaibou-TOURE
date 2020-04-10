@@ -16,7 +16,6 @@
             <li><a href="index.php?p=exo_5">Exercice 5</a></li>
             <li><a href="App1/app_1.php">Application 1</a></li>
             <li><a href="App2/app_2.php">Application 2</a></li>
-            <li><a href="projet/index.php">Projet QCM</a></li>
         </ul>
     </div>
     <div id="container">
