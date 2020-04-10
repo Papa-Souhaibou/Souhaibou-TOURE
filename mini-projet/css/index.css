@@ -81,11 +81,10 @@ header > nav > h1 {
     height: 60px;
     border: none;
     font-weight: bold;
+    font-size: 1em;
     width: 32.3%;
     margin-left: 30px;
     border-radius: 5px;
     margin-bottom: 25px;
-}
-.btn:hover{
     background-color: #80d0d0;
 }
