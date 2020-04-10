@@ -4,26 +4,26 @@
         <p>Pour tester votre niveau de culture generale</p>
         <br>
         <hr>
-        <form action="" method="post">
+        <form action="inscription_control.php" method="post">
             <div>
-                <label for="prenom">Prenom</label><br>
-                <input type="text" class="input-field" name="prenom" id="prenom">
+                <label for="firstname">Prenom</label><br>
+                <input type="text" class="input-field" name="firstname" id="firstname">
             </div>
             <div>
-                <label for="nom">Nom</label><br>
-                <input type="text" class="input-field" name="nom" id="nom">
+                <label for="lastname">Nom</label><br>
+                <input type="text" class="input-field" name="lastname" id="lastname">
             </div>
             <div>
                 <label for="login">login</label><br>
                 <input type="text" class="input-field" name="login" id="login">
             </div>
             <div>
-                <label for="pwd">Password</label><br>
-                <input type="password" class="input-field" name="pwd" id="pwd">
+                <label for="password">Password</label><br>
+                <input type="password" class="input-field" name="password" id="password">
             </div>
             <div>
-                <label for="co-pwd">Confirmer Password</label><br>
-                <input type="password" class="input-field" name="co-pwd">
+                <label for="co-password">Confirmer Password</label><br>
+                <input type="password" class="input-field" name="co-password" id="co-password">
             </div>
             <div class="file-container">
                 <label for="avatar">Avatar</label>

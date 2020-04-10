@@ -88,3 +88,6 @@ header > nav > h1 {
     margin-bottom: 25px;
     background-color: #80d0d0;
 }
+.btn > a {
+    color: white;
+}

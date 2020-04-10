@@ -15,13 +15,13 @@
             <h2>Login Form</h2>
             <form action="login_control.php" method="post" id="login-form">
                 <div>
-                    <input type="text" class="input-field login" placeholder="Login">
+                    <input type="text" class="input-field login" name="login" placeholder="Login">
                 </div>
                 <div>
-                    <input type="password" class="input-field password" placeholder="Password">
+                    <input type="password" class="input-field password" name="password" placeholder="Password">
                 </div>
                 <button type="submit" class="btn">Connexion</button>
-                <button type="submit" class="btn">S'inscrire pour jouer?</button>
+                <button type="submit" class="btn" name="create-compte">S'inscrire pour jouer?</button>
             </form>
         </div>
     </div>
