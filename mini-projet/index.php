@@ -13,7 +13,7 @@
     <div id="container">
         <div id="form">
             <h2>Login Form</h2>
-            <form action="" method="post" id="login-form">
+            <form action="login_control.php" method="post" id="login-form">
                 <div>
                     <input type="text" class="input-field login" placeholder="Login">
                 </div>
