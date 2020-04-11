@@ -4,7 +4,7 @@
         <p>Pour tester votre niveau de culture generale</p>
         <br>
         <hr>
-        <form action="inscription_control.php" method="post">
+        <form action="inscription_control.php" method="post" enctype="multipart/form-data">
             <div>
                 <label for="firstname">Prenom</label><br>
                 <input type="text" class="input-field" name="firstname" id="firstname">

@@ -2,7 +2,7 @@
     display: flex;
     width: 80%;
     margin: auto;
-    background-color: aliceblue;
+    background-color:white;
     border-radius: 5px;
 }
 
@@ -43,5 +43,5 @@
     margin: auto;
     border-radius: 50%;
     height: 300px;
-    border: solid 2px;
+    border: solid 2px #80d0d0;
 }

@@ -1,1 +1,29 @@
-{"users":[{"firstname":"Someone","lastname":"Someone","login":"someone","password":"$2y$10$6\/v7LYRS05URdJk70d9sWO1vxCWvDOx9I97gv1Cif\/SPiFvhTusVO","avatar":"avatar"},{"firstname":"Unknown","lastname":"Unknown","login":"unknown","password":"$2y$10$.koKj.T2fFyOkSbHOyadme2D0gnbg23OyEyRU7jPjE1GMRykzZBUS","avatar":"avatar"}],"admins":[]}
+{
+    "users":[
+        {
+            "firstname":"Someone",
+            "lastname":"Someone",
+            "login":"someone",
+            "password":"someone",
+            "avatar":"uploads/someone.jpg",
+            "score":0
+        },
+        {
+            "firstname":"Unknown",
+            "lastname":"Unknown",
+            "login":"unknown",
+            "password":"unknown",
+            "avatar":"uploads/unknown.jpg",
+            "score":0
+        }
+    ],
+    "admins":[
+        {
+            "firstname": "Admin",
+            "lastname": "Admin",
+            "login": "admin",
+            "password": "admin",
+            "avatar": "uploads/admin.jpg"
+        }
+    ]
+}

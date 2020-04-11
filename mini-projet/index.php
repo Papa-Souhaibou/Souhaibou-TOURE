@@ -20,10 +20,11 @@
                 <div>
                     <input type="password" class="input-field password" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn">Connexion</button>
+                <button type="submit" class="btn" id="connexion">Connexion</button>
                 <button type="submit" class="btn" name="create-compte">S'inscrire pour jouer?</button>
             </form>
         </div>
     </div>
+    <script src="js/login.js"></script>
 </body>
 </html>

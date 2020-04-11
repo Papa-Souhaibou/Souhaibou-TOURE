@@ -1,26 +1,28 @@
 <?php
+    session_start();
     if(!empty($_POST["login"]) AND !empty($_POST["password"])){
-        include_once("database.php");
         $login = strip_tags($_POST["login"]);
         $password = $_POST["password"];
-        $password = password_hash($password,PASSWORD_DEFAULT);
-        foreach ($data["admins"] as $value) {
-            if($value['login'] === $login AND password_verify($value["password"],$password)){
-                session_start();
+        include_once("database.php");
+        foreach ($data["admins"] as $admin) {
+            if($admin["login"] === $login AND $password === $admin["password"]){
                 $_SESSION["login"] = $login;
+                $_SESSION["firstname"] = $admin["firstname"];
+                $_SESSION["lastname"] = $admin["lastname"];
+                $_SESSION["avatar"] = $admin["avatar"];
                 header("Location:settings.php");
             }
         }
-        foreach ($data["users"] as $value) {
-            if($value['login'] === $login AND password_verify($value["password"],$password)){
-                session_start();
+        foreach ($data["users"] as $user) {
+            if($user["login"] === $login AND $password === $user["password"]){
                 $_SESSION["login"] = $login;
-                header("Location:create-compte.php");
+                $_SESSION["firstname"] = $user["firstname"];
+                $_SESSION["lastname"] = $user["lastname"];
+                $_SESSION["avatar"] = $user["avatar"];
+                header("Location:user-interface.php");
             }
         }
     }
-    else if(isset($_POST["create-compte"])){
+    if(isset($_POST["create-compte"])){
         header("Location:create-compte.php");
     }
-    else
-        header("Location:index.php");
