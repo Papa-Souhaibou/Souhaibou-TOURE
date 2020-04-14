@@ -1,10 +1,10 @@
 <?php
     session_start();
-    if(empty($_POST["login"]) OR empty($_POST["password"])){
-        $_SESSION["errors"] = "Tout les champs sont obligatoires.";
-        header("Location:index.php");
-    }
-    else if(!empty($_POST["login"]) AND !empty($_POST["password"])){
+    $_SESSION["errors"] = [
+        "login" => "",
+        "password" => ""
+    ];
+    if(!empty($_POST["login"]) AND !empty($_POST["password"])){
         $_SESSION["nom"] = $_POST["login"];
         $login = strip_tags($_POST["login"]);
         $password = $_POST["password"];
@@ -22,7 +22,7 @@
                     header("Location:settings.php");
                 }
                 else {
-                    $_SESSION["errors"] = 'Login et/ou mot de passe incorrecte.';
+                    $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
                     header("Location:index.php");
                 }
             }
@@ -39,14 +39,14 @@
                         header("Location:user-interface.php");
                     }
                     else {
-                        $_SESSION["errors"] = 'Login et/ou mot de passe incorrecte.';
+                        $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
                         header("Location:index.php");
                     }
                 }
             }
         }
         if(!$is_this_user_in_admins_group AND !$is_this_user_in_users_group){
-            $_SESSION["errors"] = 'Compte innexistant';
+            $_SESSION["errors"]["login"] = 'Compte innexistant';
             header("Location:index.php");
         }
     }

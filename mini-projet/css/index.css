@@ -28,7 +28,7 @@ header > nav > h1 {
     clear: both;
 }
 #form{
-    background-color: #80d0d0;
+    background-color: darkturquoise;
     float: left;
     width: 50%;
     margin-top: 8%;
@@ -51,16 +51,22 @@ header > nav > h1 {
     padding-top: 25px;
     border-radius: 0 0 5px 5px;
 }
+.input-form {
+    width: 90%;
+    margin-left: 4%;
+    margin-bottom: 25px;
+}
 .input-field {
-    width: 85%;
+    width: 100%;
     font-size: 1.5em;
     padding-left: 25px;
-    height: 65px;
-    margin-left: 5%;
-    margin-bottom: 25px;
-    /* background: ; */
+    height: 45px;
     border-radius: 5px;
-    border: 1px solid #eee;
+    border: 1px solid silver;
+}
+.error-form {
+    color: red;
+    margin-top: 10px;
 }
 .login{
     background-image: url("../img/icones/ic-login.png");
@@ -69,7 +75,7 @@ header > nav > h1 {
     background-position: right;
 }
 .password{
-    background-image: url("../img/icones/ic-password.jpg");
+    background-image: url("../img/icones/ic-password.png");
     background-repeat: no-repeat;
     background-size: 30px;
     background-position: right;
@@ -80,12 +86,27 @@ header > nav > h1 {
     height: 60px;
     border: none;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.3em;
     width: 32.3%;
     margin-left: 30px;
     border-radius: 5px;
     margin-bottom: 25px;
-    background-color: #80d0d0;
+    background-color: darkturquoise;
+}
+.btn-redirect {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    margin-left: 50px;
+    height: 60px;
+    line-height: 60px;
+    width: 32.3%;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: darkturquoise;
+
 }
 .red {
     color: red;

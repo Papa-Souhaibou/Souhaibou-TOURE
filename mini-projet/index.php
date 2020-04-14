@@ -17,27 +17,33 @@
         <div id="form">
             <h2>Login Form</h2>
             <form action="login_control.php" method="post" id="login-form">
-                <div>
-                   <h3 class="red">
-                        <?php
-                            if(isset($_SESSION["errors"])){
-                                echo $_SESSION["errors"];
-                                unset($_SESSION["errors"]);
+                <div class="input-form">
+                    <input type="text" class="input-field login" error="login" name="login" placeholder="Login" value="<?php echo @$_SESSION["nom"]; unset($_SESSION["nom"]); ?>">
+                    <div id="login" class="error-form">
+                        <?php 
+                            if(isset($_SESSION["errors"]["login"])){
+                                echo $_SESSION["errors"]["login"];
+                                unset($_SESSION["errors"]["login"]);
                             } 
                         ?>
-                   </h3>
+                    </div>
                 </div>
-                <div>
-                    <input type="text" class="input-field login" name="login" id="login" placeholder="Login" value="<?php echo @$_SESSION["nom"]; unset($_SESSION["nom"]); ?>">
-                </div>
-                <div>
-                    <input type="password" class="input-field password" id="password" name="password" placeholder="Password">
+                <div class="input-form">
+                    <input type="password" class="input-field password" error="password" name="password" placeholder="Password">
+                    <div id="password" class="error-form">
+                        <?php
+                            if(isset($_SESSION["errors"]["password"])){
+                                echo $_SESSION["errors"]["password"];
+                                unset($_SESSION["errors"]["password"]);
+                            }
+                        ?>
+                    </div>
                 </div>
                 <button type="submit" class="btn" id="connexion">Connexion</button>
-                <button type="submit" class="btn" name="create-compte">S'inscrire pour jouer?</button>
+                <a href="create-compte.php" class="btn-redirect" name="create-compte">S'inscrire pour jouer?</a>
             </form>
         </div>
     </div>
-    <!-- <script src="js/login.js"></script> -->
+    <script src="js/login.js"></script>
 </body>
 </html>
