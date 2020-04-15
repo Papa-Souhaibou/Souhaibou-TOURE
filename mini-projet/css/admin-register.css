@@ -1,0 +1,57 @@
+#create {
+    width: 95%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+#left {
+    width: 55%;
+}
+.register-input-form > label {
+    display: block;
+    font-size: 1.3em;
+}
+.register-input-form {
+    width: 90%;
+    margin: 10px auto;
+}
+.register-input-field {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    border: solid 1px silver;
+}
+.error-form {
+    color: red;
+    margin-top: 10px;
+}
+label[class=in-line] {
+    display: inline-block;
+    margin-right: 10px;
+}
+#right {
+    width: 40%;
+    text-align: center;
+}
+#circle {
+    width:50%;
+    height: 150px;
+    margin: 25px auto;
+    border: 2px solid darkturquoise;
+    border-radius: 50%;
+}
+.btn-register {
+    width: 120px;
+    margin-left: 100px;
+    background-color: darkturquoise;
+    height: 40px;
+    color: white;
+    font-size: 1em;
+    border-radius: 10px;
+    border: solid 1px darkturquoise;
+}
+.avatar {
+    width: 120px;
+    line-height: 40px;
+    margin-left: 150px;
+}
