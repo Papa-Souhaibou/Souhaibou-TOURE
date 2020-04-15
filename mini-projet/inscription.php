@@ -1,41 +1,62 @@
 <div id="create">
     <div id="left">
         <h1>S'INSCRIRE</h1>
-        <p>Pour tester votre niveau de culture generale</p>
+        <p>
+            <?php
+                if(isset($_SESSION["login"])){
+                    echo "Pour proposer des quizz";
+                }else{
+                    echo "Pour tester votre niveau de culture generale";
+                }
+            ?>
+        </p>
         <br>
         <hr>
-        <form action="inscription_control.php" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="firstname">Prenom</label><br>
-                <input type="text" class="input-field" name="firstname" id="firstname">
+        <form action="inscription_control.php" method="post" enctype="multipart/form-data" id="register-form">
+            <div class="register-input-form">
+                <label for="">Prenom</label>
+                <input type="text" class="register-input-field" error="firstname" name="firstname">
+                <div id="firstname" class="error-form"></div>
             </div>
-            <div>
-                <label for="lastname">Nom</label><br>
-                <input type="text" class="input-field" name="lastname" id="lastname">
+            <div class="register-input-form">
+                <label for="">Nom</label>
+                <input type="text" class="register-input-field" error="lastname" name="lastname">
+                <div id="lastname" class="error-form"></div>
             </div>
-            <div>
-                <label for="login">login</label><br>
-                <input type="text" class="input-field" name="login" id="login">
+            <div class="register-input-form">
+                <label for="">Login</label>
+                <input type="text" class="register-input-field" error="login" name="login">
+                <div id="login" class="error-form"></div>
             </div>
-            <div>
-                <label for="password">Password</label><br>
-                <input type="password" class="input-field" name="password" id="password">
+            <div class="register-input-form">
+                <label for="">Password</label>
+                <input type="password" class="register-input-field" error="password" name="password">
+                <div id="password" class="error-form"></div>
             </div>
-            <div>
-                <label for="co-password">Confirmer Password</label><br>
-                <input type="password" class="input-field" name="co-password" id="co-password">
+            <div class="register-input-form">
+                <label for="">Confirmer Password</label>
+                <input type="password" class="register-input-field" error="co-password" name="co-password">
+                <div id="co-password" class="error-form"></div>
             </div>
-            <div class="file-container">
-                <label for="avatar">Avatar</label>
-                <input type="file" class="file-upload" name="avatar" id="avatar">
+            <div class="register-input-form">
+                <label for="" class="in-line">Avatar</label>
+                <input type="file" class="avatar" error="avatar" name="avatar">
+                <div id="avatar" class="error-form"></div>
             </div>
-            <button type="submit" class="btn">Creer Compte</button>
+            <button type="submit" class="btn-register">Creer compte</button>
         </form>
     </div>
     <div id="right">
-        <div id="bottom"></div>
         <div id="circle">
         </div>
-        <h2>Avatar du joueur</h2>
+        <h2>
+            <?php
+                if(isset($_SESSION["login"])){
+                    echo "Avatar Admin";
+                }else{
+                    echo "Avatar du joueur";
+                }
+            ?>
+        </h2>
     </div>
 </div>

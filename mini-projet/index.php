@@ -17,8 +17,8 @@
         <div id="form">
             <h2>Login Form</h2>
             <form action="login_control.php" method="post" id="login-form">
-                <div class="input-form">
-                    <input type="text" class="input-field login" error="login" name="login" placeholder="Login" value="<?php echo @$_SESSION["nom"]; unset($_SESSION["nom"]); ?>">
+                <div class="login-input-form">
+                    <input type="text" class="login-input-field login" error="login" name="login" placeholder="Login" value="<?php echo @$_SESSION["nom"]; unset($_SESSION["nom"]); ?>">
                     <div id="login" class="error-form">
                         <?php 
                             if(isset($_SESSION["errors"]["login"])){
@@ -28,8 +28,8 @@
                         ?>
                     </div>
                 </div>
-                <div class="input-form">
-                    <input type="password" class="input-field password" error="password" name="password" placeholder="Password">
+                <div class="login-input-form">
+                    <input type="password" class="login-input-field password" error="password" name="password" placeholder="Password">
                     <div id="password" class="error-form">
                         <?php
                             if(isset($_SESSION["errors"]["password"])){
@@ -39,7 +39,7 @@
                         ?>
                     </div>
                 </div>
-                <button type="submit" class="btn" id="connexion">Connexion</button>
+                <button type="submit" class="btn-login" id="connexion">Connexion</button>
                 <a href="create-compte.php" class="btn-redirect" name="create-compte">S'inscrire pour jouer?</a>
             </form>
         </div>

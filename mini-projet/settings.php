@@ -20,6 +20,7 @@
                 <link rel="stylesheet" href="css/index.css">
                 <link rel="stylesheet" href="css/settings.css">
                 <link rel="stylesheet" href="css/liste-question.css">
+                <link rel="stylesheet" href="css/admin-register.css">
                 <title>Document</title>
             </head>
             <body>
@@ -67,7 +68,7 @@
                                     include("liste-question.php");
                                 }
                                 if($page === "create-admin"){
-                                    include("inscription-admin.php");
+                                    include("inscription.php");
                                 }
                                 elseif ($page === "user-list") {
                                     include("user-list.php");
@@ -80,6 +81,7 @@
                     </div>
                 </div>
                 <script src="js/setting-items.js"></script>
+                <script src="js/login.js"></script>
             </body>
             </html>
 <?php
