@@ -5,7 +5,7 @@
             "lastname":"Someone",
             "login":"someone",
             "password":"someone",
-            "avatar":"uploads/someone.jpg",
+            "avatar":"uploads\/someone.jpg",
             "score":0
         },
         {
@@ -13,17 +13,32 @@
             "lastname":"Unknown",
             "login":"unknown",
             "password":"unknown",
-            "avatar":"uploads/unknown.jpg",
+            "avatar":"uploads\/unknown.jpg",
             "score":0
+        },
+        {
+            "firstname":"Papa",
+            "lastname":"Souhaibou",
+            "login":"papa",
+            "password":"12345",
+            "avatar":"uploads\/papa.jpg",
+            "score": 0
         }
     ],
     "admins":[
         {
-            "firstname": "Admin",
-            "lastname": "Admin",
-            "login": "admin",
-            "password": "admin",
-            "avatar": "uploads/admin.jpg"
+            "firstname":"Admin",
+            "lastname":"Admin",
+            "login":"admin",
+            "password":"admin",
+            "avatar":"uploads\/admin.jpg"
+        },
+        {
+            "firstname":"Kemo",
+            "lastname":"TOURE",
+            "login":"kemo",
+            "password":"passer",
+            "avatar":"uploads\/kemo.jpg"
         }
     ]
 }
