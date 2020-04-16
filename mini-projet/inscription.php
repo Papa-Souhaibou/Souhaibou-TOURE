@@ -26,7 +26,14 @@
             <div class="register-input-form">
                 <label for="">Login</label>
                 <input type="text" class="register-input-field" error="login" name="login">
-                <div id="login" class="error-form"></div>
+                <div id="login" class="error-form">
+                <?php
+                    if(isset($_SESSION["errors"]["login"])){
+                        echo $_SESSION["errors"]["login"];
+                        unset($_SESSION["errors"]["login"]);
+                    }
+                ?>
+                </div>
             </div>
             <div class="register-input-form">
                 <label for="">Password</label>
@@ -36,12 +43,26 @@
             <div class="register-input-form">
                 <label for="">Confirmer Password</label>
                 <input type="password" class="register-input-field" error="co-password" name="co-password">
-                <div id="co-password" class="error-form"></div>
+                <div id="co-password" class="error-form">
+                <?php
+                    if(isset($_SESSION["errors"]["password"])){
+                        echo $_SESSION["errors"]["password"];
+                        unset($_SESSION["errors"]["password"]);
+                    }
+                ?>
+                </div>
             </div>
             <div class="register-input-form">
                 <label for="" class="in-line">Avatar</label>
                 <input type="file" class="avatar" error="avatar" name="avatar">
-                <div id="avatar" class="error-form"></div>
+                <div id="avatar" class="error-form">
+                <?php
+                    if(isset($_SESSION["errors"]["avatar"])){
+                        echo $_SESSION["errors"]["avatar"];
+                        unset($_SESSION["errors"]["avatar"]);
+                    }
+                ?>
+                </div>
             </div>
             <button type="submit" class="btn-register">Creer compte</button>
         </form>
