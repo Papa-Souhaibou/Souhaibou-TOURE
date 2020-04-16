@@ -1,9 +1,10 @@
 <?php
     session_start();
+    include_once("database.php");
     if(isset($_SESSION["login"])){
         $is_admins_login_found = false;
         foreach ($data["admins"] as $admin) {
-            if($admin["login"] === $login){
+            if($admin["login"] === $_SESSION["login"]){
                 $is_admins_login_found = true;
                 break;
             }
@@ -43,7 +44,6 @@
             $lastname = strip_tags($lastname);
             $login = strip_tags($login);
             $is_this_user_exist = false;
-            include_once("database.php");
             foreach ($data as $key => $value) {
                 foreach ($value as  $elts) {
                     if($elts["login"] === $login){
