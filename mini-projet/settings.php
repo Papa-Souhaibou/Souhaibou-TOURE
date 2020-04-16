@@ -64,7 +64,7 @@
                         <div id="displays">
                             <?php
                                 $page = isset($_GET["page"]) ? $_GET["page"] : "home";
-                                if ($page === "list-question") {
+                                if ($page === "list-question" OR $page === "home") {
                                     include("liste-question.php");
                                 }
                                 if($page === "create-admin"){
