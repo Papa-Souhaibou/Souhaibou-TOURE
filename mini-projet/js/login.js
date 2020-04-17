@@ -11,10 +11,17 @@ for (const input of inputs) {
 const avatar = document.querySelector("input[type=file]");
 if (avatar) {
     avatar.addEventListener("change", () => {
-        const circle = document.querySelector("#circle");
-        const img = document.createElement("img");
-        img.setAttribute("src",avatar.value);
-        circle.appendChild(img);
+        let avatarWidth = "100%";
+        const avatarReader = new FileReader();
+        avatarReader.readAsDataURL(avatar.files[0]);
+        avatarReader.onloadend = (event) => {
+            const circle = document.querySelector("#circle");
+            const img = document.createElement("img");
+            img.setAttribute("src",event.target.result);
+            img.style.width = avatarWidth;
+            img.style.height = avatarWidth;
+            circle.appendChild(img);
+        }
     })
 
 }
