@@ -39,6 +39,7 @@ label[class=in-line] {
     margin: 25px auto;
     border: 2px solid darkturquoise;
     border-radius: 50%;
+    overflow: hidden;
 }
 .btn-register {
     width: 120px;
