@@ -36,6 +36,7 @@
                         $_SESSION["firstname"] = $user["firstname"];
                         $_SESSION["lastname"] = $user["lastname"];
                         $_SESSION["avatar"] = $user["avatar"];
+                        $_SESSION["score"] = $user["score"];
                         header("Location:user-interface.php");
                     }
                     else {
