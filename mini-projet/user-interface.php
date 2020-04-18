@@ -5,7 +5,7 @@
         unset($_SESSION["lastname"]);
         unset($_SESSION["login"]);
         unset($_SESSION["avatar"]);
-        session_destroy();
+        unset($_SESSION["score"]);
         header("Location:index.php");
     }
     if(isset($_SESSION["login"]) AND !empty($_SESSION["login"])){
@@ -42,8 +42,53 @@
             </div>
         </div>
         <div id="user-content">
+            <div id="game-space">
+                <div id="info-game">
+                    <h1>Question 1/5:</h1>
+                    <h3>Les langages Web</h3>
+                </div>
+            </div>
+            <div id="dashboard">
+                <div id="dashboard-menu">
+                    <ul class="tabs">
+                        <li class="active"><a href="#top-score">Top Scores</a></li>
+                        <li><a href="#mon-score">Mon meilleur score</a></li>
+                    </ul>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-content active" id="top-score">
+                        <table>
+                        <?php
+                            include_once("database.php");
+                            usort($data["users"],function ($a,$b){
+                                return $a["score"] < $b["score"];
+                            });
+                            $sotedArray = $data["users"];
+                            $size = count($data["users"]);
+                            for ($i=0; $i < 5; $i++) { 
+                            ?>
+                            <tr>
+                                <td><?= $sotedArray[$i]["firstname"]." ".$sotedArray[$i]["lastname"] ?></td>
+                                <td class="score"><?= $sotedArray[$i]["score"]." pts" ?></td>
+                            </tr>
+                            <?php
+                            }
+                        ?>
+                        </table>
+                    </div>
+                    <div class="tab-content" id="mon-score">
+                        <table>
+                            <tr>
+                                <td><?= $_SESSION["firstname"]." ".$_SESSION["lastname"] ?></td>
+                                <td class="score"><?= $_SESSION["score"]." pts" ?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="js/user-interface.js"></script>
 </body>
 </html>
 <?php
