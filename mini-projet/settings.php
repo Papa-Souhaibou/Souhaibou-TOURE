@@ -21,6 +21,7 @@
                 <link rel="stylesheet" href="css/settings.css">
                 <link rel="stylesheet" href="css/liste-question.css">
                 <link rel="stylesheet" href="css/admin-register.css">
+                <link rel="stylesheet" href="css/user-list.css">
                 <title>Document</title>
             </head>
             <body>
@@ -55,27 +56,18 @@
                                 </div>
                             </div>
                             <div id="setting-items">
-                                <a href="settings.php?page=list-question" class="list">Liste Questions</a>
-                                <a href="settings.php?page=create-admin" class="add">Creer Admin</a>
-                                <a href="settings.php?page=user-list" class="list">Liste joueurs</a>
-                                <a href="settings.php?page=create-questions" class="add">Creer Questions</a>
+                                <a href="#liste-question" class="list">Liste Questions</a>
+                                <a href="#create" class="add">Creer Admin</a>
+                                <a href="#user-list" class="list">Liste joueurs</a>
+                                <a href="#create-question" class="add">Creer Questions</a>
                             </div>
                         </div>
-                        <div id="displays">
+                        <div id="displays-pages">
                             <?php
-                                $page = isset($_GET["page"]) ? $_GET["page"] : "home";
-                                if ($page === "list-question" OR $page === "home") {
-                                    include("liste-question.php");
-                                }
-                                if($page === "create-admin"){
-                                    include("inscription.php");
-                                }
-                                elseif ($page === "user-list") {
-                                    include("user-list.php");
-                                }elseif($page === "create-questions"){
-                                    include("create-question.php");
-                                }
-                                
+                                include("liste-question.php");
+                                include("inscription.php");
+                                include("user-list.php");
+                                include("create-question.php");
                             ?>
                         </div>
                     </div>
