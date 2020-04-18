@@ -15,7 +15,7 @@ if (avatar) {
         const avatarReader = new FileReader();
         avatarReader.readAsDataURL(avatar.files[0]);
         avatarReader.onloadend = (event) => {
-            const circle = document.querySelector("#circle");
+            const circle = document.querySelector("#circle-avatar");
             const img = document.createElement("img");
             img.setAttribute("src",event.target.result);
             img.style.width = avatarWidth;

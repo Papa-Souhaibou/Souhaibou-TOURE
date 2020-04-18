@@ -34,7 +34,7 @@ label[class=in-line] {
     width: 40%;
     text-align: center;
 }
-#circle {
+#circle-avatar {
     width:50%;
     height: 150px;
     margin: 25px auto;
@@ -52,7 +52,7 @@ label[class=in-line] {
     border-radius: 10px;
     border: solid 1px darkturquoise;
 }
-.avatar {
+.avatar-file {
     width: 120px;
     line-height: 40px;
     margin-left: 150px;

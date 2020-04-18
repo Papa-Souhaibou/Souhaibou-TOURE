@@ -21,7 +21,7 @@
             display: flex;
             justify-content: space-between;
         }
-        #circle {
+        #circle-avatar {
             width:50%;
             height: 190px;
             margin: 50px auto;

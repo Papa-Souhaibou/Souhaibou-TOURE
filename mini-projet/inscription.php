@@ -54,7 +54,7 @@
             </div>
             <div class="register-input-form">
                 <label for="" class="in-line">Avatar</label>
-                <input type="file" class="avatar" error="avatar" name="avatar">
+                <input type="file" class="avatar-file" error="avatar" name="avatar">
                 <div id="avatar" class="error-form">
                 <?php
                     if(isset($_SESSION["errors"]["avatar"])){
@@ -68,7 +68,7 @@
         </form>
     </div>
     <div id="right">
-        <div id="circle">
+        <div id="circle-avatar">
         </div>
         <h2>
             <?php
