@@ -22,6 +22,7 @@
                 <link rel="stylesheet" href="css/liste-question.css">
                 <link rel="stylesheet" href="css/admin-register.css">
                 <link rel="stylesheet" href="css/user-list.css">
+                <link rel="stylesheet" href="css/create-question.css">
                 <title>Document</title>
             </head>
             <body>
@@ -74,6 +75,7 @@
                 </div>
                 <script src="js/setting-items.js"></script>
                 <script src="js/login.js"></script>
+                <script src="js/create-question.js"></script>
             </body>
             </html>
 <?php
