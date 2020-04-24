@@ -1,0 +1,87 @@
+#create-question {
+    width: 100%;
+}
+#create-question > h1 {
+    color: darkturquoise;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+#create-question > form {
+    width: 95%;
+    margin: auto;
+    border: solid 2px darkturquoise;
+    border-radius: 10px;
+}
+.question-container,.display-response {
+    width: 100%;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+.question-container > label ,.display-response > label{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+#enonce {
+    width: 70%;
+    height: 100px;
+    margin-left: 25px;
+    border: 2px solid #a8a8a8;
+    background-color: #f8f8f8;
+}
+#point {
+    width: 80px;
+    height: 35px;
+    margin-left: 25px;
+}
+.response {
+    display: inline-block;
+}
+#choix,.response {
+    width: 50%;
+    height: 35px;
+    margin-left: 25px;
+}
+#enonce , #point , #choix , .response {
+    padding-left: 12px;
+    border-right: 2px solid darkturquoise;
+    border-bottom: 2px solid darkturquoise;
+}
+.add-response {
+    position: relative;
+    top: 14px;
+    margin-left: 25px;
+}
+.checkbox, .radio {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-left: 25px;
+}
+.checkbox, .radio, .delete {
+    position: relative;
+    top: 14px;
+    margin-left: 15px;
+}
+.delete {
+    height: 36px;
+}
+.btn-submit-question {
+    margin-top: 35px;
+    width: 120px;
+    height: 60px;
+    background-color: darkturquoise;
+    /* border: 2px solid darkturquoise; */
+    color: white;
+    font-size: 1.3em;
+    border-radius: 5px;
+    position: relative;
+    left: 540px;
+    bottom: 10px;
+}
+.error-question {
+    color: red;
+    margin-top: 10px;
+}
+.none {
+    display: none;
+}
