@@ -1,0 +1,23 @@
+[
+    {
+        "enonce":"Quel est le capital du SENEGAL ?",
+        "typeReponse":"radio",
+        "choix":["Louga","Matam","Casamance","Dakar"],
+        "reponse":"Dakar",
+        "note":25
+    },
+    {
+        "enonce":"Quels sonts les langages de programmations ?",
+        "typeReponse":"checkbox",
+        "choix":["HTML","C","Python","Java","JavaScript","CSS","Scrum"],
+        "reponse":["C","Python","Java","JavaScript"],
+        "note":68
+    },
+    {
+        "enonce":"Qui est le president du SENEGAL ?",
+        "typeReponse":"text",
+        "choix":["Macky Sall"],
+        "reponse":"Macky Sall",
+        "note":6
+    }
+]
