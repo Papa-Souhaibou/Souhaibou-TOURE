@@ -1,23 +1,138 @@
 [
     {
-        "enonce":"Quel est le capital du SENEGAL ?",
-        "typeReponse":"radio",
-        "choix":["Louga","Matam","Casamance","Dakar"],
-        "reponse":"Dakar",
-        "note":25
+        "enonce": "Quel est le capital du SENEGAL ?",
+        "typeReponse": "radio",
+        "choix": [
+            "Louga",
+            "Matam",
+            "Casamance",
+            "Dakar"
+        ],
+        "reponse": "Dakar",
+        "note": 25
     },
     {
-        "enonce":"Quels sonts les langages de programmations ?",
-        "typeReponse":"checkbox",
-        "choix":["HTML","C","Python","Java","JavaScript","CSS","Scrum"],
-        "reponse":["C","Python","Java","JavaScript"],
-        "note":68
+        "enonce": "Quels sont les langages de programmations ?",
+        "typeReponse": "checkbox",
+        "choix": [
+            "HTML",
+            "C",
+            "Python",
+            "Java",
+            "JavaScript",
+            "CSS",
+            "Scrum"
+        ],
+        "reponse": [
+            "C",
+            "Python",
+            "Java",
+            "JavaScript"
+        ],
+        "note": 68
     },
     {
-        "enonce":"Qui est le president du SENEGAL ?",
-        "typeReponse":"text",
-        "choix":["Macky Sall"],
-        "reponse":"Macky Sall",
-        "note":6
+        "enonce": "Qui est le president du SENEGAL ?",
+        "typeReponse": "text",
+        "choix": [
+            "Macky Sall"
+        ],
+        "reponse": "Macky Sall",
+        "note": 6
+    },
+    {
+        "enonce": "En quelle année le SÉNÉGAL a eu son indépendance ?",
+        "typeReponse": "radio",
+        "choix": [
+            "2005",
+            "1906",
+            "1860",
+            "1960"
+        ],
+        "reponse": "1960",
+        "note": 65
+    },
+    {
+        "enonce": "Sélectionnez des technologies concurrentes de PHP",
+        "typeReponse": "checkbox",
+        "choix": [
+            "MySQL",
+            "Django",
+            "HTML",
+            "Ruby on Rails"
+        ],
+        "reponse": [
+            "Django",
+            "Ruby on Rails"
+        ],
+        "note": 23
+    },
+    {
+        "enonce": "Sélectionnez des éditeurs de texte dans lesquels on peut écrire du code PHP :",
+        "typeReponse": "checkbox",
+        "choix": [
+            "Apache",
+            "Sublime Text",
+            "PHPStorm",
+            "Google Chrome"
+        ],
+        "reponse": [
+            "Sublime Text",
+            "PHPStorm"
+        ],
+        "note": 15
+    },
+    {
+        "enonce": "Pourquoi faut-il configurer PHP pour afficher des erreurs sur sa machine ?",
+        "typeReponse": "radio",
+        "choix": [
+            "Cela nous permet de comprendre nos erreurs et de les résoudre plus vite",
+            "Cela accélère le temps d'affichage d'une page",
+            "Cela nous permet d'éviter un bug de PHP qui empêche les pages de s'afficher correctement"
+        ],
+        "reponse": "Cela nous permet de comprendre nos erreurs et de les résoudre plus vite",
+        "note": 16
+    },
+    {
+        "enonce": "PHP permet de créer des sites...",
+        "typeReponse": "radio",
+        "choix": [
+            "Statiques",
+            "Dynamiques"
+        ],
+        "reponse": "Dynamiques",
+        "note": 3
+    },
+    {
+        "enonce": "Qu'est-ce qui est indispensable au bon fonctionnement d'un site web écrit avec PHP afin qu'il s'affiche correctement dans un navigateur ?",
+        "typeReponse": "radio",
+        "choix": [
+            "Un serveur web (Apache, Nginx…)",
+            "Un IDE",
+            "Un terminal (ligne de commande)"
+        ],
+        "reponse": "Un serveur web (Apache, Nginx…)",
+        "note": 12
+    },
+    {
+        "enonce": "Quelle méthode d'envoi de données est la moins limitée ?",
+        "typeReponse": "radio",
+        "choix": [
+            "POST",
+            "GET"
+        ],
+        "reponse": "POST",
+        "note": 4
+    },
+    {
+        "enonce": "Quel est le rôle d'une base de données ?",
+        "typeReponse": "radio",
+        "choix": [
+            "Générer du HTML",
+            "Effectuer des calculs complexes",
+            " Lire et stocker des données"
+        ],
+        "reponse": " Lire et stocker des données",
+        "note": 8
     }
 ]
