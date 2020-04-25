@@ -43,15 +43,15 @@
                                     echo '<input type="text" value="',$response,'" class="text" disabled>';
                                 }else if($type === "checkbox"){
                                     if(in_array($value,$response)){
-                                        echo '<input type="checkbox" checked> <h4 class="in-line">',$value,'</h4><br/>';
+                                        echo '<input type="checkbox" checked disabled> <h4 class="in-line">',$value,'</h4><br/>';
                                     }else {
-                                        echo '<input type="checkbox"> <h4 class="in-line">',$value,'</h4><br/>';
+                                        echo '<input type="checkbox" disabled> <h4 class="in-line">',$value,'</h4><br/>';
                                     }
                                 }else if($type === "radio"){
                                     if($value === $response){
-                                        echo '<input type="radio" checked> <h4 class="in-line">',$value,'</h4><br/>';
+                                        echo '<input type="radio" checked disabled> <h4 class="in-line">',$value,'</h4><br/>';
                                     }else {
-                                        echo '<input type="radio"> <h4 class="in-line">',$value,'</h4><br/>';
+                                        echo '<input type="radio" disabled> <h4 class="in-line">',$value,'</h4><br/>';
                                     }
                                 }
                             }
