@@ -2,8 +2,6 @@ const contents = document.querySelectorAll("#displays-pages > div");
 for (const content of contents) {
     content.style.display = "none";
 }
-const home = document.querySelector("#liste-question");
-home.style.display = "block";
 const menu = document.querySelectorAll("#setting-items > a");
 for (const item of menu) {
     item.addEventListener("click", event => {
@@ -34,7 +32,7 @@ window.addEventListener("load", event => {
     for (const content of contents) {
         content.style.display = "none";
     }
-    const href = window.location.href.split("#")[1];
+    const href = window.location.href.split("#")[1] || "liste-question";
     const showContent = document.querySelector("#"+href);
     showContent.style.display = "block";
 });
