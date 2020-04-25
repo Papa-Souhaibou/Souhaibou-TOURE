@@ -16,9 +16,9 @@
             if(isset($_GET["page"]))
             {
                 $page_actuelle = (int) $_GET["page"];
-                if($page_actuelle > $nbr_question_par_page){
-                    $page_actuelle = $nbr_question_par_pagee;
-                }else if($page_actuelle < 0){
+                if($page_actuelle > $nbr_page){
+                    $page_actuelle = $nbr_page;
+                }else if($page_actuelle <= 0){
                     $page_actuelle = 1;
                 }
             }else{
