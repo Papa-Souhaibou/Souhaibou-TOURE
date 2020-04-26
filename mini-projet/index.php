@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn-login" id="connexion">Connexion</button>
-                <a href="create-compte.php" class="btn-redirect" name="create-compte">S'inscrire pour jouer?</a>
+                <a href="views/create-compte.php" class="btn-redirect" name="create-compte">S'inscrire pour jouer?</a>
             </form>
         </div>
     </div>
