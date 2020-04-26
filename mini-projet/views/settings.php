@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("database.php");
+    include("../models/database.php");
     if(isset($_SESSION["login"])){
         $login = $_SESSION["login"];
         $is_admins_login_found = false;
@@ -17,12 +17,12 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" href="css/index.css">
-                <link rel="stylesheet" href="css/settings.css">
-                <link rel="stylesheet" href="css/liste-question.css">
-                <link rel="stylesheet" href="css/admin-register.css">
-                <link rel="stylesheet" href="css/user-list.css">
-                <link rel="stylesheet" href="css/create-question.css">
+                <link rel="stylesheet" href="../css/index.css">
+                <link rel="stylesheet" href="../css/settings.css">
+                <link rel="stylesheet" href="../css/liste-question.css">
+                <link rel="stylesheet" href="../css/admin-register.css">
+                <link rel="stylesheet" href="../css/user-list.css">
+                <link rel="stylesheet" href="../css/create-question.css">
                 <title>Document</title>
             </head>
             <body>
@@ -41,7 +41,7 @@
                                 unset($_SESSION["lastname"]);
                                 unset($_SESSION["login"]);
                                 unset($_SESSION["avatar"]);
-                                header("Location:index.php");
+                                header("Location:../index.php");
                             }
                         ?>
                     </div>
@@ -73,9 +73,9 @@
                         </div>
                     </div>
                 </div>
-                <script src="js/setting-items.js"></script>
-                <script src="js/login.js"></script>
-                <script src="js/create-question.js"></script>
+                <script src="../js/setting-items.js"></script>
+                <script src="../js/login.js"></script>
+                <script src="../js/create-question.js"></script>
             </body>
             </html>
 <?php

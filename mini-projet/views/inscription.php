@@ -12,7 +12,7 @@
         </p>
         <br>
         <hr>
-        <form action="inscription_control.php" method="post" enctype="multipart/form-data" id="register-form">
+        <form action="../controller/inscription_control.php" method="post" enctype="multipart/form-data" id="register-form">
             <div class="register-input-form">
                 <label for="">Prenom</label>
                 <input type="text" class="register-input-field" error="firstname" name="firstname">

@@ -10,7 +10,7 @@
         $password = $_POST["password"];
         $is_this_user_in_admins_group = false;
         $is_this_user_in_users_group = false;
-        include_once("database.php");
+        include_once("../models/database.php");
         foreach ($data["admins"] as $admin) {
             if($admin["login"] === $login){
                 $is_this_user_in_admins_group = true;
@@ -19,11 +19,11 @@
                     $_SESSION["firstname"] = $admin["firstname"];
                     $_SESSION["lastname"] = $admin["lastname"];
                     $_SESSION["avatar"] = $admin["avatar"];
-                    header("Location:settings.php");
+                    header("Location:../views/settings.php");
                 }
                 else {
                     $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
-                    header("Location:index.php");
+                    header("Location:../index.php");
                 }
             }
         }
@@ -37,20 +37,20 @@
                         $_SESSION["lastname"] = $user["lastname"];
                         $_SESSION["avatar"] = $user["avatar"];
                         $_SESSION["score"] = $user["score"];
-                        header("Location:user-interface.php");
+                        header("Location:../views/user-interface.php");
                     }
                     else {
                         $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
-                        header("Location:index.php");
+                        header("Location:../index.php");
                     }
                 }
             }
         }
         if(!$is_this_user_in_admins_group AND !$is_this_user_in_users_group){
             $_SESSION["errors"]["login"] = 'Compte innexistant';
-            header("Location:index.php");
+            header("Location:../index.php");
         }
     }
     if(isset($_POST["create-compte"])){
-        header("Location:create-compte.php");
+        header("Location:../views/create-compte.php");
     }

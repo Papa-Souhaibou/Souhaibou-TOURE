@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once("database.php");
+    include_once("../models/database.php");
     if(isset($_SESSION["login"])){
         $is_admins_login_found = false;
         foreach ($data["admins"] as $admin) {
@@ -11,7 +11,7 @@
         }
         if(!$is_admins_login_found){
             unset($_SESSION["login"]);
-            header("Location:index.php");
+            header("Location:../index.php");
         }
     }
     $_SESSION["errors"] = [
@@ -57,7 +57,7 @@
             }
             if(!$is_this_user_exist){
                 if(in_array($extension,$authorized_extensions)){
-                    $avatar = "uploads/".$login."".$extension;
+                    $avatar = "../uploads/".$login."".$extension;
                     if(!$is_this_user_exist AND !isset($_SESSION["login"])){
                         $data['users'][] = [
                             "firstname" => $firstname,
@@ -114,11 +114,11 @@
         $_SESSION["errors"]["login"] = $login_error;
         $_SESSION["errors"]["password"] = $password_error;
         $_SESSION["errors"]["avatar"] = $avatar_error;
-        header("Location:settings.php?page=create-admin");
+        header("Location:../views/settings.php?page=create-admin");
     }
     else if(!$has_errors AND !isset($_SESSION["login"])){
-        header("Location:index.php");
+        header("Location:../index.php");
     }
     else if(!$has_errors AND isset($_SESSION["login"])){
-        header("Location:settings.php");
+        header("Location:../views/settings.php");
     }

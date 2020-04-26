@@ -8,7 +8,7 @@
     </form>
     <div id="questions">
         <?php
-            include_once("questions.php");
+            include_once("../models/questions.php");
             $questions = get_question_list();
             $nbr_total_question = count($questions);
             $nbr_question_par_page = 5;

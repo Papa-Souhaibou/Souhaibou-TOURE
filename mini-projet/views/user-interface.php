@@ -6,7 +6,7 @@
         unset($_SESSION["login"]);
         unset($_SESSION["avatar"]);
         unset($_SESSION["score"]);
-        header("Location:index.php");
+        header("Location:../index.php");
     }
     if(isset($_SESSION["login"]) AND !empty($_SESSION["login"])){
 ?>
@@ -15,8 +15,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/user-interface.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/user-interface.css">
     <title>Document</title>
 </head>
 <body>
@@ -59,7 +59,7 @@
                     <div class="tab-content active" id="top-score">
                         <table>
                         <?php
-                            include_once("database.php");
+                            include_once("../models/database.php");
                             usort($data["users"],function ($a,$b){
                                 return $a["score"] < $b["score"];
                             });
@@ -88,7 +88,7 @@
             </div>
         </div>
     </div>
-    <script src="js/user-interface.js"></script>
+    <script src="../js/user-interface.js"></script>
 </body>
 </html>
 <?php

@@ -1,6 +1,6 @@
 <div id="create-question">
     <h1>Parametrer vos questions</h1>
-    <form action="create-question-control.php" method="post" id="question-form">
+    <form action="../controller/create-question-control.php" method="post" id="question-form">
         <div class="question-container">
             <label for="enonce">Questions</label>
             <input type="text" error="error-enonce" name="enonce" id="enonce">
@@ -33,7 +33,7 @@
                 <option value="radio">Choix Simple</option>
                 <option value="text">Type Text</option>
             </select>
-            <img src="img/icones/ic-ajout-reponse.png" class="add-response" alt="Icone ajouter reponse.">
+            <img src="../img/icones/ic-ajout-reponse.png" class="add-response" alt="Icone ajouter reponse.">
             <div class="error-question" id="error-choix">
                 <?php
                     if(isset($_SESSION["error-question"]["choix"])){

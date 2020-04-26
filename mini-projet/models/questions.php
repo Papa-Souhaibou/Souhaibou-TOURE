@@ -1,5 +1,5 @@
 <?php
-    $databaseURL = "js/questions.json";
+    $databaseURL = "../js/questions.json";
     function get_question_list(){
         global $databaseURL;
         $database = file_get_contents($databaseURL);

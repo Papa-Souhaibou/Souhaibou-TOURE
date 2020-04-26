@@ -84,7 +84,7 @@ addIcone.addEventListener("click", event => {
         input.type = "text";
         // input.addEventListener("blur",inputToText);
         input.name = "response[]";
-        const deleteIcone = createIcone("img/icones/ic-supprimer.png",["delete","icone"]);
+        const deleteIcone = createIcone("../img/icones/ic-supprimer.png",["delete","icone"]);
         deleteIcone.addEventListener("click",deleteEvent);
         const inputType = document.createElement("input");
         inputType.value = `${nbrResponse - 1}`;

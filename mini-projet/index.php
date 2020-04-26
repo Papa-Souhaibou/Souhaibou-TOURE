@@ -11,12 +11,12 @@
 </head>
 <body>
     <?php
-        include("menu.php");
+        include("views/menu.php");
     ?>
     <div id="container">
         <div id="form">
             <h2>Login Form</h2>
-            <form action="login_control.php" method="post" id="login-form">
+            <form action="controller/login_control.php" method="post" id="login-form">
                 <div class="login-input-form">
                     <input type="text" class="login-input-field login" error="login" name="login" placeholder="Login" value="<?php echo @$_SESSION["nom"]; unset($_SESSION["nom"]); ?>">
                     <div id="login" class="error-form">

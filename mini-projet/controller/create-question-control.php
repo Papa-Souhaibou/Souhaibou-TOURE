@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once("questions.php");
+    include_once("../models/questions.php");
     $hasError = false;
     $_SESSION["error-question"] = [
         "enonce" => "",
@@ -24,7 +24,7 @@
         $hasError = true;
     }
     if($hasError){
-        header("Location:settings.php#create-question");
+        header("Location:../views/settings.php#create-question");
     }
     else{
         $questions = get_question_list();
@@ -79,6 +79,6 @@
             $saved = true;
         }
         if($saved){
-            header("Location:settings.php#create-question");
+            header("Location:../views/settings.php#create-question");
         }
     }
