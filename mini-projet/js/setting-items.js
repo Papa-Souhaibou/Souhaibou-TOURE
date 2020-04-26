@@ -34,5 +34,8 @@ window.addEventListener("load", event => {
     }
     const href = window.location.href.split("#")[1] || "liste-question";
     const showContent = document.querySelector("#"+href);
-    showContent.style.display = "block";
+    if (href === "create") {
+        showContent.style.display = "flex";
+    }else
+        showContent.style.display = "block";
 });
