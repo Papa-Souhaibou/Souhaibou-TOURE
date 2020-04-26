@@ -1,13 +1,14 @@
 <?php
+    session_start();
     if(isset($_POST["admin-deconnexion"])){
         unset($_SESSION["firstname"]);
         unset($_SESSION["lastname"]);
         unset($_SESSION["login"]);
         unset($_SESSION["avatar"]);
+        session_destroy();
         header('Status: 301 Moved Permanently', false, 301);
         header("Location:../index.php");
     }
-    session_start();
     include("../models/database.php");
     if(isset($_SESSION["login"])){
         $login = $_SESSION["login"];
@@ -25,6 +26,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="shortcut icon" href="../img/logo-QuizzSA.png" type="image/x-icon">
                 <link rel="stylesheet" href="../css/index.css">
                 <link rel="stylesheet" href="../css/settings.css">
                 <link rel="stylesheet" href="../css/liste-question.css">
