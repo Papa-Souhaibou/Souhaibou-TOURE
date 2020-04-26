@@ -1,4 +1,12 @@
 <?php
+    if(isset($_POST["admin-deconnexion"])){
+        unset($_SESSION["firstname"]);
+        unset($_SESSION["lastname"]);
+        unset($_SESSION["login"]);
+        unset($_SESSION["avatar"]);
+        header('Status: 301 Moved Permanently', false, 301);
+        header("Location:../index.php");
+    }
     session_start();
     include("../models/database.php");
     if(isset($_SESSION["login"])){
@@ -32,18 +40,9 @@
                 <div id="container">
                     <div id="blue-topbar">
                         <h1>CREER ET PARAMETRER VOS QUIZZ</h1>
-                        <form action="" method="post">
-                            <button class="deconnexion" name="deconnexion">Deconnexion</button>
+                        <form action="settings.php" method="post">
+                            <button class="deconnexion" name="admin-deconnexion">Deconnexion</button>
                         </form>
-                        <?php
-                            if(isset($_POST["deconnexion"])){
-                                unset($_SESSION["firstname"]);
-                                unset($_SESSION["lastname"]);
-                                unset($_SESSION["login"]);
-                                unset($_SESSION["avatar"]);
-                                header("Location:../index.php");
-                            }
-                        ?>
                     </div>
                     <div id="setting">
                         <div id="profile">
