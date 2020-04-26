@@ -4,7 +4,7 @@ const selectElt = document.querySelector("#choix");
 const addIcone = document.querySelector(".add-response");
 const container = document.querySelector(".display-response");
 let nbrResponse = 1;
-selectElt.addEventListener("change", event => {
+selectElt.addEventListener("change", event => { 
     if (event.target.hasAttribute("error")) {
         const divId = event.target.getAttribute("error");
         document.querySelector("#" + divId).textContent = "";
@@ -14,6 +14,7 @@ selectElt.addEventListener("change", event => {
     const choiceParent = selectElt.parentNode;
     const error_choix = document.querySelector("#error-choix");
     choiceParent.insertBefore(addIcone,error_choix);
+    nbrResponse = 1;
 });
 const displayErrors = (elt,message) => {
     if (elt.hasAttribute("error")) {
@@ -29,6 +30,22 @@ submitButton.addEventListener("click", event => {
     let errors = false;
     const inputs = document.querySelectorAll("#question-form input[type=text]");
     const nbre = document.querySelector("#point");
+    const seletedChoice = selectElt.value;
+    let typeOfInput = seletedChoice === "checkbox" ? seletedChoice : "radio";
+    const addedInputs = document.querySelectorAll("."+typeOfInput);
+    let hasResponse = false;
+    if(addedInputs.length){
+        for (const addedInput of addedInputs) {
+            if(addedInput.checked){
+                hasResponse = true;
+                break;
+            }
+        }
+        if(!hasResponse && (typeOfInput === "checkbox" || typeOfInput === "radio")){
+            displayErrors(selectElt,"Veuillez choisir une reponse");
+            errors = true;
+        }
+    }
     if(!nbre.value) {
         displayErrors(nbre, "Ce champs est obligatoire");
         errors = true;
@@ -82,7 +99,6 @@ addIcone.addEventListener("click", event => {
         const label = document.createElement("label");
         const input = document.createElement("input");
         input.type = "text";
-        // input.addEventListener("blur",inputToText);
         input.name = "response[]";
         const deleteIcone = createIcone("../img/icones/ic-supprimer.png",["delete","icone"]);
         deleteIcone.addEventListener("click",deleteEvent);
