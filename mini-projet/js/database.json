@@ -1,1 +1,171 @@
-{"users":[{"firstname":"Someone","lastname":"Someone","login":"someone","password":"someone","avatar":"..\/uploads\/someone.jpg","score":50},{"firstname":"Unknown","lastname":"Unknown","login":"unknown","password":"unknown","avatar":"..\/uploads\/unknown.jpg","score":800},{"firstname":"Papa","lastname":"Souhaibou","login":"papa","password":"12345","avatar":"..\/uploads\/papa.jpg","score":400},{"firstname":"Ibou","lastname":"DIATTA","login":"ibou","password":"12345","avatar":"..\/uploads\/papa.jpg","score":1022},{"firstname":"Djiby","lastname":"NIANG","login":"djiby","password":"12345","avatar":"..\/uploads\/papa.jpg","score":816},{"firstname":"Lamine","lastname":"MAN\u00c9","login":"lamine","password":"12345","avatar":"..\/uploads\/papa.jpg","score":759},{"firstname":"Khady","lastname":"DIOUF","login":"khady","password":"12345","avatar":"..\/uploads\/papa.jpg","score":875},{"firstname":"L\u00e9na","lastname":"GUEYE","login":"lena","password":"12345","avatar":"..\/uploads\/papa.jpg","score":763},{"firstname":"Serges","lastname":"MENDES","login":"serges","password":"12345","avatar":"..\/uploads\/papa.jpg","score":730},{"firstname":"Aly","lastname":"NIANG","login":"aly","password":"12345","avatar":"..\/uploads\/papa.jpg","score":963},{"firstname":"Abba","lastname":"NDOUR","login":"abba","password":"12345","avatar":"..\/uploads\/papa.jpg","score":716},{"firstname":"Ibrahima","lastname":"SAMB","login":"ibrahima","password":"12345","avatar":"..\/uploads\/papa.jpg","score":797},{"firstname":"Astou","lastname":"DIENG","login":"astou","password":"12345","avatar":"..\/uploads\/papa.jpg","score":800},{"firstname":"Aminata","lastname":"BEYE","login":"aminata","password":"12345","avatar":"..\/uploads\/papa.jpg","score":760},{"firstname":"Estelle","lastname":"NDECKY","login":"estelle","password":"12345","avatar":"..\/uploads\/papa.jpg","score":723},{"firstname":"Saliou","lastname":"MBAYE","login":"saliou","password":"12345","avatar":"..\/uploads\/papa.jpg","score":877},{"firstname":"Moustapha","lastname":"DIALLO","login":"moustapha","password":"12345","avatar":"..\/uploads\/papa.jpg","score":720},{"firstname":"JavaScript","lastname":"ECMASCRIPT","login":"js","password":"12345","avatar":"..\/uploads\/js.png","score":0}],"admins":[{"firstname":"Admin","lastname":"Admin","login":"admin","password":"admin","avatar":"..\/uploads\/admin.jpg"},{"firstname":"Kemo","lastname":"TOURE","login":"kemo","password":"passer","avatar":"..\/uploads\/kemo.jpg"},{"firstname":"Moussa","lastname":"Diame","login":"moussa","password":"passer","avatar":"..\/uploads\/moussa.jpg"}]}
+{
+    "users": [
+        {
+            "firstname": "Someone",
+            "lastname": "Someone",
+            "login": "someone",
+            "password": "someone",
+            "avatar": "../uploads/someone.jpg",
+            "score": 50
+        },
+        {
+            "firstname": "Unknown",
+            "lastname": "Unknown",
+            "login": "unknown",
+            "password": "unknown",
+            "avatar": "../uploads/unknown.jpg",
+            "score": 800
+        },
+        {
+            "firstname": "Papa",
+            "lastname": "Souhaibou",
+            "login": "papa",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 400
+        },
+        {
+            "firstname": "Ibou",
+            "lastname": "DIATTA",
+            "login": "ibou",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 1022
+        },
+        {
+            "firstname": "Djiby",
+            "lastname": "NIANG",
+            "login": "djiby",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 816
+        },
+        {
+            "firstname": "Lamine",
+            "lastname": "MANÉ",
+            "login": "lamine",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 759
+        },
+        {
+            "firstname": "Khady",
+            "lastname": "DIOUF",
+            "login": "khady",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 875
+        },
+        {
+            "firstname": "Léna",
+            "lastname": "GUEYE",
+            "login": "lena",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 763
+        },
+        {
+            "firstname": "Serges",
+            "lastname": "MENDES",
+            "login": "serges",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 730
+        },
+        {
+            "firstname": "Aly",
+            "lastname": "NIANG",
+            "login": "aly",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 963
+        },
+        {
+            "firstname": "Abba",
+            "lastname": "NDOUR",
+            "login": "abba",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 716
+        },
+        {
+            "firstname": "Ibrahima",
+            "lastname": "SAMB",
+            "login": "ibrahima",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 797
+        },
+        {
+            "firstname": "Astou",
+            "lastname": "DIENG",
+            "login": "astou",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 800
+        },
+        {
+            "firstname": "Aminata",
+            "lastname": "BEYE",
+            "login": "aminata",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 760
+        },
+        {
+            "firstname": "Estelle",
+            "lastname": "NDECKY",
+            "login": "estelle",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 723
+        },
+        {
+            "firstname": "Saliou",
+            "lastname": "MBAYE",
+            "login": "saliou",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 877
+        },
+        {
+            "firstname": "Moustapha",
+            "lastname": "DIALLO",
+            "login": "moustapha",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 720
+        },
+        {
+            "firstname": "JavaScript",
+            "lastname": "ECMASCRIPT",
+            "login": "js",
+            "password": "12345",
+            "avatar": "../uploads/js.png",
+            "score": 0
+        }
+    ],
+    "admins": [
+        {
+            "firstname": "Admin",
+            "lastname": "Admin",
+            "login": "admin",
+            "password": "admin",
+            "avatar": "../uploads/admin.jpg"
+        },
+        {
+            "firstname": "Kemo",
+            "lastname": "TOURE",
+            "login": "kemo",
+            "password": "passer",
+            "avatar": "../uploads/kemo.jpg"
+        },
+        {
+            "firstname": "Moussa",
+            "lastname": "Diame",
+            "login": "moussa",
+            "password": "passer",
+            "avatar": "../uploads/moussa.jpg"
+        }
+    ]
+}
