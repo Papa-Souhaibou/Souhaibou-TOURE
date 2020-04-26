@@ -19,10 +19,12 @@
                     $_SESSION["firstname"] = $admin["firstname"];
                     $_SESSION["lastname"] = $admin["lastname"];
                     $_SESSION["avatar"] = $admin["avatar"];
+                    header('Status: 301 Moved Permanently', false, 301);
                     header("Location:../views/settings.php");
                 }
                 else {
                     $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
+                    header('Status: 301 Moved Permanently', false, 301);
                     header("Location:../index.php");
                 }
             }
@@ -37,10 +39,12 @@
                         $_SESSION["lastname"] = $user["lastname"];
                         $_SESSION["avatar"] = $user["avatar"];
                         $_SESSION["score"] = $user["score"];
+                        header('Status: 301 Moved Permanently', false, 301);
                         header("Location:../views/user-interface.php");
                     }
                     else {
                         $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
+                        header('Status: 301 Moved Permanently', false, 301);
                         header("Location:../index.php");
                     }
                 }
@@ -48,9 +52,11 @@
         }
         if(!$is_this_user_in_admins_group AND !$is_this_user_in_users_group){
             $_SESSION["errors"]["login"] = 'Compte innexistant';
+            header('Status: 301 Moved Permanently', false, 301);
             header("Location:../index.php");
         }
     }
     if(isset($_POST["create-compte"])){
+        header('Status: 301 Moved Permanently', false, 301);
         header("Location:../views/create-compte.php");
     }

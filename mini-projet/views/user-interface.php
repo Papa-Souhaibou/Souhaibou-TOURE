@@ -6,6 +6,7 @@
         unset($_SESSION["login"]);
         unset($_SESSION["avatar"]);
         unset($_SESSION["score"]);
+        header('Status: 301 Moved Permanently', false, 301);
         header("Location:../index.php");
     }
     if(isset($_SESSION["login"]) AND !empty($_SESSION["login"])){

@@ -11,6 +11,7 @@
         }
         if(!$is_admins_login_found){
             unset($_SESSION["login"]);
+            header('Status: 301 Moved Permanently', false, 301);
             header("Location:../index.php");
         }
     }
@@ -109,16 +110,20 @@
         $_SESSION["errors"]["login"] = $login_error;
         $_SESSION["errors"]["password"] = $password_error;
         $_SESSION["errors"]["avatar"] = $avatar_error;
+        header('Status: 301 Moved Permanently', false, 301);
         header("Location:create-compte.php");
     }elseif ($has_errors AND isset($_SESSION["login"])) {
         $_SESSION["errors"]["login"] = $login_error;
         $_SESSION["errors"]["password"] = $password_error;
         $_SESSION["errors"]["avatar"] = $avatar_error;
+        header('Status: 301 Moved Permanently', false, 301);
         header("Location:../views/settings.php?page=create-admin");
     }
     else if(!$has_errors AND !isset($_SESSION["login"])){
+        header('Status: 301 Moved Permanently', false, 301);
         header("Location:../index.php");
     }
     else if(!$has_errors AND isset($_SESSION["login"])){
+        header('Status: 301 Moved Permanently', false, 301);
         header("Location:../views/settings.php");
     }

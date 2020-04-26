@@ -24,6 +24,7 @@
         $hasError = true;
     }
     if($hasError){
+        header('Status: 301 Moved Permanently', false, 301);
         header("Location:../views/settings.php#create-question");
     }
     else{
@@ -79,6 +80,7 @@
             $saved = true;
         }
         if($saved){
+            header('Status: 301 Moved Permanently', false, 301);
             header("Location:../views/settings.php#create-question");
         }
     }
