@@ -42,7 +42,6 @@ submitButton.addEventListener("click", event => {
                     compteurReponse++;
                 }
                 hasResponse = true;
-                break;
             }
         }
         if(compteurReponse < 2 && typeOfInput === "checkbox"){
