@@ -34,12 +34,20 @@ submitButton.addEventListener("click", event => {
     let typeOfInput = seletedChoice === "checkbox" ? seletedChoice : "radio";
     const addedInputs = document.querySelectorAll("."+typeOfInput);
     let hasResponse = false;
+    let compteurReponse = 0;
     if(addedInputs.length){
         for (const addedInput of addedInputs) {
             if(addedInput.checked){
+                if (addedInput.type === "checkbox") {
+                    compteurReponse++;
+                }
                 hasResponse = true;
                 break;
             }
+        }
+        if(compteurReponse < 2 && typeOfInput === "checkbox"){
+            displayErrors(selectElt, "Veuillez choisir au moins 2 reponses");
+            errors = true;
         }
         if(!hasResponse && (typeOfInput === "checkbox" || typeOfInput === "radio")){
             displayErrors(selectElt,"Veuillez choisir une reponse");
@@ -81,12 +89,25 @@ const createIcone = (url,classes) => {
     }
     return img;
 };
+
 const deleteEvent = event => {
     const targetClass = event.target.classList[0];
     const parentTarget = event.target.parentNode;
     if(targetClass === "delete"){
         container.removeChild(parentTarget);
         nbrResponse--;
+    }
+}
+const reorganizeAddedInputs = () => {
+    const containerElts = container.querySelectorAll(".response-container");
+    const containerEltsSize = containerElts.length;
+    for (let i = 0; i < containerEltsSize; i++) {
+        const elt = containerElts[i];
+        elt.querySelector("label").textContent = `Reponse ${i+1}`;
+        let input = elt.querySelectorAll("input");
+        input[0].setAttribute("error",`response${i+1}`);
+        input[1].setAttribute("value",`${i}`);
+        elt.querySelector(".error-question").setAttribute("id",`${i+1}`);
     }
 }
 addIcone.addEventListener("click", event => {
@@ -102,6 +123,7 @@ addIcone.addEventListener("click", event => {
         input.name = "response[]";
         const deleteIcone = createIcone("../img/icones/ic-supprimer.png",["delete","icone"]);
         deleteIcone.addEventListener("click",deleteEvent);
+        deleteIcone.addEventListener("click",reorganizeAddedInputs);
         const inputType = document.createElement("input");
         inputType.value = `${nbrResponse - 1}`;
         if (selectElt.value === "checkbox"){
@@ -120,7 +142,7 @@ addIcone.addEventListener("click", event => {
         input.setAttribute("class","response");
         label.setAttribute("for",`id${nbrResponse}`);
         divErrorQuestion.id = `response${nbrResponse}`;
-        label.textContent = `Response ${nbrResponse}`;
+        label.textContent = `Reponse ${nbrResponse}`;
         response_container.appendChild(label);
         response_container.appendChild(input);
         if (selectElt.value != "text")
