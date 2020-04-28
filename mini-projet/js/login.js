@@ -1,5 +1,5 @@
-const inputs = document.getElementsByTagName("input");
 const form = document.querySelector("#login-form") || document.querySelector("#register-form");
+const inputs = form.querySelectorAll("input");
 for (const input of inputs) {
     input.addEventListener("input",(event) => {
         if(event.target.hasAttribute("error")){
