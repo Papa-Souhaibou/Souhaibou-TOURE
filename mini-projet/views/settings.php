@@ -35,6 +35,8 @@
                 <link rel="stylesheet" href="../css/admin-register.css">
                 <link rel="stylesheet" href="../css/user-list.css">
                 <link rel="stylesheet" href="../css/create-question.css">
+                <link rel="stylesheet" href="../css/admin-dashboard.css">
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
                 <title>Document</title>
             </head>
             <body>
@@ -64,6 +66,7 @@
                                 <a href="#create" class="add">Creer Admin</a>
                                 <a href="#user-list" class="list">Liste joueurs</a>
                                 <a href="#create-question" class="add">Creer Questions</a>
+                                <a href="#admin-dashboard" class="list">Tableau de bord</a>
                             </div>
                         </div>
                         <div id="displays-pages">
@@ -72,6 +75,7 @@
                                 include("inscription.php");
                                 include("user-list.php");
                                 include("create-question.php");
+                                include("admin-dashboard.php");
                             ?>
                         </div>
                     </div>
@@ -79,6 +83,7 @@
                 <script src="../js/setting-items.js"></script>
                 <script src="../js/login.js"></script>
                 <script src="../js/create-question.js"></script>
+                <script src="../js/admin-dashboard.js"></script>
             </body>
             </html>
 <?php

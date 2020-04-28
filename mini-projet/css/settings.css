@@ -41,7 +41,7 @@
 #profile {
     margin-top: 50px;
     width: 35%;
-    height: 400px;
+    height: 450px;
     border-radius: 10px 10px 0 0;
     margin-bottom: 25px;
 }
@@ -49,7 +49,7 @@
 #profile,
 #displays-pages {
     background-color: white;
-    /* border-radius: 0 0 10px 10px; */
+    border-radius: 0 0 10px 10px;
 }
 
 #displays-pages {
