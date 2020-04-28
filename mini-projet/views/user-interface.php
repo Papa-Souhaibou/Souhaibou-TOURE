@@ -1,11 +1,12 @@
 <?php
-    session_start();
+    include_once("../models/database.php");
     if(isset($_POST["deconnexion"])){
         unset($_SESSION["firstname"]);
         unset($_SESSION["lastname"]);
         unset($_SESSION["login"]);
         unset($_SESSION["avatar"]);
         unset($_SESSION["score"]);
+        session_destroy();
         header('Status: 301 Moved Permanently', false, 301);
         header("Location:../index.php");
     }
@@ -23,6 +24,8 @@
 <body>
     <?php
         include("menu.php");
+        include_once("../models/questions.php");
+        $data = get_our_contents_file("../js/database.json");
     ?>
     <br>
     <div id="user-container">
@@ -60,7 +63,6 @@
                     <div class="tab-content active" id="top-score">
                         <table>
                         <?php
-                            include_once("../models/database.php");
                             usort($data["users"],function ($a,$b){
                                 return $a["score"] < $b["score"];
                             });
@@ -93,5 +95,8 @@
 </body>
 </html>
 <?php
+    }else {
+        header('Status: 301 Moved Permanently', false, 301);
+        header("Location:../index.php");
     }
 ?>

@@ -15,17 +15,17 @@
         <form action="../controller/inscription_control.php" method="post" enctype="multipart/form-data" id="register-form">
             <div class="register-input-form">
                 <label for="">Prenom</label>
-                <input type="text" class="register-input-field" error="firstname" name="firstname">
+                <input type="text" class="register-input-field" error="firstname" name="firstname" value="<?= @$_SESSION["bad"]["firstname"] ?>">
                 <div id="firstname" class="error-form"></div>
             </div>
             <div class="register-input-form">
                 <label for="">Nom</label>
-                <input type="text" class="register-input-field" error="lastname" name="lastname">
+                <input type="text" class="register-input-field" error="lastname" name="lastname" value="<?= @$_SESSION["bad"]["lastname"] ?>">
                 <div id="lastname" class="error-form"></div>
             </div>
             <div class="register-input-form">
                 <label for="">Login</label>
-                <input type="text" class="register-input-field" error="login" name="login">
+                <input type="text" class="register-input-field" error="login" name="login" value="<?= @$_SESSION["bad"]["login"] ?>">
                 <div id="login" class="error-form">
                 <?php
                     if(isset($_SESSION["errors"]["login"])){

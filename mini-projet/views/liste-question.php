@@ -9,7 +9,7 @@
     <div id="questions">
         <?php
             include_once("../models/questions.php");
-            $questions = get_question_list();
+            $questions = get_our_contents_file();
             $nbr_total_question = count($questions);
             $nbr_question_par_page = 5;
             $nbr_page = ceil($nbr_total_question / $nbr_question_par_page);

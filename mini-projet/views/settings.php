@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    include("../models/database.php");
+    include_once("../models/questions.php");
     if(isset($_POST["admin-deconnexion"])){
         unset($_SESSION["firstname"]);
         unset($_SESSION["lastname"]);
@@ -9,10 +10,11 @@
         header('Status: 301 Moved Permanently', false, 301);
         header("Location:../index.php");
     }
-    include("../models/database.php");
+    
     if(isset($_SESSION["login"])){
         $login = $_SESSION["login"];
         $is_admins_login_found = false;
+        $data = get_our_contents_file("../js/database.json");
         foreach ($data["admins"] as $admin) {
             if($admin["login"] === $login){
                 $is_admins_login_found = true;
@@ -80,6 +82,12 @@
             </body>
             </html>
 <?php
+        }else {
+            header('Status: 301 Moved Permanently', false, 301);
+            header("Location:../index.php");
         }
+    }else {
+        header('Status: 301 Moved Permanently', false, 301);
+        header("Location:../index.php");
     }
 ?>
