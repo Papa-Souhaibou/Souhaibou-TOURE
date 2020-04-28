@@ -143,6 +143,22 @@
             "password": "12345",
             "avatar": "../uploads/js.png",
             "score": 0
+        },
+        {
+            "firstname": "Babacar",
+            "lastname": "DIOUF",
+            "login": "babacar",
+            "password": "12345",
+            "avatar": "../uploads/babacar.png",
+            "score": 0
+        },
+        {
+            "firstname": "Pathe",
+            "lastname": "PATHE",
+            "login": "pathe",
+            "password": "12345",
+            "avatar": "../uploads/pathe.png",
+            "score": 0
         }
     ],
     "admins": [
@@ -166,6 +182,13 @@
             "login": "moussa",
             "password": "passer",
             "avatar": "../uploads/moussa.jpg"
+        },
+        {
+            "firstname": "Khalifa",
+            "lastname": "SALL",
+            "login": "khalifa",
+            "password": "12345",
+            "avatar": "../uploads/khalifa.png"
         }
     ]
 }
