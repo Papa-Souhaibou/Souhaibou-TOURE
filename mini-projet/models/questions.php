@@ -1,13 +1,10 @@
 <?php
-    $databaseURL = "../js/questions.json";
-    function get_question_list(){
-        global $databaseURL;
-        $database = file_get_contents($databaseURL);
+    function get_our_contents_file($url="../js/questions.json"){
+        $database = file_get_contents($url);
         $question = json_decode($database,true);
         return $question;
     }
-    function put_questions(array $question){
-        global $databaseURL;
+    function add_contents(array $question,$url="../js/questions.json"){
         $question = json_encode($question);
-        file_put_contents($databaseURL,$question);
+        file_put_contents($url,$question);
     }

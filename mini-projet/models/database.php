@@ -1,4 +1,22 @@
 <?php
-    $databaseURL = "../js/database.json";
-    $database = file_get_contents($databaseURL);
-    $data = json_decode($database,true);
+    session_start();
+    function get_connexion(array $data,$login,$password,$status,string $location){
+        foreach ($data[$status] as $user) {
+            if($user["login"] === $login){
+                if($user["password"] === $password){
+                    $_SESSION["login"] = $user["login"];
+                    $_SESSION["firstname"] = $user["firstname"];
+                    $_SESSION["lastname"] = $user["lastname"];
+                    $_SESSION["avatar"] = $user["avatar"];
+                    if($status === "users"){
+                        $_SESSION["score"] = $user["score"];
+                    }
+                    var_dump($_SESSION);
+                    return $location;
+                }else {
+                    return "password-error";
+                }
+            }
+        }
+        return "not-exist";
+    }
