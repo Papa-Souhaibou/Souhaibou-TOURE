@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    include_once("../models/database.php");
+    include_once("../models/questions.php");
     $_SESSION["errors"] = [
         "login" => "",
         "password" => ""
@@ -8,53 +9,38 @@
         $_SESSION["nom"] = $_POST["login"];
         $login = strip_tags($_POST["login"]);
         $password = $_POST["password"];
-        $is_this_user_in_admins_group = false;
-        $is_this_user_in_users_group = false;
-        include_once("../models/database.php");
-        foreach ($data["admins"] as $admin) {
-            if($admin["login"] === $login){
-                $is_this_user_in_admins_group = true;
-                if($password === $admin["password"]){
-                    $_SESSION["login"] = $login;
-                    $_SESSION["firstname"] = $admin["firstname"];
-                    $_SESSION["lastname"] = $admin["lastname"];
-                    $_SESSION["avatar"] = $admin["avatar"];
-                    header('Status: 301 Moved Permanently', false, 301);
-                    header("Location:../views/settings.php");
-                }
-                else {
-                    $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
-                    header('Status: 301 Moved Permanently', false, 301);
-                    header("Location:../index.php");
-                }
-            }
+        $databaseUrl = "../js/database.json";
+        $not_in_admins_group = false;
+        $not_in_users_group = false;
+        $data = get_our_contents_file($databaseUrl);
+        $connexion = get_connexion($data,$login,$password,"admins","../views/settings.php");
+        if($connexion === "../views/settings.php"){
+            header('Status: 301 Moved Permanently', false, 301);
+            header("Location:../views/settings.php");
+        }elseif ($connexion === "password-error") {
+            $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
+            header('Status: 301 Moved Permanently', false, 301);
+            header("Location:../index.php");
+        }elseif ($connexion === "not-exist") {
+            $not_in_admins_group = true;
         }
-        if(!$is_this_user_in_admins_group){
-            foreach ($data["users"] as $user) {
-                if($user["login"] === $login){
-                    $is_this_user_in_users_group = true;
-                    if($password === $user["password"]){
-                        $_SESSION["login"] = $login;
-                        $_SESSION["firstname"] = $user["firstname"];
-                        $_SESSION["lastname"] = $user["lastname"];
-                        $_SESSION["avatar"] = $user["avatar"];
-                        $_SESSION["score"] = $user["score"];
-                        header('Status: 301 Moved Permanently', false, 301);
-                        header("Location:../views/user-interface.php");
-                    }
-                    else {
-                        $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
-                        header('Status: 301 Moved Permanently', false, 301);
-                        header("Location:../index.php");
-                    }
-                }
-            }
+        $connexion = get_connexion($data,$login,$password,"users","../views/user-interface.php");
+        if($connexion === "../views/user-interface.php"){
+            header('Status: 301 Moved Permanently', false, 301);
+            header("Location:../views/user-interface.php");
+        }elseif($connexion === "password-error"){
+            $_SESSION["errors"]["password"] = "Mot de passe incorrecte.";
+            header('Status: 301 Moved Permanently', false, 301);
+            header("Location:../index.php");
+        }elseif ($connexion === "not-exist") {
+            $not_in_users_group = true;
         }
-        if(!$is_this_user_in_admins_group AND !$is_this_user_in_users_group){
+        if($not_in_admins_group AND $not_in_users_group){
             $_SESSION["errors"]["login"] = 'Compte innexistant';
             header('Status: 301 Moved Permanently', false, 301);
             header("Location:../index.php");
         }
+        
     }
     if(isset($_POST["create-compte"])){
         header('Status: 301 Moved Permanently', false, 301);

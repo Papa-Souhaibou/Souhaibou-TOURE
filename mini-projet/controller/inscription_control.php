@@ -1,6 +1,7 @@
 <?php
-    session_start();
     include_once("../models/database.php");
+    include_once("../models/questions.php");
+    $data = get_our_contents_file("../js/database.json");
     if(isset($_SESSION["login"])){
         $is_admins_login_found = false;
         foreach ($data["admins"] as $admin) {
@@ -27,7 +28,11 @@
     $password = $_POST["password"];
     $password_error = "";
     $co_password = $_POST["co-password"];
-    
+    $_SESSION["bad"] = [
+        "login" => $login,
+        "firstname" => $firstname,
+        "lastname" => $lastname
+    ];
     $has_errors = false;
     $authorized_extensions = [
         ".png",
@@ -69,8 +74,7 @@
                             "score" => 0
                         ];
                         if(move_uploaded_file($_FILES["avatar"]["tmp_name"],$avatar)){
-                            $data = json_encode($data);
-                            file_put_contents($databaseURL,$data);
+                            add_contents($data,"../js/database.json");
                         }else {
                             $avatar_error = "Erreur lors du chargement de l'image";
                             $has_errors = true;
@@ -86,8 +90,7 @@
                             "avatar" => $avatar
                         ];
                         if(move_uploaded_file($_FILES["avatar"]["tmp_name"],$avatar)){
-                            $data = json_encode($data);
-                            file_put_contents($databaseURL,$data);
+                            add_contents($data,"../js/database.json");
                         }else {
                             $avatar_error = "Erreur lors du chargement de l'image";
                             $has_errors = true;
@@ -111,13 +114,13 @@
         $_SESSION["errors"]["password"] = $password_error;
         $_SESSION["errors"]["avatar"] = $avatar_error;
         header('Status: 301 Moved Permanently', false, 301);
-        header("Location:create-compte.php");
+        header("Location:../views/create-compte.php");
     }elseif ($has_errors AND isset($_SESSION["login"])) {
         $_SESSION["errors"]["login"] = $login_error;
         $_SESSION["errors"]["password"] = $password_error;
         $_SESSION["errors"]["avatar"] = $avatar_error;
         header('Status: 301 Moved Permanently', false, 301);
-        header("Location:../views/settings.php?page=create-admin");
+        header("Location:../views/settings.php?page=create-admin#create");
     }
     else if(!$has_errors AND !isset($_SESSION["login"])){
         header('Status: 301 Moved Permanently', false, 301);
@@ -125,5 +128,5 @@
     }
     else if(!$has_errors AND isset($_SESSION["login"])){
         header('Status: 301 Moved Permanently', false, 301);
-        header("Location:../views/settings.php");
+        header("Location:../views/settings.php?page=create-admin#create");
     }

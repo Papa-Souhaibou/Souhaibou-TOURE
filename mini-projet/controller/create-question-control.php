@@ -28,7 +28,7 @@
         header("Location:../views/settings.php#create-question");
     }
     else{
-        $questions = get_question_list();
+        $questions = get_our_contents_file();
         $saved = false;
         $choixMultiple = [];
         $enonce = ($_POST["enonce"]);
@@ -47,7 +47,7 @@
                 "reponse"   => $reponse,
                 "note"  =>  $point
             ];
-            put_questions($questions);
+            add_contents($questions);
             $saved = true;
         }
         else if($type === "checkbox"){
@@ -64,7 +64,7 @@
                 "reponse"   => $reponse,
                 "note"  =>  $point
             ];
-            put_questions($questions);
+            add_contents($questions);
             $saved = true;
         }
         else if($type === "text"){
@@ -76,7 +76,7 @@
                 "reponse"   => $reponse,
                 "note"  =>  $point
             ];
-            put_questions($questions);
+            add_contents($questions);
             $saved = true;
         }
         if($saved){
