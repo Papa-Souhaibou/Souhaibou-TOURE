@@ -80,7 +80,7 @@ const user_config = {
         }
     }
 };
-
+// draw the graph
 window.onload = function () {
     const ctx = document.querySelector('#chart-area').getContext('2d');
     const pie = document.querySelector('#pie').getContext('2d');
