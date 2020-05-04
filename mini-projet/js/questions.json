@@ -134,5 +134,42 @@
         ],
         "reponse": " Lire et stocker des données",
         "note": 8
+    },
+    {
+        "enonce": "Trouvez les affirmations vraies à propos du DOM.",
+        "typeReponse": "checkbox",
+        "choix": [
+            "Le DOM est une représentation de la structure d’une page web sous la forme d’une hiérarchie de noeuds.",
+            "Le DOM est spécifique à chaque navigateur.",
+            "Le DOM est une API qui permet d’interagir avec la page web.",
+            "Chaque noeud du DOM correspond en JavaScript à un tableau."
+        ],
+        "reponse": [
+            "Le DOM est une représentation de la structure d’une page web sous la forme d’une hiérarchie de noeuds.",
+            "Le DOM est une API qui permet d’interagir avec la page web."
+        ],
+        "note": 27
+    },
+    {
+        "enonce": "Soit le code HTML ci-dessous. Quelle instruction JavaScript permet d’accéder à l’élément identifié par “cible” ?",
+        "typeReponse": "radio",
+        "choix": [
+            "  document.body.childNodes[0].childNodes[1];",
+            " document.body.childNodes[1].childNodes[3];",
+            " document.body.childNodes[1].childNodes[3].childNodes[0];",
+            "document.body.childNodes[2];"
+        ],
+        "reponse": " document.body.childNodes[1].childNodes[3];",
+        "note": 45
+    },
+    {
+        "enonce": "JavaScript est le seul langage de programmation inclus dans l'ensemble des navigateurs web.",
+        "typeReponse": "radio",
+        "choix": [
+            " Vrai",
+            "Faux"
+        ],
+        "reponse": " Vrai",
+        "note": 7
     }
 ]
