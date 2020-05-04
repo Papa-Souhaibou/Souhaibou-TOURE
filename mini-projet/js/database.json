@@ -1,4 +1,5 @@
 {
+    "number": 10,
     "users": [
         {
             "firstname": "Someone",
@@ -189,6 +190,20 @@
             "login": "khalifa",
             "password": "12345",
             "avatar": "../uploads/khalifa.png"
+        },
+        {
+            "firstname": "Samba",
+            "lastname": "Samba",
+            "login": "samba",
+            "password": "12345",
+            "avatar": "../uploads/samba.png"
+        },
+        {
+            "firstname": "Guelwar",
+            "lastname": "Guelwar",
+            "login": "guelwar",
+            "password": "12345",
+            "avatar": "../uploads/guelwar.png"
         }
     ]
 }
