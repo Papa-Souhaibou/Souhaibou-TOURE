@@ -39,3 +39,23 @@ window.addEventListener("load", event => {
     }else
         showContent.style.display = "block";
 });
+
+const number_form = document.querySelector("#number-form");
+const submitButtonNumber = number_form.querySelector("button[type=submit]");
+const input_field = number_form.querySelector("input");
+input_field.addEventListener("input", event => {
+    const div = number_form.querySelector("#"+input_field.getAttribute("error"));
+    div.textContent = "";
+});
+submitButtonNumber.addEventListener("click",event => {
+    const input = number_form.querySelector("input");
+    const div = number_form.querySelector("#"+input.getAttribute("error"));
+    if(!input.value){
+        div.textContent = "Ce champs est obligatoire";
+        event.preventDefault();
+    }
+    else if(parseInt(input.value) < 5){
+        div.textContent = "Le nombre de questions par jeu doit etre superieur ou egal a 5";
+        event.preventDefault();
+    }
+});
