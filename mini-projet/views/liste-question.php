@@ -1,9 +1,17 @@
 <div id="liste-question">
-    <form action="" method="post">
+    <form action="../controller/check_number.php" method="post" id="number-form">
         <div id="question-number">
             <label for="question-number-field">Nombre de question/Jeu</label>
-            <input type="text" class="question-number-field" id="question-number-field" name="number">
+            <input type="text" class="question-number-field" error="error-number" id="question-number-field" name="number">
             <button type="submit" class="btn-valid-number">OK</button>
+            <div id="error-number" class="error-form">
+            <?php
+                if(isset($_SESSION["number-error"])){
+                    echo $_SESSION["number-error"];
+                    unset($_SESSION["number-error"]);
+                }
+            ?>
+            </div>
         </div>
     </form>
     <div id="questions">
