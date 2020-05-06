@@ -59,7 +59,7 @@
 }
 #game-space {
     width: 65%;
-    height: 500px;
+    min-height: 350px;
     margin-top: 25px;
     border: solid 2px darkturquoise;
     border-radius: 15px;
@@ -74,7 +74,7 @@
 #info-game {
     width: 90%;
     margin:10px auto 0 auto;
-    height: 100px;
+    padding-bottom: 15px;
     background-color: rgb(223, 217, 217);
     text-align: center;
     border-bottom: 1px solid darkturquoise;
@@ -83,6 +83,9 @@
 #info-game > h1 {
     margin-top: 10px;
     text-decoration: underline;
+}
+#info-game > h3 {
+    margin-top: 15px;
 }
 .tabs a {
     text-decoration: none;
@@ -145,4 +148,40 @@ ul.tabs, .tabs li {
 .tab-content > table td {
     font-size: 1.3em;
     font-weight: bold;
+}
+#questionnaire {
+    width: 90%;
+    margin: 15px auto 0 auto;
+}
+.reponses_question {
+    margin: 15px auto;
+    height: 35px;
+}
+#user-container [type=radio],
+#user-container [type=checkbox] {
+    width: 25px;
+    height: 25px;
+}
+#user-container [type=text] {
+    height: 35px;
+    padding-left: 15px;
+    width: 80%;
+}
+#direction {
+    margin: 25px 0 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.previous_question,.next_question {
+    display: block;
+    width: 150px;
+    background-color: darkturquoise;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 1.3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 5px;
 }
