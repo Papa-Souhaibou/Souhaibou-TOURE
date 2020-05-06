@@ -72,7 +72,8 @@
             if(!empty($_SESSION["goodAnswers"])){
                 $goodAnswers =  $this_user["goodAnswers"];
                 if(count($goodAnswers) < $questions_size)
-                    while(in_array($questions[$selected_question_index]["enonce"],$_SESSION["goodAnswers"]) || in_array($selected_question_index,$previous)){
+                    while((in_array($questions[$selected_question_index]["enonce"],$_SESSION["goodAnswers"]) 
+                    || in_array($questions[$selected_question_index]["enonce"],$this_user["goodAnswers"])) || in_array($selected_question_index,$previous)){
                         $selected_question_index = rand(0,$questions_size-1); 
                     }
                 else {
