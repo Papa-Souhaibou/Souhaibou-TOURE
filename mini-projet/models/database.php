@@ -11,7 +11,6 @@
                     if($status === "users"){
                         $_SESSION["score"] = $user["score"];
                     }
-                    var_dump($_SESSION);
                     return $location;
                 }else {
                     return "password-error";
