@@ -71,7 +71,8 @@
                             "login" => $login,
                             "password" => $password,
                             "avatar" => $avatar,
-                            "score" => 0
+                            "score" => 0,
+                            "goodAnswers" => array()
                         ];
                         if(move_uploaded_file($_FILES["avatar"]["tmp_name"],$avatar)){
                             add_contents($data,"../js/database.json");
