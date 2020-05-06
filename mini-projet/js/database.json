@@ -7,7 +7,13 @@
             "login": "someone",
             "password": "someone",
             "avatar": "../uploads/someone.jpg",
-            "score": 50
+            "score": 63,
+            "goodAnswers": [
+                "Quelle méthode d'envoi de données est la moins limitée ?",
+                "JavaScript est le seul langage de programmation inclus dans l'ensemble des navigateurs web.",
+                "Qui est le president du SENEGAL ?"
+            ],
+            "note": 21
         },
         {
             "firstname": "Unknown",
@@ -15,7 +21,12 @@
             "login": "unknown",
             "password": "unknown",
             "avatar": "../uploads/unknown.jpg",
-            "score": 800
+            "score": 80,
+            "goodAnswers": [
+                "Quelle méthode d'envoi de données est la moins limitée ?",
+                "Quel est le rôle d'une base de données ?",
+                "En quelle année le SÉNÉGAL a eu son indépendance ?"
+            ]
         },
         {
             "firstname": "Papa",
@@ -23,7 +34,8 @@
             "login": "papa",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 400
+            "score": 40,
+            "goodAnswers": []
         },
         {
             "firstname": "Ibou",
@@ -31,7 +43,8 @@
             "login": "ibou",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 1022
+            "score": 122,
+            "goodAnswers": []
         },
         {
             "firstname": "Djiby",
@@ -39,7 +52,8 @@
             "login": "djiby",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 816
+            "score": 86,
+            "goodAnswers": []
         },
         {
             "firstname": "Lamine",
@@ -47,7 +61,8 @@
             "login": "lamine",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 759
+            "score": 79,
+            "goodAnswers": []
         },
         {
             "firstname": "Khady",
@@ -55,7 +70,8 @@
             "login": "khady",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 875
+            "score": 85,
+            "goodAnswers": []
         },
         {
             "firstname": "Léna",
@@ -63,7 +79,8 @@
             "login": "lena",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 763
+            "score": 73,
+            "goodAnswers": []
         },
         {
             "firstname": "Serges",
@@ -71,7 +88,8 @@
             "login": "serges",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 730
+            "score": 70,
+            "goodAnswers": []
         },
         {
             "firstname": "Aly",
@@ -79,7 +97,8 @@
             "login": "aly",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 963
+            "score": 93,
+            "goodAnswers": []
         },
         {
             "firstname": "Abba",
@@ -87,7 +106,8 @@
             "login": "abba",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 716
+            "score": 76,
+            "goodAnswers": []
         },
         {
             "firstname": "Ibrahima",
@@ -95,7 +115,8 @@
             "login": "ibrahima",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 797
+            "score": 77,
+            "goodAnswers": []
         },
         {
             "firstname": "Astou",
@@ -103,7 +124,8 @@
             "login": "astou",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 800
+            "score": 80,
+            "goodAnswers": []
         },
         {
             "firstname": "Aminata",
@@ -111,7 +133,8 @@
             "login": "aminata",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 760
+            "score": 70,
+            "goodAnswers": []
         },
         {
             "firstname": "Estelle",
@@ -119,7 +142,8 @@
             "login": "estelle",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 723
+            "score": 73,
+            "goodAnswers": []
         },
         {
             "firstname": "Saliou",
@@ -127,7 +151,8 @@
             "login": "saliou",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 877
+            "score": 87,
+            "goodAnswers": []
         },
         {
             "firstname": "Moustapha",
@@ -135,7 +160,8 @@
             "login": "moustapha",
             "password": "12345",
             "avatar": "../uploads/papa.jpg",
-            "score": 720
+            "score": 70,
+            "goodAnswers": []
         },
         {
             "firstname": "JavaScript",
@@ -143,7 +169,8 @@
             "login": "js",
             "password": "12345",
             "avatar": "../uploads/js.png",
-            "score": 0
+            "score": 0,
+            "goodAnswers": []
         },
         {
             "firstname": "Babacar",
@@ -151,7 +178,8 @@
             "login": "babacar",
             "password": "12345",
             "avatar": "../uploads/babacar.png",
-            "score": 0
+            "score": 0,
+            "goodAnswers": []
         },
         {
             "firstname": "Pathe",
@@ -159,7 +187,8 @@
             "login": "pathe",
             "password": "12345",
             "avatar": "../uploads/pathe.png",
-            "score": 0
+            "score": 0,
+            "goodAnswers": []
         }
     ],
     "admins": [
