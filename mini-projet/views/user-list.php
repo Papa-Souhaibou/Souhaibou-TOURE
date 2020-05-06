@@ -50,7 +50,6 @@
                 }else {
                     echo '<a href="settings.php?page='.($page_actuelle - 1).'#user-list">Precedent</a>';
                 }
-                echo $nbre_de_page;
             }
         ?>
     </div>
