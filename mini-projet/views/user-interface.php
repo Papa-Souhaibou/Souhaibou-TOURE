@@ -209,44 +209,49 @@
                         $finished = 1;
                     }
                     if($finished === 1){
-                        echo "<h2>Les questions que vous avez trouvees</h2>";
                         if(isset($_SESSION["goodAnswers"])){
-                            foreach( $_SESSION["goodAnswers"] as $value) {
-                                $question = get_question_by_enonce($questions,$value);
-                                echo "<div class='results'>";
-                                echo "<h3>$question[enonce]</h3>";
-                                if($question["typeReponse"] === "text"){
-                                    echo '<input type="text" name="" id="" value="'.$question["reponse"].'" disabled><br/>';
-                                }elseif ($question["typeReponse"] === "radio") {
-                                    foreach ($question["choix"] as $choice) {
-                                        if($choice === $question["reponse"]){
-                                            echo '<input type="radio" name="" id="" checked disabled>';
-                                            echo "<label >$choice</label><br/>";
-                                        }else {
-                                            echo '<input type="radio" name="" id="" disabled>';
-                                            echo "<label >$choice</label><br/>";
+                            echo "<h2>Les questions que vous avez trouvees</h2>";
+                            if(isset($_SESSION["goodAnswers"])){
+                                foreach( $_SESSION["goodAnswers"] as $value) {
+                                    $question = get_question_by_enonce($questions,$value);
+                                    echo "<div class='results'>";
+                                    echo "<h3>$question[enonce]</h3>";
+                                    if($question["typeReponse"] === "text"){
+                                        echo '<input type="text" name="" id="" value="'.$question["reponse"].'" disabled><br/>';
+                                    }elseif ($question["typeReponse"] === "radio") {
+                                        foreach ($question["choix"] as $choice) {
+                                            if($choice === $question["reponse"]){
+                                                echo '<input type="radio" name="" id="" checked disabled>';
+                                                echo "<label >$choice</label><br/>";
+                                            }else {
+                                                echo '<input type="radio" name="" id="" disabled>';
+                                                echo "<label >$choice</label><br/>";
+                                            }
+                                        }
+                                    }elseif ($question["typeReponse"] === "checkbox") {
+                                        foreach ($question["choix"] as $choice) {
+                                            if(in_array($choice,$question["reponse"])){
+                                                echo '<input type="checkbox" name="" id="" checked disabled>';
+                                                echo "<label >$choice</label><br/>";
+                                            }else {
+                                                echo '<input type="checkbox" name="" id="" disabled>';
+                                                echo "<label >$choice</label><br/>";
+                                            }
                                         }
                                     }
-                                }elseif ($question["typeReponse"] === "checkbox") {
-                                    foreach ($question["choix"] as $choice) {
-                                        if(in_array($choice,$question["reponse"])){
-                                            echo '<input type="checkbox" name="" id="" checked disabled>';
-                                            echo "<label >$choice</label><br/>";
-                                        }else {
-                                            echo '<input type="checkbox" name="" id="" disabled>';
-                                            echo "<label >$choice</label><br/>";
-                                        }
-                                    }
+                                    echo "</div>";
                                 }
-                                echo "</div>";
                             }
                         }
+                        else{
+                            echo "<center style='margin-top:15px'><h2>Vous n'avez pas encore joue</h2></center>";
+                        }
                         echo "<br><br>";
-                        echo '<a href="user-interface.php?question='.($question_actuelle).'&finished=2" class="previous_question">Suivant</a>';
+                        echo '<a style="margin-left:25px" href="user-interface.php?question='.($question_actuelle).'&finished=2" class="previous_question">Suivant</a>';
                         echo "<br>";
                     }elseif ($finished === 2) {
                         if(isset($_SESSION["badAnswers"])){
-                            echo "<h2>Les questions que vous avez faussees</h2>";
+                            echo "<center style='margin-top:15px'><h2>Les questions que vous avez faussees</h2></center>";
                             foreach ($_SESSION["badAnswers"] as $badAnswer) {
                                 echo '<div class="results">';
                                 echo "<h3>$badAnswer</h3>";
@@ -254,7 +259,7 @@
                             }
                         }
                         echo "<br><br>";
-                        echo "<p>Vous avez $_SESSION[score]/$_SESSION[total]</p>";
+                        echo "<center style='margin-top:15px'><h3>Votre score est de : $_SESSION[score]/$_SESSION[total]</h3></center>";
                         unset($_SESSION["goodAnswers"]);
                         unset($_SESSION["badAnswers"]);
                         unset($_SESSION["previous"]);
@@ -262,7 +267,7 @@
                         unset($_SESSION["score"]);
                         unset($_SESSION["total"]);
                         echo "<br><br>";
-                        echo '<a href="user-interface.php?question='.(1).'" class="previous_question">Termine</a>';
+                        echo '<a style="margin-left:25px" href="user-interface.php?question='.(1).'" class="previous_question">Termine</a>';
                         echo "<br>";
                     }
                 }
