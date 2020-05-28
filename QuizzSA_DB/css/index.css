@@ -1,0 +1,50 @@
+:root{
+    --navbar-and-footer-bg: #22c933;
+    --pageBackground: #eff1ed;
+    --whiteTextColor: #f0ecec;
+}
+@import url(//fonts.googleapis.com/icon?family=Material+Icons);
+.mainBg {
+    background-color: var(--navbar-and-footer-bg);
+}
+body {
+    background-color: var(--pageBackground);
+}
+.mainBg a {
+    color: var(--whiteTextColor);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.footer {
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+.bgImg {
+    background-image: url("../img/backgroundImage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 90%;
+    margin: 25px auto;
+    height: 100vh;
+    border: 2px slid;
+    color: var(--whiteTextColor);
+}
+.form-group {
+    position: relative;
+}
+.form-group i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.form-group input {
+    padding-left: 50px;
+}
+.form button,.form button:hover {
+    color: var(--whiteTextColor);
+    font-style: 1.5em;
+    font-weight: bold;
+}
