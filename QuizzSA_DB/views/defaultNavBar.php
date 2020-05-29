@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link login" href="#" data-toggle="modal" data-target="#modal">Se connecter</a>
+        <a class="nav-link login" href="#" data-toggle="modal" data-target="#modal" id="connexion">Se connecter</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">S'inscrire</a>

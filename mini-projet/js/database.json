@@ -1,1 +1,238 @@
-{"number":10,"users":[{"firstname":"Someone","lastname":"Someone","login":"someone","password":"someone","avatar":"..\/uploads\/someone.jpg","score":63,"goodAnswers":["Quelle m\u00e9thode d'envoi de donn\u00e9es est la moins limit\u00e9e ?","JavaScript est le seul langage de programmation inclus dans l'ensemble des navigateurs web.","Qui est le president du SENEGAL ?"],"note":21},{"firstname":"Unknown","lastname":"Unknown","login":"unknown","password":"unknown","avatar":"..\/uploads\/unknown.jpg","score":80,"goodAnswers":["Quelle m\u00e9thode d'envoi de donn\u00e9es est la moins limit\u00e9e ?","Quel est le r\u00f4le d'une base de donn\u00e9es ?","En quelle ann\u00e9e le S\u00c9N\u00c9GAL a eu son ind\u00e9pendance ?"]},{"firstname":"Papa","lastname":"Souhaibou","login":"papa","password":"12345","avatar":"..\/uploads\/papa.jpg","score":40,"goodAnswers":[]},{"firstname":"Ibou","lastname":"DIATTA","login":"ibou","password":"12345","avatar":"..\/uploads\/papa.jpg","score":122,"goodAnswers":[]},{"firstname":"Djiby","lastname":"NIANG","login":"djiby","password":"12345","avatar":"..\/uploads\/papa.jpg","score":86,"goodAnswers":[]},{"firstname":"Lamine","lastname":"MAN\u00c9","login":"lamine","password":"12345","avatar":"..\/uploads\/papa.jpg","score":79,"goodAnswers":[]},{"firstname":"Khady","lastname":"DIOUF","login":"khady","password":"12345","avatar":"..\/uploads\/papa.jpg","score":85,"goodAnswers":[]},{"firstname":"L\u00e9na","lastname":"GUEYE","login":"lena","password":"12345","avatar":"..\/uploads\/papa.jpg","score":73,"goodAnswers":[]},{"firstname":"Serges","lastname":"MENDES","login":"serges","password":"12345","avatar":"..\/uploads\/papa.jpg","score":70,"goodAnswers":[]},{"firstname":"Aly","lastname":"NIANG","login":"aly","password":"12345","avatar":"..\/uploads\/papa.jpg","score":93,"goodAnswers":[]},{"firstname":"Abba","lastname":"NDOUR","login":"abba","password":"12345","avatar":"..\/uploads\/papa.jpg","score":76,"goodAnswers":[]},{"firstname":"Ibrahima","lastname":"SAMB","login":"ibrahima","password":"12345","avatar":"..\/uploads\/papa.jpg","score":77,"goodAnswers":[]},{"firstname":"Astou","lastname":"DIENG","login":"astou","password":"12345","avatar":"..\/uploads\/papa.jpg","score":80,"goodAnswers":[]},{"firstname":"Aminata","lastname":"BEYE","login":"aminata","password":"12345","avatar":"..\/uploads\/papa.jpg","score":70,"goodAnswers":[]},{"firstname":"Estelle","lastname":"NDECKY","login":"estelle","password":"12345","avatar":"..\/uploads\/papa.jpg","score":73,"goodAnswers":[]},{"firstname":"Saliou","lastname":"MBAYE","login":"saliou","password":"12345","avatar":"..\/uploads\/papa.jpg","score":87,"goodAnswers":[]},{"firstname":"Moustapha","lastname":"DIALLO","login":"moustapha","password":"12345","avatar":"..\/uploads\/papa.jpg","score":70,"goodAnswers":[]},{"firstname":"JavaScript","lastname":"ECMASCRIPT","login":"js","password":"12345","avatar":"..\/uploads\/js.png","score":0,"goodAnswers":[]},{"firstname":"Babacar","lastname":"DIOUF","login":"babacar","password":"12345","avatar":"..\/uploads\/babacar.png","score":0,"goodAnswers":[]},{"firstname":"Pathe","lastname":"PATHE","login":"pathe","password":"12345","avatar":"..\/uploads\/pathe.png","score":0,"goodAnswers":[]}],"admins":[{"firstname":"Admin","lastname":"Admin","login":"admin","password":"admin","avatar":"..\/uploads\/admin.jpg"},{"firstname":"Kemo","lastname":"TOURE","login":"kemo","password":"passer","avatar":"..\/uploads\/kemo.jpg"},{"firstname":"Moussa","lastname":"Diame","login":"moussa","password":"passer","avatar":"..\/uploads\/moussa.jpg"},{"firstname":"Khalifa","lastname":"SALL","login":"khalifa","password":"12345","avatar":"..\/uploads\/khalifa.png"},{"firstname":"Samba","lastname":"Samba","login":"samba","password":"12345","avatar":"..\/uploads\/samba.png"},{"firstname":"Guelwar","lastname":"Guelwar","login":"guelwar","password":"12345","avatar":"..\/uploads\/guelwar.png"}]}
+{
+    "number": 10,
+    "users": [
+        {
+            "firstname": "Someone",
+            "lastname": "Someone",
+            "login": "someone",
+            "password": "someone",
+            "avatar": "../uploads/someone.jpg",
+            "score": 63,
+            "goodAnswers": [
+                "Quelle méthode d'envoi de données est la moins limitée ?",
+                "JavaScript est le seul langage de programmation inclus dans l'ensemble des navigateurs web.",
+                "Qui est le president du SENEGAL ?"
+            ],
+            "note": 21
+        },
+        {
+            "firstname": "Unknown",
+            "lastname": "Unknown",
+            "login": "unknown",
+            "password": "unknown",
+            "avatar": "../uploads/unknown.jpg",
+            "score": 80,
+            "goodAnswers": [
+                "Quelle méthode d'envoi de données est la moins limitée ?",
+                "Quel est le rôle d'une base de données ?",
+                "En quelle année le SÉNÉGAL a eu son indépendance ?"
+            ]
+        },
+        {
+            "firstname": "Papa",
+            "lastname": "Souhaibou",
+            "login": "papa",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 40,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Ibou",
+            "lastname": "DIATTA",
+            "login": "ibou",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 122,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Djiby",
+            "lastname": "NIANG",
+            "login": "djiby",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 86,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Lamine",
+            "lastname": "MANÉ",
+            "login": "lamine",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 79,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Khady",
+            "lastname": "DIOUF",
+            "login": "khady",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 85,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Léna",
+            "lastname": "GUEYE",
+            "login": "lena",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 73,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Serges",
+            "lastname": "MENDES",
+            "login": "serges",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 70,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Aly",
+            "lastname": "NIANG",
+            "login": "aly",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 93,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Abba",
+            "lastname": "NDOUR",
+            "login": "abba",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 76,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Ibrahima",
+            "lastname": "SAMB",
+            "login": "ibrahima",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 77,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Astou",
+            "lastname": "DIENG",
+            "login": "astou",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 80,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Aminata",
+            "lastname": "BEYE",
+            "login": "aminata",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 70,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Estelle",
+            "lastname": "NDECKY",
+            "login": "estelle",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 73,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Saliou",
+            "lastname": "MBAYE",
+            "login": "saliou",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 87,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Moustapha",
+            "lastname": "DIALLO",
+            "login": "moustapha",
+            "password": "12345",
+            "avatar": "../uploads/papa.jpg",
+            "score": 70,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "JavaScript",
+            "lastname": "ECMASCRIPT",
+            "login": "js",
+            "password": "12345",
+            "avatar": "../uploads/js.png",
+            "score": 0,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Babacar",
+            "lastname": "DIOUF",
+            "login": "babacar",
+            "password": "12345",
+            "avatar": "../uploads/babacar.png",
+            "score": 0,
+            "goodAnswers": []
+        },
+        {
+            "firstname": "Pathe",
+            "lastname": "PATHE",
+            "login": "pathe",
+            "password": "12345",
+            "avatar": "../uploads/pathe.png",
+            "score": 0,
+            "goodAnswers": []
+        }
+    ],
+    "admins": [
+        {
+            "firstname": "Admin",
+            "lastname": "Admin",
+            "login": "admin",
+            "password": "admin",
+            "avatar": "../uploads/admin.jpg"
+        },
+        {
+            "firstname": "Kemo",
+            "lastname": "TOURE",
+            "login": "kemo",
+            "password": "passer",
+            "avatar": "../uploads/kemo.jpg"
+        },
+        {
+            "firstname": "Moussa",
+            "lastname": "Diame",
+            "login": "moussa",
+            "password": "passer",
+            "avatar": "../uploads/moussa.jpg"
+        },
+        {
+            "firstname": "Khalifa",
+            "lastname": "SALL",
+            "login": "khalifa",
+            "password": "12345",
+            "avatar": "../uploads/khalifa.png"
+        },
+        {
+            "firstname": "Samba",
+            "lastname": "Samba",
+            "login": "samba",
+            "password": "12345",
+            "avatar": "../uploads/samba.png"
+        },
+        {
+            "firstname": "Guelwar",
+            "lastname": "Guelwar",
+            "login": "guelwar",
+            "password": "12345",
+            "avatar": "../uploads/guelwar.png"
+        }
+    ]
+}
