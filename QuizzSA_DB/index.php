@@ -32,7 +32,7 @@
                   <div class="form-group">
                     <i class="fa fa-user-circle fa-lg fa-fw" aria-hidden="true"></i>
                     <input type="text" class="form-control" name="login" id="login">
-                    <small id="passwordHelp" class="text-danger">
+                    <small class="text-danger">
                       <?php
                         if(isset($_SESSION["loginError"])){
                           echo $_SESSION["loginError"];
@@ -51,7 +51,7 @@
                   <div class="form-group">
                     <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                     <input type="password" class="form-control" name="password" id="password">
-                    <small id="passwordHelp" class="text-danger">
+                    <small class="text-danger">
                       <?php
                         if(isset($_SESSION["passwordError"])){
                           echo $_SESSION["passwordError"];
@@ -73,6 +73,63 @@
                 </form>
             </div>
             <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="subscribe-modal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title">Inscription</h1>
+              <button type="button" class="close" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+              <!-- <div class="row"> -->
+                  <!-- <div class="col-md-10 mx-auto"> -->
+                      <form>
+                          <div class="form-group row">
+                              <div class="col-sm-8">
+                                  <label for="inputName">Nom Et prenom</label>
+                                  <input type="text" class="form-control" id="inputName" name="name" placeholder="Nom Et prenom">
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="border border-dark" id="showAvatar">
+
+                                </div>
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-sm-8">
+                                  <label for="inputLogin">Login</label>
+                                  <input type="text" class="form-control" name="login" id="inputLogin" placeholder="Login">
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-sm-8">
+                                  <label for="inputPassword">Password</label>
+                                  <input type="text" class="form-control" name="password" id="inputPassword" placeholder="Password">
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-sm-8">
+                                  <label for="inputConfirmPassword">Confirm Your Password</label>
+                                  <input type="number" class="form-control" name="co-password" id="inputConfirmPassword" placeholder="Confirm Your Password">
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-sm-8">
+                                  <label for="inputAvatar">Avatar</label>
+                                  <input type="file" name="avatar" class="form-control" id="inputAvatar">
+                              </div>
+                          </div>
+                          <div class="text-center col-sm-8">
+                            <button type="submit" class="btn mainBg btn-lg" name="submit" id="subscribtionSubmit">S'inscrire</button>
+                          </div>
+                      </form>
+            </div>
+            <div class="modal-footer">
+
             </div>
           </div>
         </div>

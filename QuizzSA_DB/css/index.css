@@ -3,14 +3,26 @@
     --pageBackground: #eff1ed;
     --whiteTextColor: #f0ecec;
 }
-@import url(//fonts.googleapis.com/icon?family=Material+Icons);
+/* @import url(//fonts.googleapis.com/icon?family=Material+Icons); */
 .mainBg {
     background-color: var(--navbar-and-footer-bg);
+}
+.normale {
+    color: black;
 }
 body {
     background-color: var(--pageBackground);
 }
-.mainBg a {
+#avatar-container, .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+#playerContainer{
+    width: 90%;
+    height: 800px;
+}
+#defaultNavbar a, footer a {
     color: var(--whiteTextColor);
     font-weight: bold;
     font-size: 1.2em;
@@ -32,18 +44,19 @@ body {
     border: 2px slid;
     color: var(--whiteTextColor);
 }
-.form-group {
+#loginForm .form-group {
     position: relative;
 }
-.form-group i {
+#loginForm .form-group i {
     position: absolute;
     left: 10px;
     top: 10px;
 }
-.form-group input {
+#loginForm  input {
     padding-left: 50px;
 }
-.form button,.form button:hover {
+#loginForm .form button,
+#loginForm .form button:hover,footer a:hover {
     color: var(--whiteTextColor);
     font-style: 1.5em;
     font-weight: bold;

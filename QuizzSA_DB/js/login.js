@@ -33,10 +33,13 @@ $(function() {
             }
         });
     });
-
-    // const isPlayer(users,login){
-    //     for (const user of users) {
-    //         if()
-    //     }
-    // }
+    $(window).on('resize', function () {
+        var win = $(this); //this = window
+        const avatar = document.querySelector("#showAvatar");
+        if (win.width() <= 990) { 
+            avatar.parentNode.style.display = "none";
+        }else{
+            avatar.parentNode.style.display = "block";
+        }
+    });
 });
