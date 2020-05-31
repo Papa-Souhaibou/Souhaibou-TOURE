@@ -21,6 +21,19 @@
             }
         }
 
+        public function jsonSerialize(){
+            return [
+                "idJoueur" => $this->getIdJoueur(),
+                "prenomJoueur" => $this->getPrenomJoueur(),
+                "nomJoueur" => $this->getNomJoueur(),
+                "loginJoueur" => $this->getLoginJoueur(),
+                "avatarJoueur" => $this->getAvatarJoueur(),
+                "passwordJoueur" => $this->getPasswordJoueur(),
+                "scoreJoueur" => $this->getScoreJoueur(),
+                "statusJoueur" => $this->getStatusJoueur()
+            ];
+        }
+
         /**
          * Get the value of idJoueur
          */ 

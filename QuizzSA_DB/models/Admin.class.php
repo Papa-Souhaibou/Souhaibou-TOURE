@@ -21,6 +21,17 @@
             }
         }
 
+        public function jsonSerialize(){
+            return [
+                "idAdmin" => $this->getIdAdmin(),
+                "prenomAdmin" => $this->getPrenomAdmin(),
+                "nomAdmin" => $this->getNomAdmin(),
+                "loginAdmin" => $this->getLoginAdmin(),
+                "avatarAdmin" => $this->getAvatarAdmin(),
+                "passwordAdmin" => $this->getPasswordAdmin(),
+            ];
+        }
+
         /**
          * Get the value of idAdmin
          */ 

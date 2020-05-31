@@ -12,13 +12,13 @@
             joueurs(prenomJoueur,nomJoueur,loginJoueur,avatarJoueur,passwordJoueur,scoreJoueur,statusJoueur)
             VALUES(:prenomJoueur,:nomJoueur,:loginJoueur,:avatarJoueur,:passwordJoueur,:scoreJoueur,:statusJoueur)
             ");
-            $response->bindValue(":prenomJoueur",$palyer->getPrenomJoueur());
-            $response->bindValue(":nomJoueur",$palyer->getNomJoueur());
-            $response->bindValue(":loginJoueur",$palyer->getLoginJoueur());
-            $response->bindValue(":avatarJoueur",$palyer->getAvatarJoueur());
-            $response->bindValue(":passwordJoueur",$palyer->getPasswordJoueur());
-            $response->bindValue(":scoreJoueur",$palyer->getScoreJoueur());
-            $response->bindValue(":statusJoueur",$palyer->getStatusJoueur());
+            $response->bindValue(":prenomJoueur",$player->getPrenomJoueur());
+            $response->bindValue(":nomJoueur",$player->getNomJoueur());
+            $response->bindValue(":loginJoueur",$player->getLoginJoueur());
+            $response->bindValue(":avatarJoueur",$player->getAvatarJoueur());
+            $response->bindValue(":passwordJoueur",$player->getPasswordJoueur());
+            $response->bindValue(":scoreJoueur",$player->getScoreJoueur());
+            $response->bindValue(":statusJoueur",$player->getStatusJoueur());
             $response->execute();
         }
 
@@ -30,6 +30,7 @@
                 $player = new Player($data);
                 $players[] = $player;
             }
+            $response->closeCursor();
             return $players;
         }
         public function getPlayer($info){
@@ -41,6 +42,7 @@
                 $response->bindValue(":idJoueur",$info);
                 $response->execute();
                 $data = $response->fetch(PDO::FETCH_ASSOC);
+                $response->closeCursor();
                 if($data){
                     return new Player($data);
                 }
@@ -52,6 +54,7 @@
                 $response->bindValue(":loginJoueur",$info);
                 $response->execute();
                 $data = $response->fetch(PDO::FETCH_ASSOC);
+                $response->closeCursor();
                 if($data){
                     return new Player($data);
                 }

@@ -36,6 +36,16 @@
             return null;
         }
 
+        public function getAdminsList(){
+            $admins = [];
+            $response = $this->db->query("SELECT * FROM administrateur");
+            while ($data = $response->fetch(PDO::FETCH_ASSOC)) {
+                $admin = new Admin($data);
+                $admins[] = $admin;
+            }
+            return $admins;
+        }
+
         /**
          * Get the value of db
          */ 

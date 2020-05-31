@@ -1,10 +1,7 @@
 <?php
-    require_once("../models/Autoloader.class.php");
     require_once("../models/databaseAccess.php");
     session_start();
-    Autoloader::register();
-    $playerManager = new PlayerManager($db);
-    $adminManager = new AdminManager($db);
+    
     function getConnexion(String $login){
         global $playerManager,$adminManager;
         if($playerManager->getPlayer($login)){
@@ -28,13 +25,15 @@
         }
         if(getConnexion($login) === "player"){
             $player = $playerManager->getPlayer($login);
-            var_dump($player);
+
             if($player->getPasswordJoueur() === $password){
                 header("Location:../views/playerInterface.php");
             }else{
                 $_SESSION["passwordError"] = "Mot de passe incorrecte";
                 $hasError = true;
             }
+            $player = json_encode($player);
+            echo $player;
         }
         if(getConnexion($login) === "admin"){
             $admin = $adminManager->getAdmin($login);
@@ -44,6 +43,10 @@
                 $_SESSION["passwordError"] = "Mot de passe incorrecte";
                 $hasError = true;
             }
+        }
+        if(!getConnexion($login)){
+            $_SESSION["loginError"] = "Ce compte n'existe pas";
+            $hasError = true;
         }
         if($hasError){
             header("Location:../index.php");
