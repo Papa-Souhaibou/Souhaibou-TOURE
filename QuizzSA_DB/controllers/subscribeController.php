@@ -1,12 +1,14 @@
 <?php
     session_start();
     include_once("../models/databaseAccess.php");
+
     if(isset($_POST["submit"])){
         $login = htmlspecialchars($_POST["login"]);
         $firstname = htmlspecialchars($_POST["firstname"]);
         $lastname = htmlspecialchars($_POST["lastname"]);
         $password = $_POST["password"];
         $coPassword = $_POST["co-password"];
+        $thisAdmin = $adminManager->getAdmin($_SESSION["userLogin"]);
         $_SESSION["login"] = $login;
         $_SESSION["firstname"] = $firstname;
         $_SESSION["lastname"] = $lastname;
@@ -29,6 +31,7 @@
             "scoreJoueur" => 0,
             "statusJoueur" => "actif"
         ];
+        
         if(empty($login)){
             $hasError = true;
             $_SESSION["loginErrors"] = "Ce champs est obligatoire";
@@ -91,19 +94,36 @@
                 $player["passwordJoueur"] = $password; 
             }
         }
-        if($hasError){
+        if($hasError && !$thisPlayer){
             header("Location:../index.php");
+        }else if($hasError && $thisPlayer){
+            header("Location:../views/adminInterface.php");
         }else{
-            $player = [
-                "nomJoueur" => $lastname,
-                "prenomJoueur" => $firstname,
-                "loginJoueur" => $login,
-                "avatarJoueur" => $avatarName,
-                "passwordJoueur" => $password,
-                "scoreJoueur" => 0,
-                "statusJoueur" => "actif"
-            ];
-            $player = new Player($player);
-            $playerManager->add($player);
+            if(isset($_SESSION["userLogin"]) && $thisAdmin){
+                $adminTab = [
+                    "nomAdmin" => $lastname,
+                    "prenomAdmin" => $firstname,
+                    "loginAdmin" => $login,
+                    "avatarAdmin" => $avatarName,
+                    "passwordAdmin" => $password,
+                ];
+                $newAdmin = new Admin($adminTab);
+                $adminManager->add($newAdmin);
+                
+                header("Location:../views/adminInterface.php");
+            }else{
+                $player = [
+                    "nomJoueur" => $lastname,
+                    "prenomJoueur" => $firstname,
+                    "loginJoueur" => $login,
+                    "avatarJoueur" => $avatarName,
+                    "passwordJoueur" => $password,
+                    "scoreJoueur" => 0,
+                    "statusJoueur" => "actif"
+                ];
+                $player = new Player($player);
+                $playerManager->add($player);
+                header("Location:../index.php");
+            }
         }
     }

@@ -14,14 +14,14 @@
         <a class="nav-link" href="#"></a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" id="navbarAdmin">
       <li><a class="nav-link" href="#" >Tableau de bord</a></li>
-      <li><a class="nav-link" href="#" >Creer Admin</a></li>
-      <li><a class="nav-link" href="#" >Creer Questions</a></li>
+      <li><a class="nav-link" href="#createAdmin" id="createAdmin">Creer Admin</a></li>
+      <li><a class="nav-link" href="#createQuestion" id="createQuestion">Creer Questions</a></li>
       <li><a class="nav-link" href="#" >Liste Joueur</a></li>
       <li><a class="nav-link" href="#" >Liste Question</a></li>
       <li>
-        <form action="./controllers/loginController.php" class="form" id="loginForm" method="post">
+        <form action="../controllers/deconnexion.php" class="form" id="loginForm" method="post">
           <button type="submit" class="btn mainBg btn-lg" name="submit" id="loginSubmit">Deconnexion</button>
         </form>
       </li>

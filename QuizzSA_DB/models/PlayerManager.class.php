@@ -20,6 +20,7 @@
             $response->bindValue(":scoreJoueur",$player->getScoreJoueur());
             $response->bindValue(":statusJoueur",$player->getStatusJoueur());
             $response->execute();
+            $response->closeCursor();
         }
 
         public function getListUser(){

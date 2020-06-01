@@ -18,7 +18,13 @@ body {
     height: 60px;
     border-radius: 50%;
 }
-#playerContainer,#adminContainer{
+#_createAdmin,#_createQuestion{
+    display: none;
+}
+#adminContainer {
+    min-height: 60vh;
+}
+#playerContainer{
     width: 90%;
     height: 800px;
 }

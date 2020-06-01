@@ -2,7 +2,7 @@ $(function() {
     $("#loginForm").on("submit", function (event) {
         event.preventDefault();
         const userLogin = $("#login").val();
-        const userPassword = $("#password").val();
+        let userPassword = $("#password").val();
         let hasError = false
         $("#loginForm input").each(function (index) {
             $(this).on("input", function () {
@@ -26,19 +26,32 @@ $(function() {
                         if(player["error"]){
                             showError(document.querySelector("#login"),"Compte innexistant");
                         }else{
-                            if(player["passwordJoueur"]){
-                                if(player["passwordJoueur"] == userPassword){
-                                    $("#loginForm").unbind("submit").submit();
-                                }else{
-                                    showError(document.querySelector("#password"),"Mot de passe incorrecte");
+                            const gethash = new XMLHttpRequest();
+                            const getForm = new FormData();
+                            getForm.append("password",userPassword);
+                            getForm.append("login",userLogin);
+                            gethash.open("POST","models/hashpassword.php");
+                            gethash.onreadystatechange = () => {
+                                if(gethash.readyState == XMLHttpRequest.DONE){
+                                    if(gethash.status == 200){
+                                        const password = gethash.responseText;
+                                        if(player["passwordJoueur"]){
+                                            if(password == "true"){
+                                                $("#loginForm").unbind("submit").submit();
+                                            }else{
+                                                showError(document.querySelector("#password"), `Mot de passe incorrecte`);
+                                            }
+                                        } else if (player["passwordAdmin"]){
+                                            if(password == "true"){
+                                                $("#loginForm").unbind("submit").submit();
+                                            }else{
+                                                showError(document.querySelector("#password"),`Mot de passe incorrecte`);
+                                            }
+                                        }
+                                    }
                                 }
-                            } else if (player["passwordAdmin"]){
-                                if(player["passwordAdmin"] == userPassword){
-                                    $("#loginForm").unbind("submit").submit();
-                                }else{
-                                    showError(document.querySelector("#password"),"Mot de passe incorrecte");
-                                }
-                            }
+                            };
+                            gethash.send(getForm);
                         }
                         
                     }

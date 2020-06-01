@@ -13,7 +13,7 @@
                     "SELECT * FROM administrateur
                         WHERE idAdmin = :idAdmin
                 ");
-                $response->bindValue(":idJoueur",$info);
+                $response->bindValue(":idAdmin",$info);
                 $response->execute();
                 $data = $response->fetch(PDO::FETCH_ASSOC);
                 $response->closeCursor();
@@ -43,7 +43,22 @@
                 $admin = new Admin($data);
                 $admins[] = $admin;
             }
+            $response->closeCursor();
             return $admins;
+        }
+
+        public function add(Admin $admin){
+            $response = $this->db->prepare("INSERT INTO 
+            administrateur(prenomAdmin,nomAdmin,loginAdmin,avatarAdmin,passwordAdmin)
+            VALUES(:prenomAdmin,:nomAdmin,:loginAdmin,:avatarAdmin,:passwordAdmin)
+            ");
+            $response->bindValue(":prenomAdmin",$admin->getPrenomAdmin());
+            $response->bindValue(":nomAdmin",$admin->getNomAdmin());
+            $response->bindValue(":loginAdmin",$admin->getLoginAdmin());
+            $response->bindValue(":avatarAdmin",$admin->getAvatarAdmin());
+            $response->bindValue(":passwordAdmin",$admin->getPasswordAdmin());
+            $response->execute();
+            $response->closeCursor();
         }
 
         /**

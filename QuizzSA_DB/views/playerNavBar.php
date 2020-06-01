@@ -15,7 +15,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <form action="./controllers/loginController.php" class="form" id="loginForm" method="post">
+        <form action="../controllers/deconnexion.php" class="form" id="loginForm" method="post">
             <button type="submit" class="btn mainBg btn-lg" name="submit" id="loginSubmit">Deconnexion</button>
         </form>
       </li>

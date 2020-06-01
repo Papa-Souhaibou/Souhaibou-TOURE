@@ -13,6 +13,7 @@
     }
     if(isset($_POST["submit"])){
         $login = htmlspecialchars($_POST["login"]);
+        $_SESSION["userLogin"] = $login;
         $password = $_POST["password"];
         $hasError = false;
         if(empty($login)){
@@ -26,7 +27,7 @@
         if(getConnexion($login) === "player"){
             $player = $playerManager->getPlayer($login);
 
-            if($player->getPasswordJoueur() === $password){
+            if(password_verify($password,$player->getPasswordJoueur())){
                 header("Location:../views/playerInterface.php");
             }else{
                 $_SESSION["passwordError"] = "Mot de passe incorrecte";
@@ -37,7 +38,7 @@
         }
         if(getConnexion($login) === "admin"){
             $admin = $adminManager->getAdmin($login);
-            if($admin->getPasswordAdmin() === $password){
+            if(password_verify($password,$admin->getPasswordAdmin())){
                 header("Location:../views/adminInterface.php");
             }else {
                 $_SESSION["passwordError"] = "Mot de passe incorrecte";
