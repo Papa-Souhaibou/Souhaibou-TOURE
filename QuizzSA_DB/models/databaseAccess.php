@@ -12,4 +12,5 @@
     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8",$username,$password);
     $playerManager = new PlayerManager($db);
     $adminManager = new AdminManager($db);
+    $questionManager = new QuestionManager($db);
     

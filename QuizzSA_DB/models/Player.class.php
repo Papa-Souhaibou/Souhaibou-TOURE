@@ -1,5 +1,6 @@
 <?php
-    class Player {
+    class Player implements JsonSerializable
+    {
         private $idJoueur,
                 $prenomJoueur,
                 $nomJoueur,

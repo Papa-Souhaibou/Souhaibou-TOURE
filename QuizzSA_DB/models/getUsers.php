@@ -4,12 +4,12 @@
         $login = htmlspecialchars($_POST["login"]);
         $player = $playerManager->getPlayer($login);
         if($player){
-            $player = json_encode($player->jsonSerialize());
+            $player = json_encode($player);
             echo $player;
         }else{
             $admin = $adminManager->getAdmin($login);
             if($admin){
-                $admin = json_encode($admin->jsonSerialize());
+                $admin = json_encode($admin);
                 echo $admin;
             }else {
                 echo json_encode(["error" => "notFound"]);

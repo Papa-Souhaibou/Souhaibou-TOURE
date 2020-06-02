@@ -1,5 +1,5 @@
 <?php
-    class Admin 
+    class Admin implements JsonSerializable
     {
         private $idAdmin,
                 $loginAdmin,
@@ -28,7 +28,7 @@
                 "nomAdmin" => $this->getNomAdmin(),
                 "loginAdmin" => $this->getLoginAdmin(),
                 "avatarAdmin" => $this->getAvatarAdmin(),
-                "passwordAdmin" => $this->getPasswordAdmin(),
+                "passwordAdmin" => $this->getPasswordAdmin()
             ];
         }
 
@@ -42,7 +42,7 @@
 
         public function setIdAdmin($idAdmin)
         {
-            $this->idAdmin = $idAdmin;
+            $this->idAdmin = (int)$idAdmin;
         }
 
         /**

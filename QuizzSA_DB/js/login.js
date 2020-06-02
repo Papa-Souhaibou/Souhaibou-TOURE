@@ -30,7 +30,7 @@ $(function() {
                             const getForm = new FormData();
                             getForm.append("password",userPassword);
                             getForm.append("login",userLogin);
-                            gethash.open("POST","models/hashpassword.php");
+                            gethash.open("POST","models/hashPassword.php");
                             gethash.onreadystatechange = () => {
                                 if(gethash.readyState == XMLHttpRequest.DONE){
                                     if(gethash.status == 200){
