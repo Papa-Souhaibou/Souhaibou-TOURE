@@ -4,10 +4,11 @@
         "idQuestion" => 25,
         "ennonceQuestion" => "Comment tu vas ?",
         "typeQuestion" => "text",
-        "choixPossible" => "bien,mal",
+        "choixPossible" => "bien",
         "reponse" => "bien",
         "note" => 15,
-        "idAdmin" => 3
+        "idAdmin" => 1
     ];
     $question = new Question($tab);
+    $questionManager->setQuestion($question,3);
     var_dump(json_encode($question));

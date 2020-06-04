@@ -39,7 +39,20 @@
             $response->execute();
             $response->closeCursor();
         }
-
+        public function setQuestion(Question $question,$idQuestion){
+            $response = $this->db->prepare("UPDATE questions 
+            SET ennonceQuestion = :ennonceQuestion,typeQuestion = :typeQuestion,choixPossible = :choixPossible,reponse = :reponse,note = :note,idAdmin = :idAdmin
+            WHERE idQuestion = $idQuestion
+            ");
+            $response->bindValue(":ennonceQuestion",$question->getEnnonceQuestion());
+            $response->bindValue(":typeQuestion",$question->getTypeQuestion());
+            $response->bindValue(":choixPossible",$question->getChoixPossible());
+            $response->bindValue(":reponse",$question->getReponse());
+            $response->bindValue(":note",$question->getNote());
+            $response->bindValue(":idAdmin",$question->getIdAdmin());
+            $response->execute();
+            $response->closeCursor();
+        }
         /**
          * Get the value of db
          */ 

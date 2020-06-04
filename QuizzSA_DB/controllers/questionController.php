@@ -87,7 +87,8 @@
                 $response = $choixPossible;
             }
         }
-        
+        var_dump($_POST);
+        die();
         if(!$hasError){
             $question = new Question([
                 "ennonceQuestion" => $ennonce,
@@ -97,14 +98,19 @@
                 "note" => $note,
                 "idAdmin" => $admin->getIdAdmin()
             ]);
-            $questionManager->add($question);
-            header("Location:../views/adminInterface.php");
+            if(isset($_POST["modif"])){
+                $id = (int)$_POST["modif"];
+                $questionManager->setQuestion($question,$id);
+                echo "success";
+            }
+            // else{
+            //     $questionManager->add($question);
+            //     header("Location:../views/adminInterface.php");
+            // }
         }else{
             header("Location:../views/adminInterface.php");
         }
     }else if(isset($_POST["numSubmit"])){
-        var_dump($_POST);
-        $hasError = false;
         if(empty($_POST["num"])){
             $hasError = true;
             $_SESSION["numError"] = "Ce champs est obligatoire.";
