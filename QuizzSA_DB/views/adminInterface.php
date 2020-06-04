@@ -16,16 +16,12 @@
 </head>
   <body>
     <?php
-        include_once("./adminNavBar.php");
+      include_once("./adminNavBar.php");
     ?>
     <div class="container-fluid" id="adminContainer">
-    <?php
-      include_once("./createAdmin.php");
-      include_once("./createQuestion.php");
-    ?>
     </div>
     <?php
-        include_once("./footer.php");
+      include_once("./footer.php");
     ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

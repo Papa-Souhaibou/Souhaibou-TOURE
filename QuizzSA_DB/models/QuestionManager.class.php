@@ -22,6 +22,24 @@
             $response->closeCursor();
         }
 
+        public function getListQuestion(){
+            $questions = [];
+            $response = $this->db->query("SELECT * FROM questions");
+            while ($data = $response->fetch(PDO::FETCH_ASSOC)) {
+                $question = new Question($data);
+                $questions[] = $question;
+            }
+            $response->closeCursor();
+            return $questions;
+        }
+
+        public function delete(int $id){
+            $response = $this->db->prepare("DELETE FROM questions WHERE idQuestion = :idQuestion");
+            $response->bindValue(":idQuestion",$id);
+            $response->execute();
+            $response->closeCursor();
+        }
+
         /**
          * Get the value of db
          */ 

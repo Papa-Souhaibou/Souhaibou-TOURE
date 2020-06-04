@@ -20,7 +20,9 @@
                       </script>
                       <?php
                         }
-                        unset($_SESSION["lastname"]);
+                        if(isset($_SESSION["lastname"])){
+                          unset($_SESSION["lastname"]);
+                        }
                       ?>
                 </small>
                 </div>
@@ -47,7 +49,9 @@
                       </script>
                       <?php
                         }
-                        unset($_SESSION["firstname"]);
+                        if(isset($_SESSION["firstname"])){
+                          unset($_SESSION["firstname"]);
+                        }
                       ?>
                 </small>
                 </div>
@@ -69,7 +73,9 @@
                       </script>
                       <?php
                         }
-                        unset($_SESSION["login"]);
+                        if(isset($_SESSION["login"])){
+                          unset($_SESSION["login"]);
+                        }
                       ?>
                 </small>
                 </div>
@@ -91,7 +97,9 @@
                       </script>
                       <?php
                         }
-                        unset($_SESSION["password"]);
+                        if(isset($_SESSION["password"])){
+                          unset($_SESSION["password"]);
+                        }
                       ?>
                 </small>
                 </div>
@@ -113,7 +121,9 @@
                       </script>
                       <?php
                         }
-                        unset($_SESSION["coPassword"]);
+                        if(isset($_SESSION["coPassword"])){
+                          unset($_SESSION["coPassword"]);
+                        }
                       ?>
                 </small>
                 </div>

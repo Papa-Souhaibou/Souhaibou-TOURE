@@ -1,5 +1,5 @@
 $(function () {
-    let clicked = "dashboard";
+    let clicked = "listQuestion";
     const responseContainer = document.querySelector("#response-container");
     let nbr_response = 0;
     
@@ -45,6 +45,7 @@ $(function () {
     const deleteResponse = (img) => {
         const parent = img.parentNode;
         $(parent).remove();
+        $(".add-response").css("display", "inline-block");
     };
     const reorganizeResponse = () => {
         const containerElts = responseContainer.querySelectorAll("div.form-group");
@@ -64,23 +65,130 @@ $(function () {
     const showError = (element, message) => {
         element.nextElementSibling.textContent = message;
     };
-
-    $("#_createQuestion").css("display", "flex");
-    $("#navbarAdmin a").each(function () {
-        $(this).click(function (e) {
-            clicked = this.id;
-            $(".displayed").css("display", "none");
-            $(".displayed").removeClass("displayed");
-            $(`#_${clicked}`).addClass("displayed");
-            if (clicked == "createAdmin") {
-                $(`#_${clicked}`).css("display", "block");
-            } else {
-                $(`#_${clicked}`).css("display", "flex");
+    const displayQuestion = JSONquestions => {
+        const wrapper = document.querySelector("#listQuestionContainer");
+        for (const question of JSONquestions) {
+            const choices = question["choixPossible"].split(",");
+            const response = question["reponse"].split(",") || question["reponse"];
+            const enonce = question["ennonceQuestion"];
+            const idQuestion = question["idQuestion"];
+            const typeQuestion = question["typeQuestion"]
+            createQuestion(wrapper,enonce, typeQuestion, choices, response, idQuestion);
+        }
+    };
+    const deleteQuestion = idParentElt => {
+        // const container = document.getElementById(idParentElt).parentElement.parentElement;
+        // $(container).hide();
+        const sup = window.confirm("Voulez vous vraiment supprimer cette question ?");
+        if(sup){
+            const data = new FormData();
+            data.append("delete",idParentElt);
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST","../models/getQuestionsList.php");
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4 && xhr.status == 200){
+                    const container = document.getElementById(idParentElt).parentElement.parentElement
+                    container.remove();
+                }
+            };
+            xhr.send(data);
+        }
+    };
+    const modifyQuestion = idParentElt => {
+        const confirm = window.confirm("voulez vous vraiment modifier cette question ?");
+        if(confirm){
+            // $('.modale').css('display', 'flex');
+        }
+    };
+    const createQuestion = (wrapper,enonce, typeQuestion, choices, response, idQuestion) => {
+        let text = `
+            <div class="form-group row">
+                <input type="text" class="form-control" value="${response}" disabled/>
+            </div>
+        `;
+        let reponse = "";
+        for (const choice of choices) {
+            if(typeQuestion === "checkbox"){
+                if(response.includes(choice)){
+                    reponse += `
+                    <div class="form-group row">
+                        <input type="checkbox" class="form-control col-sm-2" checked disabled/>
+                        <div class="col-sm-10">
+                            <label class="col-form-label"> ${choice}</label>
+                        </div>
+                    </div>
+                    `;
+                }else{
+                    reponse += `
+                    <div class="form-group row">
+                        <input type="checkbox" class="form-control col-sm-2" disabled/>
+                        <div class="col-sm-10">
+                            <label class="col-form-label"> ${choice}</label>
+                        </div>
+                    </div>
+                    `;
+                }
+            } else if (typeQuestion === "radio"){
+                if(choice == response){
+                    reponse += `
+                        <div class="form-group row">
+                            <input type="radio" class="form-control col-sm-2" checked disabled/>
+                            <div class="col-sm-10">
+                                <label class="col-form-label"> ${choice}</label>
+                            </div>
+                        </div>
+                    `;
+                }else{
+                    reponse += `
+                        <div class="form-group row">
+                            <input type="checkbox" class="form-control col-sm-2" disabled/>
+                            <div class="col-sm-10">
+                                <label class="col-form-label"> ${choice}</label>
+                            </div>
+                        </div>
+                    `;
+                }
             }
+        }
+        let elt = `
+            <div class="card col-sm-6 mt-3 mb-3 mr-auto ml-auto">
+                <div class="card-body">
+                    <h4 class="card-title text-center" id="${idQuestion}">${enonce} <img src="../img/ic-liste-active.png" alt="image modifier" class="modify-question" title="Modifier la question"/> <img class="delete-question" src="../img/ic-supprimer.png" alt="image corbeille" title="Supprimer la question"></h4>
+                    ${(typeQuestion == "text") ? text:reponse}
+                </div>
+            </div>
+        `;
+        const parse = new  DOMParser();
+        elt = parse.parseFromString(elt, "text/html");
+        const delteImgElt = elt.body.querySelector(".delete-question");
+        const modifyImgElt = elt.body.querySelector(".modify-question");
+        const idParentQuestion = modifyImgElt.parentNode.id;
+        $(delteImgElt).on("click", function () {
+            deleteQuestion(idParentQuestion);
         });
-    });
-    $("#subscribeForm").on("submit", function (event) {
-        event.preventDefault();
+        $(modifyImgElt).on("click", function () {
+            modifyQuestion(idParentQuestion);
+        });
+        wrapper.appendChild(elt.body.firstChild);
+    };
+    const showAllQuestions = () => {
+        const xhr = new XMLHttpRequest();
+        const form = new FormData();
+        form.append("list", "listQuestion");
+        xhr.open("POST", "../models/getQuestionsList.php");
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                const questions = JSON.parse(xhr.responseText);
+                const html = `<h3 class="card-title text-center">Liste Question</h3>`;
+                $("#listQuestionContainer").html(html);
+                displayQuestion(questions);
+                console.log(JSON.parse(xhr.responseText));
+            }
+        };
+        xhr.send(form);
+        $("#listQuestionContainer").css("overflow-y", "auto");
+    };
+    const formSubscribtion = () => {
         const userLogin = $("#inputLogin").val();
         const userPassword = $("#inputPassword").val();
         let hasError = false;
@@ -132,6 +240,80 @@ $(function () {
             };
             xhr.send(form);
         }
+    };
+    $("#subscribeForm").on("submit", function (event) {
+        event.preventDefault();
+        formSubscribtion();
+    });
+    $("#questionForm").on("submit", function (event) {
+        event.preventDefault();
+        let hasEmptyField = false;
+        $("#questionForm .questionField").each(function () {
+            $(this).on("input", function () {
+                showError(this, "");
+            });
+            if (!this.value) {
+                hasEmptyField = true;
+                showError(this, "Ce champs est obligatoire.");
+            } else if (this.type == "number") {
+                if (parseInt(this.value) < 1) {
+                    showError(this, "La note minimale est de 1.");
+                }
+            }
+        });
+        if (!hasEmptyField) {
+            console.log("Good");
+            $("#questionForm").unbind("submit").click();
+        }
+    });
+    $("#numForm").on("submit", function (event) {
+        let hasError = false;
+        
+        $("#numForm input").each(function () {
+            $(this).on("input", function () {
+                showError(this,"");
+            });
+            if(!this.value){
+                hasError = true;
+                showError(this, "Ce champs est obligatoire.");
+            }else if(this.value < 10){
+                hasError = true;
+                showError(this, "Le nombre de question minimale/jeu est 10.");
+            }
+            if(hasError){
+                event.preventDefault();
+            }
+        });
+    });
+    // $("#_listQuestion").css("display", "flex");
+    $("#navbarAdmin a").each(function () {
+        $(this).click(function (e) {
+            clicked = this.id;
+            // $(".displayed").css("display", "none");
+            // $(".displayed").removeClass("displayed");
+            // $(`#_${clicked}`).addClass("displayed");
+            // if (clicked == "createAdmin") {
+            //     $(`#_${clicked}`).css("display", "block");
+            //     console.log(clicked);
+                
+            // } else {
+            //     $(`#_${clicked}`).css("display", "flex");
+            // }
+            if (clicked === "createQuestion") {
+                $("#adminContainer").load("../views/createQuestion.php", function () {
+                    // showAllQuestions();
+                });
+            }else if (clicked == "listQuestion") {
+                $("#adminContainer").load(`./${clicked}`, function () {
+                    showAllQuestions();
+                });
+            }else if(clicked == "createAdmin"){
+                $("#adminContainer").load("./../views/createAdmin.php",function () {
+
+                });
+            }
+        });
+        // clicked = this.id;
     });
     $("#inputAvatar").change(function (e) {
         e.preventDefault();
@@ -154,27 +336,7 @@ $(function () {
             }
         }
     });
-    $("#questionForm").on("submit", function (event) {
-        event.preventDefault();
-        let hasEmptyField = false;
-        $("#questionForm .questionField").each(function () {
-            $(this).on("input", function () {
-                showError(this, "");
-            });
-            if (!this.value) {
-                hasEmptyField = true;
-                showError(this, "Ce champs est obligatoire.");
-            }else if(this.type == "number"){
-                if(parseInt(this.value) < 1){
-                    showError(this, "La note minimale est de 1.");
-                }
-            }
-        });
-        if(!hasEmptyField){
-            console.log("Good");
-            $("#questionForm").unbind("submit").click();
-        }
-    });
+    
     $(".add-response").on("click", function () {
         const select = document.querySelector("#type");
         if (!select.value) {
@@ -188,12 +350,14 @@ $(function () {
         }
         else {
             createRespnse(select.value, nbr_response);
+            $(".add-response").css("display", "none");
             nbr_response++;
         }
     });
 
     $("#type").on("change", function () {
         showError(this, "");
+        $(".add-response").css("display", "inline-block");
         removeAll(responseContainer);
     });
     $(window).on('resize', function () {
@@ -205,9 +369,9 @@ $(function () {
             avatar.parentNode.style.display = "block";
         }
     });
-    // window.addEventListener("load", () => {
-    //     $('#adminContainer').load(`./${clicked}.php`);
-    // });
+    window.addEventListener("load", () => {
+        $('#adminContainer').load(`./${clicked}.php`);
+    });
     // const href = window.location.href.split("#")[1] || "dasboard";
     // console.log(href);
     

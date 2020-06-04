@@ -79,7 +79,7 @@
                 }
             }
         }else if($type === "text"){
-            if(empty($text)){
+            if(empty($_POST["text"])){
                 $hasError = true;
                 $_SESSION["textError"] = "Ce champs est obligatoire.";
             }else{
@@ -87,6 +87,7 @@
                 $response = $choixPossible;
             }
         }
+        
         if(!$hasError){
             $question = new Question([
                 "ennonceQuestion" => $ennonce,
@@ -99,6 +100,33 @@
             $questionManager->add($question);
             header("Location:../views/adminInterface.php");
         }else{
+            header("Location:../views/adminInterface.php");
+        }
+    }else if(isset($_POST["numSubmit"])){
+        var_dump($_POST);
+        $hasError = false;
+        if(empty($_POST["num"])){
+            $hasError = true;
+            $_SESSION["numError"] = "Ce champs est obligatoire.";
+        }else{
+            $num = (int)htmlspecialchars($_POST["num"]);
+            if($num < 10){
+                $hasError = true;
+                $_SESSION["numError"] = "Le nombre de question minimale/jeu est 10.";
+            }else{
+                $idpartie = 1;
+                $response = $db->prepare(
+                    "UPDATE partie p
+                        SET nombreQuestion = :nombreQuestion
+                        WHERE idPartie = $idpartie
+                    "
+                );
+                $response->bindValue(":nombreQuestion",$num);
+                $response->execute();
+                header("Location:../views/adminInterface.php");
+            }
+        }
+        if($hasError){
             header("Location:../views/adminInterface.php");
         }
     }

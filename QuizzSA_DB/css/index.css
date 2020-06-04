@@ -75,18 +75,10 @@ body {
     border-radius: 50%;
     overflow: hidden;
 }
-#response-container form-group input[type=checkbox]{
-    background-color: aqua;
+#listQuestionContainer {
+    max-height: 100vh;
+    min-height: 90vh;
 }
-/* .type {
-    display: inline-block;
-    position: relative;
-    top: 5px;
-    width: 25px;
-    height: 25px;
-    margin: 5px;
-} */
-
 .add-response,.delete-response{
     position: relative;
     width: 30px;
