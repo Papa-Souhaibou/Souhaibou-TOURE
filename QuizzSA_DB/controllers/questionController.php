@@ -87,8 +87,6 @@
                 $response = $choixPossible;
             }
         }
-        var_dump($_POST);
-        die();
         if(!$hasError){
             $question = new Question([
                 "ennonceQuestion" => $ennonce,
@@ -101,12 +99,13 @@
             if(isset($_POST["modif"])){
                 $id = (int)$_POST["modif"];
                 $questionManager->setQuestion($question,$id);
-                echo "success";
+                echo json_encode(["status" => "success"]);
+                // header("Location:../views/adminInterface.php#listQuestion");
             }
-            // else{
-            //     $questionManager->add($question);
-            //     header("Location:../views/adminInterface.php");
-            // }
+            else{
+                $questionManager->add($question);
+                header("Location:../views/adminInterface.php");
+            }
         }else{
             header("Location:../views/adminInterface.php");
         }

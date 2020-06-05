@@ -20,7 +20,7 @@ $(function () {
         }
         const input = `
             <div class="checkbox-inline" >
-                <input type="${type}" class="form-control choice" value="${index}" name="${selection}">
+                <input type="${type}" classe="form-control choice" value="${index}" name="${selection}">
             </div>
             `;
         const response = new DOMParser().parseFromString(
@@ -192,7 +192,7 @@ $(function () {
                     $("#listQuestionContainer").html(html);
                     displayQuestion(questions);
                 }else{
-                    const html = `<h3 class="card-title text-center">Pas de question pour le moment. Merci de patientez pendant que nous creeons de nouvelles questions</h3>`;
+                    const html = `<h3 class="card-title text-center">Pas de question pour le moment. Merci de patientez pendant que nous creeons de nouvelles questions. Ou bien creez en !!!</h3>`;
                     $("#listQuestionContainer").html(html);
                 }
             }
@@ -332,19 +332,29 @@ $(function () {
             // }
             if (!hasEmptyField) {
                 if (idModifyQuestion){
-                    const xhr = new XMLHttpRequest();
-                    const form = new FormData();
-                    form.append("modif", idModifyQuestion);
-                    xhr.open("POST","../controllers/questionController.php");
-                    xhr.onreadystatechange = () => {
-                        if(xhr.readyState === 4 && xhr.status == 200){
-                            $('#modal').hide();
-                            $("#questionForm").unbind("submit").submit();
-                        }
+                    event.preventDefault();
+                    const formulaire = document.querySelector("#questionForm");
+                    const hasHiddenInput = formulaire.querySelector("input[type=hidden]");
+                    if(!hasHiddenInput){
+                        const hiddenInputElt = document.createElement("input");
+                        hiddenInputElt.type = "hidden";
+                        hiddenInputElt.setAttribute("name","modif");
+                        hiddenInputElt.setAttribute("value",idModifyQuestion);
+                        formulaire.insertBefore(hiddenInputElt,formulaire.querySelector("button"));
                     }
-                    xhr.send(form);
+                    const form = new FormData(formulaire);
+                    form.append("submit","value");
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("POST","./../controllers/questionController.php");
+                    xhr.onreadystatechange = () => {
+                        if(xhr.readyState == 4 && xhr.status == 200){
+                            showAllQuestions();
+                        }
+                    };
+                    xhr.send(form)
+                }else{
+                    $("#questionForm").unbind("submit").submit();
                 }
-                $("#questionForm").unbind("submit").submit();
             }
         });
         
@@ -395,10 +405,26 @@ $(function () {
             });
         });
     };
-    
-    $("#adminContainer").load(`./${clicked}.php`,function (response, status, request) {
-        createAdminPageEvent();
-    });
+    const load = () => {
+        const href = window.location.href.split("#")[1]
+        clicked = href;
+        if (clicked === "createQuestion") {
+            $("#adminContainer").load(`./${clicked}.php`, function () {
+                createQuestionPageEvent();
+            });
+        } else if (clicked == "listQuestion") {
+            $("#adminContainer").load(`./${clicked}.php`, function () {
+                showAllQuestions();
+            });
+        } else if (clicked == "createAdmin") {
+            $("#adminContainer").load("./../views/createAdmin.php", function () {
+                createAdminPageEvent();
+            });
+        }
+    };
+    // $("#adminContainer").load(`./${clicked}.php`,function (response, status, request) {
+    //     createAdminPageEvent();
+    // });
     // $("#_listQuestion").css("display", "flex");
     $("#navbarAdmin a").each(function () {
         $(this).click(function (e) {
@@ -420,12 +446,8 @@ $(function () {
         // clicked = this.id;
     });
     
-    // document.addEventListener("load", () => {
-    //     const href = window.location.href.split("#")[1]
-    //     console.log(href);
-        
-    //     $('#adminContainer').load(`./${href}.php`);
-    // });
+    load();
+    
     // const href = window.location.href.split("#")[1] || "dasboard";
     // console.log(href);
     
