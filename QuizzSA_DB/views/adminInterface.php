@@ -1,5 +1,7 @@
 <?php
   session_start();
+  include_once("../models/databaseAccess.php");
+  $admin = $adminManager->getAdmin($_SESSION["userLogin"]);
 ?>
 <!doctype html>
 <html lang="en">

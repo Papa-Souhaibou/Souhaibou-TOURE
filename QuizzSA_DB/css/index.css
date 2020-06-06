@@ -23,8 +23,8 @@ body {
     min-height: 60vh;
 }
 #playerContainer{
-    width: 90%;
-    height: 800px;
+    width: 95%;
+    min-height: 60vh;
 }
 #defaultNavbar a, footer a {
     color: var(--whiteTextColor);

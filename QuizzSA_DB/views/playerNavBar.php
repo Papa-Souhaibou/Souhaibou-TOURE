@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark mainBg">
-    <a class="navbar-brand" href="#"><img src="../img/logo-QuizzSA.png" class="avatar" alt="logo"></a>
-    <p>Someone Elese</p>
+    <a class="navbar-brand" href="#"><img src="<?= $player->getAvatarJoueur() ?>" class="avatar" alt="logo"></a>
+    <p><?= $player->getPrenomJoueur()." ".$player->getNomJoueur() ?></p>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

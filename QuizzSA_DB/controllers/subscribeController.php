@@ -8,7 +8,7 @@
         $lastname = htmlspecialchars($_POST["lastname"]);
         $password = $_POST["password"];
         $coPassword = $_POST["co-password"];
-        $thisAdmin = $adminManager->getAdmin($_SESSION["userLogin"]);
+        $thisAdmin = isset($_SESSION["userLogin"]) ? $adminManager->getAdmin($_SESSION["userLogin"]) : null;
         $_SESSION["login"] = $login;
         $_SESSION["firstname"] = $firstname;
         $_SESSION["lastname"] = $lastname;
@@ -99,7 +99,7 @@
         }else if($hasError && $thisPlayer){
             header("Location:../views/adminInterface.php");
         }else{
-            if(isset($_SESSION["userLogin"]) && $thisAdmin){
+            if($thisAdmin){
                 $adminTab = [
                     "nomAdmin" => $lastname,
                     "prenomAdmin" => $firstname,
@@ -109,7 +109,6 @@
                 ];
                 $newAdmin = new Admin($adminTab);
                 $adminManager->add($newAdmin);
-                
                 header("Location:../views/adminInterface.php");
             }else{
                 $player = [

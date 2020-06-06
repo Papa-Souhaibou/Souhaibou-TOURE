@@ -1,12 +1,12 @@
 <div class="row m-3" id="_createQuestion">
-  <div class="col-sm-8">
+  <div class="col-sm-8 mt-3">
     <div class="card rounded-lg">
       <div class="card-body">
         <h3 class="card-title text-center">Parametrer Vos Questions</h3>
         <form action="../controllers/questionController.php" id="questionForm" method="post">
             <div class="form-group row">
-                <label for="text-area" class="col-sm-2 col-form-label">Question</label>
-                <div class="col-sm-10">
+                <label for="text-area" class="col-4 col-form-label">Question</label>
+                <div class="col-8">
                     <textarea class="form-control questionField" name="ennonce" id="text-area" rows="3"></textarea>
                     <small class="text-danger">
                     <?php
@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="point" class="col-sm-2 col-form-label">Nbre De Points</label>
-                <div class="col-sm-10">
+                <label for="point" class="col-4 col-form-label">Nbre De Points</label>
+                <div class="col-8">
                     <input type="number" name="note" id="point" class="form-control questionField" placeholder="" aria-describedby="helpId">
                     <small class="text-danger">
                     <?php
@@ -33,8 +33,8 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="" class="col-sm-2 col-form-label">Type De reponse</label>
-                <div class="col-sm-9">
+                <label for="" class="col-3 col-form-label">Type De reponse</label>
+                <div class="col-8">
                     <select class="mdb-select md-form form-control questionField" name="type" id="type">
                         <option value="" disabled selected>Donnez le type de reponse</option>
                         <option value="checkbox">Choix Mulitiple</option>
@@ -60,10 +60,10 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-3 mt-3">
     <div class="card rounded-lg">
       <div class="card-body">
-        <h6 class="card-title">Nombre De Question/Jeu</h6>
+        <h6 class="card-title text-center">Nombre De Question/Jeu</h6>
         <form action="../controllers/questionController.php" method="post" id="numForm">
             <div class="form-group">
                 <label for=""></label>

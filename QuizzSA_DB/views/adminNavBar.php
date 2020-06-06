@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark mainBg" id="defaultNavbar">
-  <a class="navbar-brand" href="#"><img src="../img/logo-QuizzSA.png" class="avatar" alt="logo"></a>
-  <p>Someone Elese</p>
+  <a class="navbar-brand" href="#"><img src="<?= $admin->getAvatarAdmin() ?>" class="avatar" alt="logo"></a>
+  <p><?= $admin->getPrenomAdmin()." ".$admin->getNomAdmin() ?></p>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

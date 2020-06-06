@@ -1,5 +1,9 @@
 <?php
+    session_start();
     if(isset($_POST["submit"])){
         unset($_SESSION["userLogin"]);
+        unset($_SESSION["textError"]);
+        unset($_SESSION["checkboxError"]);
+        session_destroy();
         header("Location:../index.php");
     }

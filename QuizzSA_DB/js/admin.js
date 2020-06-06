@@ -19,15 +19,16 @@ $(function () {
             name = "text";
         }
         const input = `
-            <div class="checkbox-inline" >
-                <input type="${type}" classe="form-control choice" value="${index}" name="${selection}">
+            <div class="form-group col-2" >
+                <input type="${type}" class="form-control choice col-8" value="${index}" name="${selection}">
             </div>
             `;
+        
         const response = new DOMParser().parseFromString(
             `
             <div class="form-group row">
-                <label for="${index}" class="col-sm-2 col-form-label">Reponse ${index+1}</label>
-                <div class="col-sm-8">
+                <label for="${index}" class="col-form-label col-3">Reponse ${index+1}</label>
+                <div class="col-5">
                     <input type="text" name="${name}" id="${index}" class="form-control questionField" placeholder="Votre Reponse" aria-describedby="helpId">
                     <small class="text-danger"></small>
                 </div>
@@ -36,7 +37,6 @@ $(function () {
             </div>
             `,"text/html"
         );
-        
         const img = response.body.querySelector("img");
         $(img).on("click", function () {
             deleteResponse(this);
@@ -118,8 +118,8 @@ $(function () {
                 if(response.includes(choice)){
                     reponse += `
                     <div class="form-group row">
-                        <input type="checkbox" class="form-control col-sm-2" checked disabled/>
-                        <div class="col-sm-10">
+                        <input type="checkbox" class="form-control col-1" checked disabled/>
+                        <div class="col-10">
                             <label class="col-form-label"> ${choice}</label>
                         </div>
                     </div>
@@ -127,8 +127,8 @@ $(function () {
                 }else{
                     reponse += `
                     <div class="form-group row">
-                        <input type="checkbox" class="form-control col-sm-2" disabled/>
-                        <div class="col-sm-10">
+                        <input type="checkbox" class="form-control col-1" disabled/>
+                        <div class="col-10">
                             <label class="col-form-label"> ${choice}</label>
                         </div>
                     </div>
@@ -138,8 +138,8 @@ $(function () {
                 if(choice == response){
                     reponse += `
                         <div class="form-group row">
-                            <input type="radio" class="form-control col-sm-2" checked disabled/>
-                            <div class="col-sm-10">
+                            <input type="radio" class="form-control col-1" checked disabled/>
+                            <div class="col-10">
                                 <label class="col-form-label"> ${choice}</label>
                             </div>
                         </div>
@@ -147,8 +147,8 @@ $(function () {
                 }else{
                     reponse += `
                         <div class="form-group row">
-                            <input type="radio" class="form-control col-sm-2" disabled/>
-                            <div class="col-sm-10">
+                            <input type="radio" class="form-control col-1" disabled/>
+                            <div class="col-10">
                                 <label class="col-form-label"> ${choice}</label>
                             </div>
                         </div>
@@ -157,7 +157,7 @@ $(function () {
             }
         }
         let elt = `
-            <div class="card col-sm-8 mt-3 mb-3 mr-auto ml-auto">
+            <div class="card col-8 mt-3 mb-3 mr-auto ml-auto">
                 <div class="card-body">
                     <h4 class="card-title text-center" id="${idQuestion}">${enonce} <img src="../img/ic-liste-active.png" alt="image modifier" class="modify-question" title="Modifier la question"/> <img class="delete-question" src="../img/ic-supprimer.png" alt="image corbeille" title="Supprimer la question"></h4>
                     ${(typeQuestion == "text") ? text:reponse}
@@ -422,10 +422,6 @@ $(function () {
             });
         }
     };
-    // $("#adminContainer").load(`./${clicked}.php`,function (response, status, request) {
-    //     createAdminPageEvent();
-    // });
-    // $("#_listQuestion").css("display", "flex");
     $("#navbarAdmin a").each(function () {
         $(this).click(function (e) {
             clicked = this.id;
@@ -447,8 +443,4 @@ $(function () {
     });
     
     load();
-    
-    // const href = window.location.href.split("#")[1] || "dasboard";
-    // console.log(href);
-    
 });
