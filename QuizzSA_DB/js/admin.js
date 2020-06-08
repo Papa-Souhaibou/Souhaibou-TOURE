@@ -420,6 +420,9 @@ $(function () {
             $("#adminContainer").load("./../views/createAdmin.php", function () {
                 createAdminPageEvent();
             });
+        } else if (clicked == "listJoueur") {
+            $("#adminContainer").load(`./${clicked}.php`, function () {
+            });
         }
     };
     $("#navbarAdmin a").each(function () {
@@ -434,8 +437,11 @@ $(function () {
                     showAllQuestions();
                 });
             }else if(clicked == "createAdmin"){
-                $("#adminContainer").load("./../views/createAdmin.php",function () {
+                $("#adminContainer").load(`./${clicked}.php`,function () {
                     createAdminPageEvent();
+                });
+            } else if (clicked == "listJoueur"){
+                $("#adminContainer").load(`./${clicked}.php`, function () {
                 });
             }
         });

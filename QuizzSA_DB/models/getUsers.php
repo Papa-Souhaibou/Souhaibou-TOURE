@@ -15,5 +15,10 @@
                 echo json_encode(["error" => "notFound"]);
             }
         }
+    }else{
+        $limit = (int)$_POST["limit"];
+        $offset = (int)$_POST["offset"];
+        $players = $playerManager->getListUser(false,$limit,$offset);
+        echo json_encode($players);
     }
 ?>
