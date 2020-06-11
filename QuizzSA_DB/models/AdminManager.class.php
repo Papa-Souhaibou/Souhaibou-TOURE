@@ -60,7 +60,25 @@
             $response->execute();
             $response->closeCursor();
         }
-
+        public function setAdmin(Admin $admin,$idAdmin){
+            $response = $this->db->prepare("UPDATE administrateur 
+            SET prenomAdmin=:prenomAdmin,nomAdmin=:nomAdmin,loginAdmin=:loginAdmin,avatarAdmin=:avatarAdmin,passwordAdmin=:passwordAdmin
+            WHERE idadmin = $idAdmin
+            ");
+            $response->bindValue(":prenomAdmin",$admin->getPrenomAdmin());
+            $response->bindValue(":nomAdmin",$admin->getNomAdmin());
+            $response->bindValue(":loginAdmin",$admin->getLoginAdmin());
+            $response->bindValue(":avatarAdmin",$admin->getAvatarAdmin());
+            $response->bindValue(":passwordAdmin",$admin->getPasswordAdmin());
+            $response->execute();
+            $response->closeCursor();
+        }
+        public function deleteAdmin($idAdmin){
+            $response = $this->db->prepare("DELETE FROM administrateur WHERE idAdmin = :idAdmin");
+            $response->bindValue(":idAdmin",$idAdmin);
+            $response->execute();
+            $response->closeCursor();
+        }
         /**
          * Get the value of db
          */ 

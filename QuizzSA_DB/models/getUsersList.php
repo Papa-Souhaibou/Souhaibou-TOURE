@@ -15,4 +15,7 @@
         $users = array_merge($listPlayer,$listAdmin);
         $users = json_encode($users);
         echo $users;
+    }elseif ($_POST["admin"]) {
+        $admins = $adminManager->getAdminsList();
+        echo json_encode($admins);
     }

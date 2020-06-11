@@ -11,7 +11,7 @@
         $idPlayer = (int) $_POST["idPlayer"];
         $playerManager->deletePlayer($idPlayer);
         echo "success";
-    }else if($_POST["score"]){
+    }else if(isset($_POST["score"])){
         $request = "SELECT prenomJoueur,nomJoueur, MAX(ScoreJoueur) as MeilleurScore, ScoreJoueur FROM joueurs  GROUP BY(idJoueur) ORDER BY(ScoreJoueur) DESC LIMIT 0, 5";
         $response = $db->query($request);
         $players = [];
@@ -21,4 +21,7 @@
         }
         $response->closeCursor();
         echo json_encode($players);
+    }elseif (isset($_POST["deleteAdmin"])) {
+        $idAdmin = (int) $_POST["idAdmin"];
+        $adminManager->deleteAdmin($idAdmin);
     }

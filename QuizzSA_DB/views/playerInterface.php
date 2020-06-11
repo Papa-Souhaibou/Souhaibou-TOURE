@@ -14,14 +14,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/index.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-</head>
+    <style>
+      .activeButton {
+          background-color: #0275d8;
+        }
+    </style>
+  </head>
   <body>
     <?php
         include_once("./playerNavBar.php");
     ?>
     <div class="container-fluid" id="playerContainer">
         <div class="row mt-3">
-          <div class="card text-left col-8 mb-3">
+          <div class="card text-left col-sm-8 col-md-12 col-lg-8 mb-3">
             <img class="card-img-top" src="" alt="">
             <div class="card-body">
               <h2 class="card-title text-center mb-sm-2">Question <span id="indexQuestion">1</span>/<span id="nbrQuestion">10</span></h2>
@@ -29,12 +34,12 @@
                 <p class="text-center m-auto bg bg-secondary rounded-lg" id="enonce">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, deserunt.</p>
               </div>
               <div class="row justify-content-between mt-4">
-                <form action="" method="post" class="form col-10" id="form">
+                <form action="../controllers/quizzController.php" method="post" class="form col-sm-10" id="form">
+                  <input type="hidden" name="indexQuestion" id="hiddenIndexQuestion">
+                  <input type="hidden" name="typeQuestion" id="typeQuestion">
                   <div id="question">
                   </div>
-                  <div class="row d-flex justify-content-around" id="buttonContainer">
-                    <button type="button" name="" id="previous" class="btn btn-success btn-lg ">Precedent</button>
-                    <button type="button" name="" id="next" class="btn btn-success btn-lg ">Suivant</button>
+                  <div class="row d-flex justify-content-center ml-lg-5" id="paginationContainer">
                   </div>
                 </form>
                 <div class="justify-content-center">
@@ -43,7 +48,7 @@
               </div>
             </div>
           </div>
-          <div class="card text-left col-4 mb-3">
+          <div class="card text-left col-sm-4 col-md-12 col-lg-4 mb-3">
             <img class="card-img-top" src="" alt="">
             <div class="card-body">
               <ul class="nav nav-tabs">

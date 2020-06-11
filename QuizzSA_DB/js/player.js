@@ -3,14 +3,22 @@ $(function () {
     const enonce = $("#enonce");
     const point = $("#point");
     const tbody = $("#meilleurs tbody");
-    const btnNext = $("#next");
-    const btnPrevious = $("#previous");
+    const paginationContainer = document.querySelector("#paginationContainer");
     const indexQuestion = $("#indexQuestion");
+    const hiddenIndexQuestion = $("#hiddenIndexQuestion");
+    const typeQuestion = $("#typeQuestion");
+    let currentPage = 1;
+    const row = 1;
+
     const getQuestion = (url) => {
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", url, false);
-        xhr.send(null);
-        return JSON.parse(xhr.responseText);
+        // $.ajax({
+        //     type: "POST",
+        //     url: url,
+        //     dataType: "json",
+        //     success: function (questions) {
+        //     }
+        // });
     };
     const getQuestionnumber = (url) => {
     };
@@ -25,14 +33,7 @@ $(function () {
                 insertBestPlyersInTab(tbody, response);
             }
         });
-    }
-    let currentPage = 0;
-    if (currentPage == 0){
-        btnPrevious.attr("disabled", "disabled");
-    }
-    if(currentPage >=1){
-        btnNext.attr("disabled", "disabled");
-    }
+    };
     const insertBestPlyersInTab = (wrapper,bestPlayers) => {
         for (const bestPlayer of bestPlayers) {
             wrapper.append(`
@@ -44,57 +45,46 @@ $(function () {
             `);
         }
     };
-    const listQuestion = (question,wrapper)  => {
-        enonce.text(`${question.ennonceQuestion}`);
-        enonce.addClass("p-2");
-        point.text(`${question.note} pts`);
-        point.addClass("p-2");
-        form.html("");
-        const type = question.typeQuestion;
-        if (type === "checkbox" || type === "radio"){
-            for (const value of question.choixPossible) {
+    const listQuestion = (question,indiceQuestion,wrapper)  => {
+        if(question){
+            indexQuestion.text(indiceQuestion+1);
+            const type = question.typeQuestion;
+            typeQuestion.val(type);
+            hiddenIndexQuestion.val(indiceQuestion);
+            enonce.text(`${question.ennonceQuestion}`);
+            enonce.addClass("p-2");
+            point.text(`${question.note} pts`);
+            point.addClass("p-2");
+            form.html("");
+            if (type === "checkbox" || type === "radio"){
+                for (const value of question.choixPossible) {
+                    const questionField = `
+                        <div class="form-group row mt-3">
+                            <input type="${type}" name="${type=="checkbox"?"checkbox[]":"radio"}" class="form-control col-1" value="${value}"/>
+                            <div class="col-10">
+                                <label class="col-form-label">${value}</label>
+                            </div>
+                        </div>
+                    `;
+                    wrapper.append(questionField);
+                }
+            }else{
                 const questionField = `
                     <div class="form-group row mt-3">
-                        <input type="${type}" class="form-control col-1" value="${value}"/>
+                        <label class="col-form-label">Votre Reponse : </label>
                         <div class="col-10">
-                            <label class="col-form-label">${value}</label>
+                            <input type="text" name="text" class="form-control col-12"/>
                         </div>
                     </div>
                 `;
                 wrapper.append(questionField);
             }
-        }else{
-            const questionField = `
-                <div class="form-group row mt-3">
-                    <label class="col-form-label">Votre Reponse : </label>
-                    <div class="col-10">
-                        <input type="text" class="form-control col-12"/>
-                    </div>
-                </div>
-            `;
-            wrapper.append(questionField);
         }
     };
-    const questions = getQuestion("../models/getUserQuestions.php");
-    console.log(questions);
-    btnNext.on("click", function () {
-        
-        currentPage++;
-        btnPrevious.removeAttr("disabled");
-        listQuestion(questions[currentPage],form);
-        indexQuestion.text(currentPage + 1);
-    });
-    btnPrevious.on("click", function () {
-        indexQuestion.text(currentPage);
-        if (currentPage + 1 == 2) {
-            btnPrevious.attr("disabled", "disabled");
-        }else{
-        }
-        currentPage--;
-        btnNext.removeAttr("disabled");
-        listQuestion(questions[currentPage],form);
-    });
+    const setQuestion = (question,reponse) => {
+        question["userResponse"] = reponse;
+    };
+    
     getBestPlayers();
-    listQuestion(questions[currentPage],form);
-    indexQuestion.text(currentPage+1);
+    getQuestion("../models/getUserQuestions.php");
 });

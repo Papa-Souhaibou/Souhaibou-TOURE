@@ -1,7 +1,6 @@
 <?php
     session_start();
     include_once("../models/databaseAccess.php");
-
     if(isset($_POST["submit"])){
         $login = htmlspecialchars($_POST["login"]);
         $firstname = htmlspecialchars($_POST["firstname"]);
@@ -95,9 +94,9 @@
             }
         }
         if($hasError && !$thisPlayer){
-            header("Location:../index.php");
+            // header("Location:../index.php");
         }else if($hasError && $thisPlayer){
-            header("Location:../views/adminInterface.php");
+            // header("Location:../views/adminInterface.php#createAdmin");
         }else{
             if($thisAdmin){
                 $adminTab = [
@@ -108,8 +107,14 @@
                     "passwordAdmin" => $password,
                 ];
                 $newAdmin = new Admin($adminTab);
-                $adminManager->add($newAdmin);
-                header("Location:../views/adminInterface.php");
+                if(isset($_POST["modifAdmin"])){
+                    $idAdmin = (int) $_POST["idAdmin"];
+                    $adminManager->setAdmin($newAdmin,$idAdmin);
+                    // header("Location:../views/adminInterface.php#createAdmin");
+                }else{
+                    $adminManager->add($newAdmin);
+                    // header("Location:../views/adminInterface.php#createAdmin");
+                }
             }else{
                 $player = [
                     "nomJoueur" => $lastname,
@@ -122,7 +127,7 @@
                 ];
                 $player = new Player($player);
                 $playerManager->add($player);
-                header("Location:../index.php");
+                // header("Location:../index.php");
             }
         }
     }
