@@ -25,19 +25,19 @@
           </div>
         </div>
       </div>
-<div class="" id="_listJoueur">
-  <div class="col-12 mt-3 mb-3 mr-auto ml-auto">
-    <div class="card bg bg-secondary">
-      <div class="card-body" id="listJoueurContainer">
+<!-- <div class="col-sm-12 col-xs-12 col-lg-12 " id="_listJoueur">
+  <div class="col-sm-12 col-xs-12  col-md-12 mt-3 mb-3 mr-auto ml-auto"> -->
+    <div class="card col-sm-12 col-xs-12 bg bg-secondary mt-3 mb-3">
+      <div class="card-body table-responsive-sm" id="listJoueurContainer">
         <h3 class="card-title text-center">Liste Joueur</h3>
-        <table class="table mb-3">
+        <table class="table table-sm table-xs mb-3">
             <thead>
                 <tr>
-                    <th scope="col">Prenom</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Score</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Modifier</th>
+                    <th scope="col-xs-2 col-sm-2">Prenom</th>
+                    <th scope="col-xs-2 col-sm-2">Nom</th>
+                    <th scope="col-xs-2 col-sm-2">Score</th>
+                    <th scope="col-xs-2 col-sm-2">Status</th>
+                    <th scope="col-xs-2 col-sm-2">Modifier</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,8 +50,8 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+  <!-- </div>
+</div> -->
 <script>
     $(function () { 
         const tbody = $("tbody");
@@ -70,9 +70,11 @@
         const insertUser = (wrapper,user) => {
             const trElt = document.createElement("tr");
             const modifColElt = document.createElement("td");
+            $(modifColElt).addClass("col-xs-2", "col-sm-2");
             trElt.id = user.idJoueur;
             for (const key in user) {
                 const tdElt = document.createElement("td");
+                $(tdElt).addClass("col-xs-2", "col-sm-2");
                 if(key == "prenomJoueur"){
                     $(tdElt).text(`${user[key]}`);
                     $(trElt).append(tdElt);

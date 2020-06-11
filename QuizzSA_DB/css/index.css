@@ -86,21 +86,7 @@ body {
 .delete-response{
     margin-left: 10px;
 }
-.modale {
-    position: fixed;
-    top: 10;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 100;
-    background: rgba(0, 0, 0, .7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-.boite {
-    position: relative;
-    padding: 50px;
-    background-color: #fff;
-    border-radius: 20px;
+.nopadding {
+    padding: 0 !important;
+    /* margin: 0 !important; */
 }

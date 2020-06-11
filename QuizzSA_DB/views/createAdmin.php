@@ -70,11 +70,11 @@
     </div>
   </div>
 </div>
-<div class="col-12 ml-auto mr-auto mt-3 mb-3" id="_createAdmin">
-    <div class="card rounded-lg">
-      <div class="card-body">
+<!-- <div class="col-12 ml-auto mr-auto mt-3 mb-3" id="_createAdmin"> -->
+    <div class="card rounded-lg mt-3 mb-3">
+      <div class="card-body table-responsive-sm">
         <h3 class="card-title text-center">Liste Admin</h3>
-        <table class="table">
+        <table class="table table-sm table-xs">
           <thead>
             <tr>
               <th>Prenom</th>
@@ -88,7 +88,7 @@
         </table>
       </div>
     </div>
-</div>
+<!-- </div> -->
 
 <script>
   $(function () {

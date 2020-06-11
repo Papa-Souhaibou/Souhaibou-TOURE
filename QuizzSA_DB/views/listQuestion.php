@@ -66,12 +66,12 @@
     </div>
   </div>
 </div>
-<div class="" id="_listQuestion">
-  <div class="col-12 mt-3 mb-3 mr-auto ml-auto">
-    <div class="card bg bg-secondary">
-      <div class="card-body" id="listQuestionContainer">
-        <h3 class="card-title text-center">Liste Question</h3>
+<!-- <div class="col-12" id="_listQuestion"> -->
+  <!-- <div class="col-12 mt-3 mb-3"> -->
+    <!-- <div class="card col-12 mt-3 mb-3 bg bg-secondary"> -->
+      <div class="card-body col-12 container  bg bg-secondary nopadding mt-3 mb-3 rounded" id="listQuestionContainer">
+        <h3 class="card-title text-center col-12">Liste Question</h3>
       </div>
-    </div>
-  </div>
-</div>
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </div> -->

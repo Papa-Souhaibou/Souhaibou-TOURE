@@ -1,5 +1,5 @@
 $(function () {
-    let clicked = "createAdmin";
+    let clicked = "dashboard";
     let nbr_response = 0;
     let idModifyQuestion;
     const getResponseContainer = () => {
@@ -316,7 +316,7 @@ $(function () {
     };
     const load = () => {
         const href = window.location.href.split("#")[1]
-        clicked = href;
+        clicked = href != undefined ? href : clicked;
         if (clicked === "createQuestion") {
             $("#adminContainer").load(`./${clicked}.php`, function () {
                 createQuestionPageEvent();
@@ -330,6 +330,9 @@ $(function () {
             });
         } else if (clicked == "listJoueur") {
             $("#adminContainer").load(`./${clicked}.php`, function () {
+            });
+        } else if (clicked == "dashboard"){
+            $("#adminContainer").load(`./../views/dashboard.php`, function () {
             });
         }
     };
@@ -353,10 +356,14 @@ $(function () {
             } else if (clicked == "listJoueur"){
                 $("#adminContainer").load(`./${clicked}.php`, function () {
                 });
+            } else if (clicked == "dashboard"){
+                $("#adminContainer").load(`./dashboard.php`, function () {
+                });
             }
         });
         // clicked = this.id;
     });
+    // console.log(clicked);
     
     load();
 });

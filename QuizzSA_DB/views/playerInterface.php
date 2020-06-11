@@ -26,8 +26,7 @@
     ?>
     <div class="container-fluid" id="playerContainer">
         <div class="row mt-3">
-          <div class="card text-left col-sm-8 col-md-12 col-lg-8 mb-3">
-            <img class="card-img-top" src="" alt="">
+          <div class="card text-left col-sm-8 col-md-12 col-lg-8 mb-3 ">
             <div class="card-body">
               <h2 class="card-title text-center mb-sm-2">Question <span id="indexQuestion">1</span>/<span id="nbrQuestion">10</span></h2>
               <div class="row justify-content-center mb-sm-2">
@@ -35,32 +34,41 @@
               </div>
               <div class="row justify-content-between mt-4">
                 <form action="../controllers/quizzController.php" method="post" class="form col-sm-10" id="form">
-                  <input type="hidden" name="indexQuestion" id="hiddenIndexQuestion">
-                  <input type="hidden" name="typeQuestion" id="typeQuestion">
-                  <div id="question">
-                  </div>
-                  <div class="row d-flex justify-content-center ml-lg-5" id="paginationContainer">
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="hidden" name="indexQuestion" id="hiddenIndexQuestion">
+                      <input type="hidden" name="typeQuestion" id="typeQuestion">
+                      <input type="hidden" name="idQuestion" id="idQuestion">
+                      <div class="" id="question">
+                      </div>
+                      <div class="row d-flex justify-content-around ml-lg-5" id="paginationContainer">
+                        <button type="button" name="previous" id="previous" class="btn btn-success btn-lg " disabled>Precedent</button>
+                        <button type="button" name="next" id="next" class="btn btn-success btn-lg ">Suivant</button>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <h3 class="text-center bg bg-secondary rounded-lg" id="point">15pts</h3>
+                    </div>
                   </div>
                 </form>
-                <div class="justify-content-center">
-                  <h3 class="bg bg-secondary rounded-lg" id="point">15pts</h3>
-                </div>
+                <!-- <div class="justify-content-center col-lg-2 col-sm-3">
+                  
+                </div> -->
               </div>
             </div>
           </div>
           <div class="card text-left col-sm-4 col-md-12 col-lg-4 mb-3">
-            <img class="card-img-top" src="" alt="">
             <div class="card-body">
               <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#meilleurs">Meilleurs Score</a>
+                  <a class="nav-link active" data-toggle="tab" href="#meilleurs">Meilleurs Score</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#myScore">Mon score</a>
+                  <a class="nav-link" data-toggle="tab" href="#myScore">Mon score</a>
                 </li>
               </ul>
               <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade" id="meilleurs">
+                <div class="tab-pane fade active show" id="meilleurs">
                   <table class="table">
                     <thead>
                       <tr>
@@ -73,7 +81,7 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="tab-pane fade active show" id="myScore">
+                <div class="tab-pane fade " id="myScore">
                   <table class="table table-striped table-inverse table-responsive">
                     <thead class="thead-inverse">
                       <tr>

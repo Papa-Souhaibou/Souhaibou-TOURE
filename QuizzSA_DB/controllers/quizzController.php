@@ -1,47 +1,33 @@
 <?php
+    session_start();
+    
     if(isset($_POST["indexQuestion"])){
+        $indexQuestion = (int)$_POST["indexQuestion"];
         $typeQuestion = $_POST["typeQuestion"];
-        $indexQuestion = (int) $_POST["indexQuestion"];
-        if($typeQuestion == "text" || $typeQuestion == "radio"){
-            $value = "";
-            if(isset($_POST["radio"]) || isset($_POST["text"])){
+        $idQuestion = (int) $_POST["idQuestion"];
+        if(isset($_POST["previous"]) && !empty($_SESSION["userResponse"][$indexQuestion])){
+            echo json_encode($_SESSION["userResponse"][$indexQuestion]);
+        }else{
+            $_SESSION["userResponse"][$indexQuestion] = [];
+            if(isset($_POST["next"]) || isset($_POST["previous"])){
                 if($typeQuestion == "text"){
-                    $value = htmlspecialchars($_POST["text"]);
-                }else{
-                    $value = htmlspecialchars($_POST["radio"]);
+                    $_SESSION["userResponse"][$indexQuestion] = htmlspecialchars($_POST["text"]);
+                }elseif ($typeQuestion == "radio") {
+                    if(isset($_POST["radio"]))
+                        $_SESSION["userResponse"][$indexQuestion] = $_POST["radio"];
+                }elseif ($typeQuestion == "checkbox") {
+                    if(isset($_POST["checkbox"])){
+                        $size = count($_POST["checkbox"]);
+                        for ($i=0; $i < $size; $i++) { 
+                            $_SESSION["userResponse"][$indexQuestion][] = $_POST["checkbox"][$i];
+                        }
+                    }
                 }
-                $reponse = [
-                    "index" => $indexQuestion,
-                    "reponse" => $value
-                ];
-                echo json_encode($reponse);
-            }else{
-                $value = "";
-                $reponse = [
-                    "index" => $indexQuestion,
-                    "reponse" => $value
-                ];
-                echo json_encode($reponse);
-            }
-        }else if($typeQuestion == "checkbox"){
-            if(isset($_POST["checkbox"])){
-                $value = [];
-                $size = count($_POST["checkbox"]);
-                for ($i=0; $i < $size; $i++) { 
-                    $value[] = $_POST["checkbox"][$i];
-                }
-                $reponse = [
-                    "index" => $indexQuestion,
-                    "reponse" => $value
-                ];
-                echo json_encode($reponse);
-            }else{
-                $value = "";
-                $reponse = [
-                    "index" => $indexQuestion,
-                    "reponse" => $value
-                ];
-                echo json_encode($reponse);
+                echo json_encode($_SESSION["userResponse"][$indexQuestion]);
             }
         }
+        // elseif (isset($_POST["previous"])) {
+        //     echo json_encode($_SESSION["userResponse"][$indexQuestion]);
+        // }
+        // var_dump($_POST,$_SESSION);
     }
