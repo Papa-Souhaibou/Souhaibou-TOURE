@@ -2,6 +2,7 @@
   session_start();
   include_once("../models/databaseAccess.php");
   $player = $playerManager->getPlayer($_SESSION["userLogin"]);
+  $idPlayer = $player->getIdJoueur();
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,13 +22,14 @@
     </style>
   </head>
   <body>
+    <input type="hidden" name="score" id="score" value="<?=$idPlayer?>">
     <?php
         include_once("./playerNavBar.php");
     ?>
     <div class="container-fluid" id="playerContainer">
         <div class="row mt-3">
-          <div class="card text-left col-sm-8 col-md-12 col-lg-8 mb-3 ">
-            <div class="card-body">
+          <div class="card text-left col-sm-8 col-md-12 col-lg-8 mb-3" id ="background">
+            <div class="card-body" id="card-body">
               <h2 class="card-title text-center mb-sm-2">Question <span id="indexQuestion">1</span>/<span id="nbrQuestion">10</span></h2>
               <div class="row justify-content-center mb-sm-2">
                 <p class="text-center m-auto bg bg-secondary rounded-lg" id="enonce">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, deserunt.</p>
@@ -44,6 +46,7 @@
                       <div class="row d-flex justify-content-around ml-lg-5" id="paginationContainer">
                         <button type="button" name="previous" id="previous" class="btn btn-success btn-lg " disabled>Precedent</button>
                         <button type="button" name="next" id="next" class="btn btn-success btn-lg ">Suivant</button>
+                        <button type="button" name="terminer" id="terminer" class="btn btn-success btn-lg">Terminer</button>
                       </div>
                     </div>
                     <div class="col-3">

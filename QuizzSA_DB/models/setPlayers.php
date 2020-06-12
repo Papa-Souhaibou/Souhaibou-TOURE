@@ -24,4 +24,8 @@
     }elseif (isset($_POST["deleteAdmin"])) {
         $idAdmin = (int) $_POST["idAdmin"];
         $adminManager->deleteAdmin($idAdmin);
+    }elseif (isset($_POST["scoreModification"])) {
+        $score = (int)$_POST["score"];
+        $idJoueur = (int)$_POST["idJoueur"];
+        $playerManager->updateScore($score,$idJoueur);
     }

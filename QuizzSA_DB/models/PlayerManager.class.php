@@ -95,6 +95,13 @@
             $response->execute();
             $response->closeCursor();
         }
+        public function updateScore(int $score,int $idJoueur){
+            $response = $this->db->prepare("UPDATE joueurs SET scoreJoueur=:scoreJoueur WHERE idJoueur=:idJoueur");
+            $response->bindValue(":scoreJoueur",$score,PDO::PARAM_INT);
+            $response->bindValue(":idJoueur",$idJoueur,PDO::PARAM_INT);
+            $response->execute();
+            $response->closeCursor();
+        }
         /**
          * Get the value of db
          */ 
