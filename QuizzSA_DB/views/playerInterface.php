@@ -1,8 +1,9 @@
 <?php
   session_start();
   include_once("../models/databaseAccess.php");
-  $player = $playerManager->getPlayer($_SESSION["userLogin"]);
-  $idPlayer = $player->getIdJoueur();
+  if(isset($_SESSION["userLogin"])){
+    $player = $playerManager->getPlayer($_SESSION["userLogin"]);
+    $idPlayer = $player->getIdJoueur();
 ?>
 <!doctype html>
 <html lang="en">
@@ -111,3 +112,6 @@
     <script src="../js/player.js"></script>
   </body>
 </html>
+<?php
+  }
+?>

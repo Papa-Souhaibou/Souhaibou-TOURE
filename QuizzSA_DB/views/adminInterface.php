@@ -1,7 +1,9 @@
 <?php
   session_start();
   include_once("../models/databaseAccess.php");
+  if(isset($_SESSION["userLogin"])){
   $admin = $adminManager->getAdmin($_SESSION["userLogin"]);
+  if($admin){
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,6 +17,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/index.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-8zyeSXm+yTvzUN1VgAOinFgaVFEFTyYzWShOy9w7WoQ=" crossorigin="anonymous"></script>
 </head>
   <body>
     <?php
@@ -33,3 +36,7 @@
     <script src="../js/admin.js"></script>
   </body>
 </html>
+<?php
+    }
+  }
+?>

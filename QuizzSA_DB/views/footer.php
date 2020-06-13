@@ -20,15 +20,21 @@
       <div class="col-md-2 mx-auto">
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">join us</h5>
         <!-- Facebook -->
-        <a type="button" class="btn-floating btn-fb">
-            <i class="fab fa-facebook-f">Facebook</i>
+        <a type="button" class=" btn-fb block">
+          <i class="fa fa-facebook-official" aria-hidden="true"></i>
+          <a href="https://web.facebook.com/souhaibou.toure" target="_blank">Facebook</a>
         </a>
+        <br/>
         <!-- Twitter -->
-        <a type="button" class="btn-floating btn-tw">
-            <i class="fab fa-twitter">Twitter</i>
+        <a type="button" class=" btn-fb block">
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+          <a href="https://twitter.com/Papa_Petit_" target="_blank">Twitter</a>
         </a>
-        <a class="btn-floating btn-sm rgba-white-slight mx-1">
-            <i class="fab fa-linkedin-in">linkedin</i>
+        <br/>
+        <!-- Linkedin -->
+        <a type="button" class=" btn-fb block">
+          <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <a href="https://www.linkedin.com/in/souhaibou-toure-bb65141a3/" target="_blank">linkedin</a>
         </a>
       </div>
     </div>

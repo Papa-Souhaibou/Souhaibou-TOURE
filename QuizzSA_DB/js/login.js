@@ -36,10 +36,14 @@ $(function() {
                                     if(gethash.status == 200){
                                         const password = gethash.responseText;
                                         if(player["passwordJoueur"]){
-                                            if(password == "true"){
-                                                $("#loginForm").unbind("submit").submit();
+                                            if (player["statusJoueur"] == "bloque"){
+                                                showError(document.querySelector("#login"), `Ce compte a ete bloque. Veuillez contacter l'administrateur.`);
                                             }else{
-                                                showError(document.querySelector("#password"), `Mot de passe incorrecte`);
+                                                if(password == "true"){
+                                                    $("#loginForm").unbind("submit").submit();
+                                                }else{
+                                                    showError(document.querySelector("#password"), `Mot de passe incorrecte`);
+                                                }
                                             }
                                         } else if (player["passwordAdmin"]){
                                             if(password == "true"){

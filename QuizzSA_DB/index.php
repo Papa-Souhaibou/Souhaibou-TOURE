@@ -107,7 +107,7 @@
                       ?>
                     </small>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-4 d-none d-md-block d-lg-block">
                     <div class="ml-4 showAvatar" id="showAvatar">
 
                     </div>

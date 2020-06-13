@@ -19,7 +19,7 @@
                 <input type="text" class="form-control" id="inputLastname" name="lastname" placeholder="Nom" value="<?= @$_SESSION["lastname"] ?>">
                 <small class="text-danger"></small>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 d-none d-md-block d-lg-block">
                 <div class="ml-4 showAvatar" id="showAvatar">
 
                 </div>
