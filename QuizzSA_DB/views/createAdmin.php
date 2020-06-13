@@ -113,6 +113,11 @@
             for (const admin of response) {
               insertAdmin(tbody,admin);
             }
+            $("#addAdmin").on("click", function () {
+              $("#title").text("Ajouter un administrateur");
+              resetForm($("#subscribeForm").get(0));
+              $("#subscribe-modal").modal("toggle");
+            });
           }
       });
     };
@@ -313,11 +318,7 @@
         }
       }
     });
-    $("#addAdmin").on("click", function () {
-      $("#title").text("Ajouter un administrateur");
-      resetForm($("#subscribeForm").get(0));
-      $("#subscribe-modal").modal("toggle");
-    });
+
     $("#subscribtionSubmit").on("click", function () {
       formSubscribtion("modifAdmin",idAdministrateur);
       $("#subscribtionSubmit").attr("type", "submit");

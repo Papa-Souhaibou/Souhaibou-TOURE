@@ -173,7 +173,7 @@
             element.nextElementSibling.textContent = message;
         };
         const users = getUser("../models/getUsers.php",currentPage,rowPerPage);
-        let number = getUser("../models/userNumber");
+        let number = getUser("../models/userNumber.php");
         let numberOfPage = Math.ceil(number.number / rowPerPage);
         
         $("#setForm").on("submit", function (event) {
